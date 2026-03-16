@@ -1,6 +1,11 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy init — avoids "Missing API key" crash during Next.js static page collection
+let _resend: Resend | null = null;
+function getResend() {
+  if (!_resend) _resend = new Resend(process.env.RESEND_API_KEY!);
+  return _resend;
+}
 const FROM = process.env.RESEND_FROM_EMAIL ?? "noreply@eigo-for-everyone.vercel.app";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -37,7 +42,7 @@ interface TutorApprovedData {
 // ─── Email Senders ────────────────────────────────────────────────────────────
 
 export async function sendBookingConfirmation(data: BookingConfirmationData) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: data.to,
     subject: `✅ Lesson booked with ${data.tutorName} | Eigo for Everyone`,
@@ -46,7 +51,7 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
 }
 
 export async function sendLessonReminder(data: LessonReminderData) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: data.to,
     subject: `⏰ Lesson reminder: ${data.lessonDate} | Eigo for Everyone`,
@@ -55,7 +60,7 @@ export async function sendLessonReminder(data: LessonReminderData) {
 }
 
 export async function sendWelcomeEmail(data: WelcomeData) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: data.to,
     subject: `🎉 Welcome to Eigo for Everyone, ${data.name}!`,
@@ -64,7 +69,7 @@ export async function sendWelcomeEmail(data: WelcomeData) {
 }
 
 export async function sendTutorApprovedEmail(data: TutorApprovedData) {
-  return resend.emails.send({
+  return getResend().emails.send({
     from: FROM,
     to: data.to,
     subject: `🎊 You're approved as an Eigo tutor!`,
