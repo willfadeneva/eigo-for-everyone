@@ -69,22 +69,22 @@ export default function AdminSettingsPage() {
   const [supportEmail, setSupportEmail] = useState("support@eigo.app");
 
   return (
-    <div className="p-4 sm:p-6 space-y-6 max-w-4xl">
+    <div className="p-4 sm:p-6 max-w-4xl space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-slate-900">Settings</h1>
         <p className="text-sm text-slate-500 mt-1">Manage platform configuration, emails, and payments</p>
       </div>
 
-      <div>
+      <div className="space-y-0">
         {/* Custom tab bar — wraps on mobile */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 p-1 bg-slate-100 rounded-xl mb-5">
           {TABS.map(t => (
             <button key={t} onClick={() => setActiveTab(t)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab === t
-                  ? "bg-[#3730a3] text-white"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-              } ${t === "danger" ? (activeTab === t ? "bg-red-600 text-white" : "bg-red-50 text-red-600 hover:bg-red-100") : ""}`}>
+              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                t === "danger"
+                  ? activeTab === t ? "bg-red-600 text-white" : "text-red-600 hover:bg-red-100"
+                  : activeTab === t ? "bg-white text-[#3730a3] shadow-sm" : "text-slate-500 hover:text-slate-700"
+              }`}>
               {TAB_LABELS[t]}
             </button>
           ))}
