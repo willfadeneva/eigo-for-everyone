@@ -11,17 +11,17 @@ import {
 const FEATURED_TUTORS = [
   {
     id: "t1", name: "Sarah Mitchell", flag: "🇺🇸", tagline: "Business English & IELTS specialist",
-    rating: 4.98, reviews: 312, lessons: 2840, rate: "₹1,200", avatar: null,
+    rating: 4.98, reviews: 312, lessons: 2840, rate: "₹1,200", avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     specialties: ["Business", "IELTS", "Conversation"],
   },
   {
     id: "t2", name: "James O'Brien", flag: "🇬🇧", tagline: "Oxford grad • Academic writing & TOEFL",
-    rating: 4.95, reviews: 189, lessons: 1560, rate: "₹1,400", avatar: null,
+    rating: 4.95, reviews: 189, lessons: 1560, rate: "₹1,400", avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     specialties: ["Academic", "TOEFL", "Grammar"],
   },
   {
     id: "t3", name: "Emily Chen", flag: "🇨🇦", tagline: "Kids & teens English • Patient & fun!",
-    rating: 4.99, reviews: 421, lessons: 3200, rate: "₹900", avatar: null,
+    rating: 4.99, reviews: 421, lessons: 3200, rate: "₹900", avatar: "https://randomuser.me/api/portraits/women/68.jpg",
     specialties: ["Kids", "Beginners", "Speaking"],
   },
 ];
