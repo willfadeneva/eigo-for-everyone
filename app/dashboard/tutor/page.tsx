@@ -218,7 +218,7 @@ export default function TutorDashboard() {
 
           {/* ── Earnings ── */}
           <TabsContent value="earnings" className="space-y-6">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { label: "Gross earned",    value: `₹${totalGross.toLocaleString()}` },
                 { label: "Platform fee (18%)", value: `₹${totalFee.toLocaleString()}`, sub: "deducted" },
@@ -276,7 +276,7 @@ export default function TutorDashboard() {
 
           {/* ── Messages ── */}
           <TabsContent value="messages">
-            <div className="flex border border-slate-200 rounded-xl overflow-hidden h-[520px] bg-white">
+            <div className="flex flex-col sm:flex-row border border-slate-200 rounded-xl overflow-hidden h-auto sm:h-[520px] bg-white">
               <div className="w-60 border-r border-slate-100 flex flex-col flex-shrink-0">
                 <div className="p-3 border-b border-slate-100 font-semibold text-slate-700 text-sm">Students</div>
                 {CONVERSATIONS.map((c, i) => (

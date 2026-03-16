@@ -66,3 +66,18 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Prevent horizontal overflow site-wide */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar for horizontal scroll chips */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

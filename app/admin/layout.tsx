@@ -82,13 +82,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen flex bg-[#fafafa]">
-      <aside className="w-56 bg-[#1e1b4b] text-white flex flex-col flex-shrink-0 min-h-screen">
+    <div className="min-h-screen flex flex-col md:flex-row bg-[#fafafa]">
+      <aside className="w-full md:w-56 bg-[#1e1b4b] text-white flex flex-col flex-shrink-0">
         <div className="px-5 py-5 border-b border-white/10">
           <Link href="/" className="text-xl font-bold text-white">英語 Eigo</Link>
           <div className="text-xs text-indigo-300 mt-0.5">Admin Console</div>
         </div>
-        <nav className="flex-1 py-4 space-y-0.5 px-3">
+        <nav className="flex-1 py-2 md:py-4 flex flex-row md:flex-col flex-wrap md:flex-nowrap gap-0.5 px-3 overflow-x-auto md:overflow-visible">
           {NAV.map(({ href, label, icon: Icon }) => {
             const active = path === href || (href !== "/admin" && path.startsWith(href));
             return (
@@ -103,10 +103,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             );
           })}
         </nav>
-        <div className="px-5 py-4 border-t border-white/10">
-          <div className="text-xs text-indigo-400">Logged in as</div>
-          <div className="text-sm font-medium text-white mb-2">admin</div>
-          <button onClick={logout} className="flex items-center gap-2 text-xs text-indigo-300 hover:text-white transition-colors">
+        <div className="px-5 py-3 md:py-4 border-t border-white/10 flex items-center justify-between md:block">
+          <div>
+            <div className="text-xs text-indigo-400">Logged in as</div>
+            <div className="text-sm font-medium text-white">admin</div>
+          </div>
+          <button onClick={logout} className="flex items-center gap-2 text-xs text-indigo-300 hover:text-white transition-colors mt-0 md:mt-2">
             <LogOut size={12}/> Sign out
           </button>
         </div>
