@@ -22,6 +22,7 @@ const MOCK_TUTOR = {
 I specialize in Business English for working professionals and IELTS coaching. My students have consistently scored 7.0–8.5 on IELTS. I use a conversational, structured approach — real-world practice first, grammar second.
 
 Whether you need to ace an exam, lead meetings in English, or just speak confidently, I'll build a plan around your goals. Let's start with a free consultation trial!`,
+  avatarUrl: "https://randomuser.me/api/portraits/women/44.jpg",
   hourlyRate: 1200, trialRate: 0, currency: "INR",
   avgRating: 4.98, totalReviews: 312, totalLessons: 2840,
   specialties: ["Business","IELTS","Conversation","Writing","Presentations"],
@@ -52,9 +53,13 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
 
           {/* Hero */}
           <div className="flex gap-5 items-start">
-            <div className="w-20 h-20 rounded-full bg-[#3730a3] flex items-center justify-center text-white text-3xl font-bold flex-shrink-0">
-              {t.displayName.charAt(0)}
-            </div>
+            {t.avatarUrl ? (
+              <img src={t.avatarUrl} alt={t.displayName} className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-[#e0e7ff]" />
+            ) : (
+              <div className="w-20 h-20 rounded-full bg-[#3730a3] flex items-center justify-center text-white text-3xl font-bold flex-shrink-0">
+                {t.displayName.charAt(0)}
+              </div>
+            )}
             <div className="flex-1">
               <h1 className="text-2xl font-bold text-slate-900">{t.displayName}</h1>
               <p className="text-slate-500 mt-0.5">{t.tagline}</p>
@@ -144,9 +149,7 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
                 <div key={i} className="bg-slate-50 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-full bg-[#3730a3] text-white text-xs font-bold flex items-center justify-center">
-                        {r.author.charAt(0)}
-                      </div>
+                      <img src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'men' : 'women'}/${20 + i * 7}.jpg`} alt={r.author} className="w-7 h-7 rounded-full object-cover" />
                       <span className="font-medium text-sm text-slate-800">{r.author}</span>
                       <span className="text-xs text-slate-400">{r.city}</span>
                     </div>
