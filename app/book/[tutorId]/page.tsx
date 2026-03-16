@@ -10,7 +10,7 @@ import { Check, Clock, ChevronRight, CalendarDays, CreditCard } from "lucide-rea
 
 type LessonType = { id: string; label: string; duration: number; price: number; badge?: string };
 const LESSON_TYPES: LessonType[] = [
-  { id: "trial",  label: "Trial lesson",    duration: 25, price:  400, badge: "First lesson discount" },
+  { id: "trial",  label: "Trial lesson",    duration: 25, price:  0,   badge: "FREE — No charge" },
   { id: "50min",  label: "Regular lesson",  duration: 50, price: 1200 },
   { id: "80min",  label: "Extended lesson", duration: 80, price: 1800 },
 ];

@@ -28,7 +28,7 @@ const FEATURED_TUTORS = [
 
 const HOW_IT_WORKS = [
   { step: "1", icon: Search,   title: "Find your tutor",    desc: "Browse 500+ verified native English tutors. Filter by specialty, price, rating, and availability." },
-  { step: "2", icon: Calendar, title: "Book a trial",       desc: "Start with a discounted 25-min trial lesson to make sure it's the right fit — no commitment." },
+  { step: "2", icon: Calendar, title: "Book a trial",       desc: "Start with a FREE 25-min trial lesson to make sure it's the right fit — no commitment." },
   { step: "3", icon: Video,    title: "Learn online",       desc: "Join your lesson in the browser via Zoom — no downloads. Chat, whiteboard, share screens." },
 ];
 
@@ -81,7 +81,7 @@ export default function HomePage() {
 
             <p className="text-lg sm:text-xl text-indigo-200 mb-8 max-w-2xl">
               Book verified native English tutors for IELTS, business English, conversational skills, and more.
-              First trial lesson from just ₹299.
+              First trial lesson is FREE.
             </p>
 
             {/* Search bar */}
@@ -250,7 +250,7 @@ export default function HomePage() {
               { icon: Globe,   title: "UPI & all Indian cards", desc: "Pay with UPI, Paytm, PhonePe, net banking, or any card. Fully secure via Razorpay." },
               { icon: Video,   title: "In-browser classroom",  desc: "No downloads needed. Our Zoom-powered classroom works in any browser with whiteboard & file share." },
               { icon: Calendar,title: "Flexible scheduling",   desc: "Book lessons 24/7. Tutors span every timezone — find someone available right now." },
-              { icon: Users,   title: "Trial lesson",          desc: "Every tutor offers a discounted 25-min trial. Try before you commit to a package." },
+              { icon: Users,   title: "Trial lesson",          desc: "Every tutor offers a FREE 25-min trial. Try before you commit to a package." },
               { icon: TrendingUp, title: "Track progress",     desc: "Lesson notes, vocabulary lists, and progress tracking built right into your student dashboard." },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex gap-4 p-5 bg-white rounded-xl border border-slate-100 hover:shadow-sm transition-shadow">
@@ -306,7 +306,7 @@ export default function HomePage() {
             Ready to speak English with confidence?
           </h2>
           <p className="text-indigo-200 text-lg mb-8">
-            Join 15,000+ students already learning with Eigo for Everyone. First trial from ₹299.
+            Join 15,000+ students already learning with Eigo for Everyone. First trial is FREE.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/auth/register">

@@ -21,7 +21,7 @@ const UPCOMING = [
 const PAST = [
   { id: "l3", student: "Anil Kumar",    date: "Mon Mar 10, 11:00 IST", duration: 50, type: "Regular", status: "COMPLETED", amount: 1200 },
   { id: "l4", student: "Priya Sharma",  date: "Wed Mar 5,  09:00 IST", duration: 50, type: "Regular", status: "COMPLETED", amount: 1200 },
-  { id: "l5", student: "Meera Patel",   date: "Fri Feb 28, 14:00 IST", duration: 25, type: "Trial",   status: "COMPLETED", amount:  400 },
+  { id: "l5", student: "Meera Patel",   date: "Fri Feb 28, 14:00 IST", duration: 25, type: "Trial",   status: "COMPLETED", amount:  0 },
 ];
 const CONVERSATIONS = [
   { student: "Priya Sharma",  last: "See you Tuesday!",     time: "2h ago",  unread: 0 },
@@ -322,7 +322,7 @@ export default function TutorDashboard() {
                   <div><Label>Display name</Label><Input defaultValue="Sarah Mitchell" className="mt-1"/></div>
                   <div><Label>Tagline</Label><Input defaultValue="Business English & IELTS specialist" className="mt-1"/></div>
                   <div><Label>Hourly rate (₹)</Label><Input type="number" defaultValue="1200" className="mt-1"/></div>
-                  <div><Label>Trial rate (₹)</Label><Input type="number" defaultValue="400" className="mt-1"/></div>
+                  <div><Label>Trial rate</Label><Input type="text" defaultValue="FREE" disabled className="mt-1"/></div>
                   <div><Label>Years of experience</Label><Input type="number" defaultValue="8" className="mt-1"/></div>
                   <div><Label>Response time (hours)</Label><Input type="number" defaultValue="1" className="mt-1"/></div>
                 </div>

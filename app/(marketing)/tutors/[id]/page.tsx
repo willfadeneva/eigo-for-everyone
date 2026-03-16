@@ -22,7 +22,7 @@ const MOCK_TUTOR = {
 I specialize in Business English for working professionals and IELTS coaching. My students have consistently scored 7.0–8.5 on IELTS. I use a conversational, structured approach — real-world practice first, grammar second.
 
 Whether you need to ace an exam, lead meetings in English, or just speak confidently, I'll build a plan around your goals. Let's start with a free consultation trial!`,
-  hourlyRate: 1200, trialRate: 400, currency: "INR",
+  hourlyRate: 1200, trialRate: 0, currency: "INR",
   avgRating: 4.98, totalReviews: 312, totalLessons: 2840,
   specialties: ["Business","IELTS","Conversation","Writing","Presentations"],
   certifications: ["CELTA","TESOL","IELTS Examiner (retired)"],
@@ -173,14 +173,14 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
                 </div>
                 {t.trialRate && (
                   <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3">
-                    <div className="text-sm font-semibold text-[#831843]">Trial lesson — ₹{t.trialRate}</div>
+                    <div className="text-sm font-semibold text-[#831843]">Trial lesson — FREE 🎉</div>
                     <div className="text-xs text-[#9f1239] mt-0.5">25 min · One per student</div>
                   </div>
                 )}
 
                 <Link href={`/book/${t.id}?type=trial`} className="block">
                   <Button className="w-full bg-[#f9a8d4] hover:bg-[#f472b6] text-[#831843] font-semibold">
-                    Book Trial — ₹{t.trialRate}
+                    Book Free Trial
                   </Button>
                 </Link>
                 <Link href={`/book/${t.id}`} className="block">
