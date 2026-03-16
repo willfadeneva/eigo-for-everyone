@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   description: "Browse 500+ verified native English tutors. Filter by specialty, price, availability. IELTS, Business English, Kids, Conversation.",
 };
 
-// TODO: replace with real DB query via tRPC
 const MOCK_TUTORS = [
   { id: "t1", displayName: "Sarah Mitchell",  avatarUrl: "https://randomuser.me/api/portraits/women/44.jpg", tagline: "Business English & IELTS specialist",      hourlyRate: 1200, avgRating: 4.98, totalReviews: 312, totalLessons: 2840, specialties: ["Business","IELTS","Conversation"],  isFeatured: true,  responseTimeHours: 1 },
   { id: "t2", displayName: "James O'Brien",   avatarUrl: "https://randomuser.me/api/portraits/men/32.jpg",   tagline: "Oxford grad · Academic writing & TOEFL",   hourlyRate: 1400, avgRating: 4.95, totalReviews: 189, totalLessons: 1560, specialties: ["Academic","TOEFL","Grammar"],       isFeatured: true,  responseTimeHours: 2 },
@@ -29,20 +28,20 @@ const SPECIALTIES = ["All","Business","IELTS","TOEFL","Kids","Academic","Convers
 
 export default function TutorsPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Find your perfect English tutor</h1>
-        <p className="text-slate-500">500+ verified tutors · Trial lessons are FREE</p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Find your perfect English tutor</h1>
+        <p className="text-slate-500 text-sm sm:text-base">500+ verified tutors · Trial lessons are FREE</p>
       </div>
 
       {/* Search + Sort bar */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-8">
+      <div className="flex flex-col sm:flex-row gap-3 mb-5">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
           <Input placeholder="Search by name, specialty…" className="pl-9" />
         </div>
         <Select defaultValue="rating">
-          <SelectTrigger className="w-full sm:w-48">
+          <SelectTrigger className="w-full sm:w-44">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
@@ -52,13 +51,26 @@ export default function TutorsPage() {
             <SelectItem value="lessons">Most lessons</SelectItem>
           </SelectContent>
         </Select>
-        <Button variant="outline" className="flex items-center gap-2 sm:w-auto">
+        <Button variant="outline" className="flex items-center justify-center gap-2 sm:w-auto">
           <SlidersHorizontal size={15} /> Filters
         </Button>
       </div>
 
+      {/* Mobile specialty chips */}
+      <div className="flex gap-2 overflow-x-auto pb-2 mb-5 lg:hidden scrollbar-none -mx-4 px-4">
+        {SPECIALTIES.map((s) => (
+          <Badge
+            key={s}
+            variant={s === "All" ? "default" : "secondary"}
+            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#3730a3] text-white" : "hover:bg-[#eef2ff] hover:text-[#3730a3]"}`}
+          >
+            {s}
+          </Badge>
+        ))}
+      </div>
+
       <div className="flex gap-8">
-        {/* Filter sidebar */}
+        {/* Filter sidebar — desktop only */}
         <aside className="hidden lg:block w-56 flex-shrink-0">
           <div className="sticky top-24 space-y-6">
             <div>
@@ -105,9 +117,9 @@ export default function TutorsPage() {
         </aside>
 
         {/* Tutor grid */}
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <p className="text-sm text-slate-500 mb-4">{MOCK_TUTORS.length} tutors found</p>
-          <div className="grid sm:grid-cols-2 xl:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {MOCK_TUTORS.map((t) => (
               <TutorCard key={t.id} {...t} currency="INR" />
             ))}

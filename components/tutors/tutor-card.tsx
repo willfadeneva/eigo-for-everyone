@@ -80,23 +80,23 @@ export function TutorCard({
             </div>
 
             {/* Stats */}
-            <div className="flex items-center gap-3 mt-2 text-sm text-slate-500">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs sm:text-sm text-slate-500">
               {avgRating != null && (
                 <span className="flex items-center gap-1">
-                  <Star size={14} className="fill-amber-400 text-amber-400" />
+                  <Star size={13} className="fill-amber-400 text-amber-400" />
                   <span className="font-medium text-slate-700">{avgRating.toFixed(1)}</span>
                   <span>({totalReviews})</span>
                 </span>
               )}
               {totalLessons > 0 && (
                 <span className="flex items-center gap-1">
-                  <BookOpen size={14} />
+                  <BookOpen size={13} />
                   {totalLessons.toLocaleString()} lessons
                 </span>
               )}
               {responseTimeHours != null && (
                 <span className="flex items-center gap-1">
-                  <Clock size={14} />
+                  <Clock size={13} />
                   {responseTimeHours}h reply
                 </span>
               )}

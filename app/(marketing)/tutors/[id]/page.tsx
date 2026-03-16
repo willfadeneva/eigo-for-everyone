@@ -63,7 +63,7 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
             <div className="flex-1">
               <h1 className="text-2xl font-bold text-slate-900">{t.displayName}</h1>
               <p className="text-slate-500 mt-0.5">{t.tagline}</p>
-              <div className="flex flex-wrap items-center gap-4 mt-3 text-sm text-slate-600">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-3 text-sm text-slate-600">
                 <span className="flex items-center gap-1">
                   <Star size={14} className="fill-amber-400 text-amber-400" />
                   <strong className="text-slate-800">{t.avgRating}</strong> ({t.totalReviews} reviews)
@@ -147,13 +147,13 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
             <div className="space-y-4">
               {MOCK_REVIEWS.map((r, i) => (
                 <div key={i} className="bg-slate-50 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                     <div className="flex items-center gap-2">
                       <img src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'men' : 'women'}/${20 + i * 7}.jpg`} alt={r.author} className="w-7 h-7 rounded-full object-cover" />
                       <span className="font-medium text-sm text-slate-800">{r.author}</span>
                       <span className="text-xs text-slate-400">{r.city}</span>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-1 pl-9 sm:pl-0">
                       {Array.from({length: r.rating}).map((_,j) => <Star key={j} size={11} className="fill-amber-400 text-amber-400" />)}
                       <span className="text-xs text-slate-400 ml-1">{r.date}</span>
                     </div>
