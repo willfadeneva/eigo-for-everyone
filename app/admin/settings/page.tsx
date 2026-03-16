@@ -9,8 +9,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Save, CheckCircle } from "lucide-react";
+
+const TABS = ["platform", "email", "payment", "seo", "danger"] as const;
+type Tab = typeof TABS[number];
+const TAB_LABELS: Record<Tab, string> = {
+  platform: "Platform",
+  email: "Email",
+  payment: "Payment",
+  seo: "SEO & Meta",
+  danger: "⚠️ Danger",
+};
 
 function SaveButton({ onClick }: { onClick: () => void }) {
   const [saved, setSaved] = useState(false);
@@ -27,6 +36,8 @@ function SaveButton({ onClick }: { onClick: () => void }) {
 }
 
 export default function AdminSettingsPage() {
+  const [activeTab, setActiveTab] = useState<Tab>("platform");
+
   // Platform settings
   const [commission, setCommission] = useState("18");
   const [minRate, setMinRate] = useState("300");
@@ -64,17 +75,23 @@ export default function AdminSettingsPage() {
         <p className="text-sm text-slate-500 mt-1">Manage platform configuration, emails, and payments</p>
       </div>
 
-      <Tabs defaultValue="platform">
-        <TabsList className="flex-wrap h-auto gap-1 p-1 bg-slate-100">
-          <TabsTrigger value="platform">Platform</TabsTrigger>
-          <TabsTrigger value="email">Email</TabsTrigger>
-          <TabsTrigger value="payment">Payment</TabsTrigger>
-          <TabsTrigger value="seo">SEO & Meta</TabsTrigger>
-          <TabsTrigger value="danger">Danger Zone</TabsTrigger>
-        </TabsList>
+      <div>
+        {/* Custom tab bar — wraps on mobile */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {TABS.map(t => (
+            <button key={t} onClick={() => setActiveTab(t)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                activeTab === t
+                  ? "bg-[#3730a3] text-white"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              } ${t === "danger" ? (activeTab === t ? "bg-red-600 text-white" : "bg-red-50 text-red-600 hover:bg-red-100") : ""}`}>
+              {TAB_LABELS[t]}
+            </button>
+          ))}
+        </div>
 
         {/* ── Platform ── */}
-        <TabsContent value="platform" className="space-y-5 mt-5">
+        <div className={activeTab === "platform" ? "space-y-5" : "hidden"}>
           <Card className="border border-slate-100">
             <CardHeader className="pb-2"><CardTitle className="text-base">Commission & Pricing</CardTitle></CardHeader>
             <CardContent className="space-y-4">
@@ -143,10 +160,10 @@ export default function AdminSettingsPage() {
           </Card>
 
           <SaveButton onClick={() => {}} />
-        </TabsContent>
+        </div>
 
         {/* ── Email ── */}
-        <TabsContent value="email" className="space-y-5 mt-5">
+        <div className={activeTab === "email" ? "space-y-5" : "hidden"}>
           <Card className="border border-slate-100">
             <CardHeader className="pb-2"><CardTitle className="text-base">Email Identity</CardTitle></CardHeader>
             <CardContent className="space-y-4">
@@ -207,10 +224,10 @@ export default function AdminSettingsPage() {
           </Card>
 
           <SaveButton onClick={() => {}} />
-        </TabsContent>
+        </div>
 
         {/* ── Payment ── */}
-        <TabsContent value="payment" className="space-y-5 mt-5">
+        <div className={activeTab === "payment" ? "space-y-5" : "hidden"}>
           <Card className="border border-slate-100">
             <CardHeader className="pb-2"><CardTitle className="text-base">Razorpay Integration</CardTitle></CardHeader>
             <CardContent className="space-y-4">
@@ -260,10 +277,10 @@ export default function AdminSettingsPage() {
           </Card>
 
           <SaveButton onClick={() => {}} />
-        </TabsContent>
+        </div>
 
         {/* ── SEO ── */}
-        <TabsContent value="seo" className="space-y-5 mt-5">
+        <div className={activeTab === "seo" ? "space-y-5" : "hidden"}>
           <Card className="border border-slate-100">
             <CardHeader className="pb-2"><CardTitle className="text-base">Site Identity</CardTitle></CardHeader>
             <CardContent className="space-y-4">
@@ -284,10 +301,10 @@ export default function AdminSettingsPage() {
           </Card>
 
           <SaveButton onClick={() => {}} />
-        </TabsContent>
+        </div>
 
         {/* ── Danger Zone ── */}
-        <TabsContent value="danger" className="space-y-5 mt-5">
+        <div className={activeTab === "danger" ? "space-y-5" : "hidden"}>
           <Card className="border border-red-200 bg-red-50">
             <CardHeader className="pb-2"><CardTitle className="text-base text-red-700">Danger Zone</CardTitle></CardHeader>
             <CardContent className="space-y-5">
@@ -325,8 +342,8 @@ export default function AdminSettingsPage() {
               </div>
             </CardContent>
           </Card>
-        </TabsContent>
-      </Tabs>
+        </div>
+      </div>
     </div>
   );
 }
