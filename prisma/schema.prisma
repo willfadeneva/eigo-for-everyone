@@ -1,0 +1,288 @@
+// Eigo-for-Everyone — Prisma Schema
+// Stack: Supabase PostgreSQL | Payments: Razorpay
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum UserRole {
+  STUDENT
+  TUTOR
+  ADMIN
+}
+
+enum LessonStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  TRIALING
+}
+
+enum MessageStatus {
+  SENT
+  READ
+}
+
+// ─── Core Models ──────────────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  avatarUrl     String?
+  role          UserRole  @default(STUDENT)
+  locale        String    @default("en-IN")
+  timezone      String    @default("Asia/Kolkata")
+
+  // Razorpay customer id (created on first payment)
+  razorpayCustomerId String? @unique
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  tutorProfile      TutorProfile?
+  bookingsAsStudent Booking[]    @relation("StudentBookings")
+  reviewsGiven      Review[]     @relation("ReviewsGiven")
+  reviewsReceived   Review[]     @relation("ReviewsReceived")
+  sentMessages      Message[]    @relation("SentMessages")
+  receivedMessages  Message[]    @relation("ReceivedMessages")
+  subscription      Subscription?
+  payments          Payment[]
+
+  @@map("users")
+}
+
+model TutorProfile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  displayName       String
+  tagline           String?
+  bio               String?
+  videoIntroUrl     String?
+  hourlyRate        Decimal  @db.Decimal(10, 2)
+  trialRate         Decimal? @db.Decimal(10, 2)  // discounted trial lesson rate
+  currency          String   @default("INR")
+
+  // Teaching details
+  nativeLang        String   @default("en")
+  teachingLangs     String[] @default(["en"])
+  specialties       String[] // e.g. ["business", "ielts", "kids", "conversation"]
+  certifications    String[] // e.g. ["CELTA", "TESOL"]
+  yearsExperience   Int?
+
+  // Status
+  isApproved        Boolean  @default(false)
+  isFeatured        Boolean  @default(false)
+  isActive          Boolean  @default(true)
+  responseTimeHours Int?
+
+  // Razorpay Route — linked account id for payouts
+  razorpayAccountId String?  @unique
+
+  // Ratings cache (updated on new review)
+  avgRating         Float?
+  totalReviews      Int      @default(0)
+  totalLessons      Int      @default(0)
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  availabilities    Availability[]
+  lessons           Lesson[]
+  bookings          Booking[]
+
+  @@map("tutor_profiles")
+}
+
+model Availability {
+  id          String       @id @default(cuid())
+  tutorId     String
+  tutor       TutorProfile @relation(fields: [tutorId], references: [id], onDelete: Cascade)
+
+  dayOfWeek   Int          // 0=Sun, 6=Sat
+  startTime   String       // "09:00"
+  endTime     String       // "17:00"
+  timezone    String       @default("Asia/Kolkata")
+  isRecurring Boolean      @default(true)
+
+  createdAt   DateTime     @default(now())
+
+  @@map("availabilities")
+}
+
+model Lesson {
+  id           String       @id @default(cuid())
+  tutorId      String
+  tutor        TutorProfile @relation(fields: [tutorId], references: [id])
+
+  title        String?
+  description  String?
+  durationMins Int          @default(50)
+  price        Decimal      @db.Decimal(10, 2)
+  currency     String       @default("INR")
+  isTrial      Boolean      @default(false)
+
+  // Zoom Video SDK — session-based (no meeting ID needed, just session name)
+  zoomSessionName String?   // deterministic: "eigo-lesson-{id}"
+
+  status       LessonStatus @default(SCHEDULED)
+  scheduledAt  DateTime
+  startedAt    DateTime?
+  endedAt      DateTime?
+
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  booking      Booking?
+
+  @@map("lessons")
+}
+
+model Booking {
+  id        String        @id @default(cuid())
+  studentId String
+  student   User          @relation("StudentBookings", fields: [studentId], references: [id])
+  tutorId   String
+  tutor     TutorProfile  @relation(fields: [tutorId], references: [id])
+  lessonId  String        @unique
+  lesson    Lesson        @relation(fields: [lessonId], references: [id])
+
+  status      BookingStatus @default(PENDING)
+  promoCode   String?
+  discountPct Decimal?      @db.Decimal(5, 2)
+  totalPrice  Decimal       @db.Decimal(10, 2)
+  currency    String        @default("INR")
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  payment     Payment?
+  review      Review?
+
+  @@map("bookings")
+}
+
+model Payment {
+  id        String        @id @default(cuid())
+  bookingId String        @unique
+  booking   Booking       @relation(fields: [bookingId], references: [id])
+  userId    String
+  user      User          @relation(fields: [userId], references: [id])
+
+  // Razorpay IDs
+  razorpayOrderId   String?  @unique  // order created before checkout
+  razorpayPaymentId String?  @unique  // payment id after successful capture
+  razorpayTransferId String? @unique  // Route transfer id to tutor linked account
+
+  // Amounts (stored in smallest unit display, e.g. ₹ with 2 decimal)
+  amount      Decimal       @db.Decimal(10, 2)
+  platformFee Decimal       @db.Decimal(10, 2)  // 18% commission kept by platform
+  tutorPayout Decimal       @db.Decimal(10, 2)  // 82% transferred via Razorpay Route
+  currency    String        @default("INR")
+  status      PaymentStatus @default(PENDING)
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("payments")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  bookingId String   @unique
+  booking   Booking  @relation(fields: [bookingId], references: [id])
+  authorId  String
+  author    User     @relation("ReviewsGiven", fields: [authorId], references: [id])
+  subjectId String
+  subject   User     @relation("ReviewsReceived", fields: [subjectId], references: [id])
+
+  rating    Int      // 1-5
+  comment   String?
+  isPublic  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("reviews")
+}
+
+model Message {
+  id         String        @id @default(cuid())
+  senderId   String
+  sender     User          @relation("SentMessages", fields: [senderId], references: [id])
+  receiverId String
+  receiver   User          @relation("ReceivedMessages", fields: [receiverId], references: [id])
+
+  content    String
+  status     MessageStatus @default(SENT)
+
+  createdAt  DateTime      @default(now())
+
+  @@map("messages")
+}
+
+model Subscription {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  // Razorpay Subscriptions API
+  razorpaySubscriptionId String?            @unique
+  razorpayPlanId         String?
+  planName               String             // "starter" | "standard" | "premium"
+  lessonsPerMonth        Int
+  status                 SubscriptionStatus @default(ACTIVE)
+  currentPeriodStart     DateTime
+  currentPeriodEnd       DateTime
+
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime           @updatedAt
+
+  @@map("subscriptions")
+}
+
+model PromoCode {
+  id          String    @id @default(cuid())
+  code        String    @unique
+  discountPct Decimal   @db.Decimal(5, 2)
+  maxUses     Int?
+  usedCount   Int       @default(0)
+  validFrom   DateTime
+  validUntil  DateTime?
+  isActive    Boolean   @default(true)
+
+  createdAt   DateTime  @default(now())
+
+  @@map("promo_codes")
+}
