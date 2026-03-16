@@ -7,12 +7,21 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 // TODO: replace with real DB query
 const STUDENTS = [
-  { name:"Priya Sharma",   email:"priya@ex.com",   lessons:12, joined:"Jan 2026", status:"active"    },
-  { name:"Rahul Gupta",    email:"rahul@ex.com",   lessons:4,  joined:"Feb 2026", status:"active"    },
-  { name:"Anika Patel",    email:"anika@ex.com",   lessons:8,  joined:"Jan 2026", status:"active"    },
-  { name:"Anil Kumar",     email:"anil@ex.com",    lessons:2,  joined:"Mar 2026", status:"active"    },
-  { name:"Meera Patel",    email:"meera@ex.com",   lessons:1,  joined:"Mar 2026", status:"active"    },
-  { name:"Deepak Singh",   email:"deepak@ex.com",  lessons:0,  joined:"Mar 2026", status:"suspended" },
+  { name:"Priya Sharma",    email:"priya.sharma@gmail.com",   lessons:14, spent:16800, joined:"Jan 2026",  status:"active"    },
+  { name:"Rahul Gupta",     email:"rahul.gupta@outlook.com",  lessons:6,  spent:7200,  joined:"Feb 2026",  status:"active"    },
+  { name:"Anika Patel",     email:"anika.patel@yahoo.com",    lessons:9,  spent:8100,  joined:"Jan 2026",  status:"active"    },
+  { name:"Suresh Kumar",    email:"suresh.k@gmail.com",       lessons:3,  spent:3900,  joined:"Feb 2026",  status:"active"    },
+  { name:"Meera Nair",      email:"meera.nair@gmail.com",     lessons:2,  spent:2200,  joined:"Mar 2026",  status:"active"    },
+  { name:"Karan Mehta",     email:"karan.mehta@hotmail.com",  lessons:5,  spent:6000,  joined:"Feb 2026",  status:"active"    },
+  { name:"Divya Reddy",     email:"divya.reddy@gmail.com",    lessons:11, spent:9350,  joined:"Dec 2025",  status:"active"    },
+  { name:"Aman Joshi",      email:"aman.joshi@gmail.com",     lessons:4,  spent:7200,  joined:"Mar 2026",  status:"active"    },
+  { name:"Vikram Singh",    email:"vikram.s@gmail.com",       lessons:1,  spent:0,     joined:"Mar 2026",  status:"active"    },
+  { name:"Sneha Pillai",    email:"sneha.pillai@gmail.com",   lessons:7,  spent:9800,  joined:"Jan 2026",  status:"active"    },
+  { name:"Rohit Verma",     email:"rohit.verma@gmail.com",    lessons:0,  spent:0,     joined:"Mar 2026",  status:"active"    },
+  { name:"Deepak Singh",    email:"deepak.singh@yahoo.com",   lessons:0,  spent:0,     joined:"Mar 2026",  status:"suspended" },
+  { name:"Ananya Bose",     email:"ananya.bose@gmail.com",    lessons:1,  spent:0,     joined:"Mar 2026",  status:"active"    },
+  { name:"Ishaan Kapoor",   email:"ishaan.k@gmail.com",       lessons:22, spent:26400, joined:"Oct 2025",  status:"active"    },
+  { name:"Pooja Krishnan",  email:"pooja.k@gmail.com",        lessons:8,  spent:7200,  joined:"Jan 2026",  status:"active"    },
 ];
 
 export default function AdminStudentsPage() {
@@ -26,8 +35,9 @@ export default function AdminStudentsPage() {
         <Table>
           <TableHeader>
             <TableRow className="bg-slate-50">
-              <TableHead>Student</TableHead><TableHead>Lessons booked</TableHead>
-              <TableHead>Joined</TableHead><TableHead>Status</TableHead><TableHead>Actions</TableHead>
+              <TableHead>Student</TableHead><TableHead>Lessons</TableHead>
+              <TableHead>Total Spent</TableHead><TableHead>Joined</TableHead>
+              <TableHead>Status</TableHead><TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -38,6 +48,7 @@ export default function AdminStudentsPage() {
                   <div className="text-xs text-slate-400">{s.email}</div>
                 </TableCell>
                 <TableCell className="text-sm text-slate-600">{s.lessons}</TableCell>
+                <TableCell className="text-sm font-medium text-[#3730a3]">{s.spent > 0 ? `₹${s.spent.toLocaleString("en-IN")}` : "—"}</TableCell>
                 <TableCell className="text-sm text-slate-500">{s.joined}</TableCell>
                 <TableCell>
                   <Badge className={s.status === "active" ? "bg-green-100 text-green-700 text-xs" : "bg-red-100 text-red-700 text-xs"}>

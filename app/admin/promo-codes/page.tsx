@@ -11,9 +11,15 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 type PromoCode = { code: string; discount: number; maxUses: number | null; used: number; validUntil: string | null; active: boolean };
 
 const INIT: PromoCode[] = [
-  { code:"WELCOME20", discount:20, maxUses:500,  used:134, validUntil:"2026-06-30", active:true  },
-  { code:"TRIAL50",   discount:50, maxUses:200,  used:200, validUntil:"2026-03-31", active:false },
-  { code:"EIGO10",    discount:10, maxUses:null, used:42,  validUntil:null,         active:true  },
+  { code:"WELCOME20",  discount:20, maxUses:500,  used:134, validUntil:"2026-06-30", active:true  },
+  { code:"TRIAL50",    discount:50, maxUses:200,  used:200, validUntil:"2026-03-31", active:false },
+  { code:"EIGO10",     discount:10, maxUses:null, used:42,  validUntil:null,         active:true  },
+  { code:"IELTS25",    discount:25, maxUses:300,  used:88,  validUntil:"2026-05-31", active:true  },
+  { code:"BUSINESS15", discount:15, maxUses:null, used:17,  validUntil:null,         active:true  },
+  { code:"KIDS30",     discount:30, maxUses:150,  used:63,  validUntil:"2026-04-30", active:true  },
+  { code:"HOLI2026",   discount:40, maxUses:100,  used:100, validUntil:"2026-03-17", active:false },
+  { code:"NEWUSER",    discount:20, maxUses:null, used:289, validUntil:"2026-12-31", active:true  },
+  { code:"REFER50",    discount:50, maxUses:null, used:31,  validUntil:null,         active:true  },
 ];
 
 export default function PromoCodesPage() {

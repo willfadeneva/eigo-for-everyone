@@ -7,10 +7,10 @@ import { Users, GraduationCap, BookOpen, TrendingUp, AlertCircle } from "lucide-
 
 // TODO: replace with real DB queries
 const STATS = [
-  { label: "Total users",        value: "1,284", change: "+32 this week", icon: Users,       color: "text-blue-600"  },
-  { label: "Active tutors",      value: "89",    change: "4 pending approval", icon: GraduationCap, color: "text-indigo-600" },
-  { label: "Lessons this month", value: "312",   change: "+18% vs last month", icon: BookOpen,  color: "text-green-600" },
-  { label: "Revenue (demo)",     value: "₹—",    change: "Razorpay pending",   icon: TrendingUp,color: "text-amber-600" },
+  { label: "Total users",        value: "1,284", change: "+32 this week",      icon: Users,        color: "text-blue-600"   },
+  { label: "Active tutors",      value: "89",    change: "4 pending approval", icon: GraduationCap,color: "text-indigo-600" },
+  { label: "Lessons this month", value: "312",   change: "+18% vs last month", icon: BookOpen,     color: "text-green-600"  },
+  { label: "Revenue (demo)",     value: "₹2.4L", change: "+₹38k this week",   icon: TrendingUp,   color: "text-amber-600"  },
 ];
 
 const RECENT_SIGNUPS = [
