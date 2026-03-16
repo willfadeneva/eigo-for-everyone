@@ -25,7 +25,7 @@ export function TutorCard({
   tagline,
   avatarUrl,
   hourlyRate,
-  currency = "JPY",
+  currency = "INR",
   avgRating,
   totalReviews = 0,
   totalLessons = 0,
@@ -34,9 +34,11 @@ export function TutorCard({
   responseTimeHours,
 }: TutorCardProps) {
   const rateDisplay =
-    currency === "JPY"
+    currency === "INR"
+      ? `₹${Number(hourlyRate).toLocaleString("en-IN")}`
+      : currency === "JPY"
       ? `¥${Number(hourlyRate).toLocaleString()}`
-      : `$${Number(hourlyRate).toFixed(2)}`;
+      : `₹${Number(hourlyRate).toLocaleString("en-IN")}`;
 
   return (
     <Card className="group hover:shadow-lg transition-shadow duration-200 border border-slate-100 overflow-hidden">
