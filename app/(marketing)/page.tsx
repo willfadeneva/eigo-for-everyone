@@ -174,9 +174,13 @@ export default function HomePage() {
                 </div>
                 <CardContent className="p-5">
                   <div className="flex gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-full bg-[#3730a3] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                      {t.name.charAt(0)}
-                    </div>
+                    {t.avatar ? (
+                      <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
+                    ) : (
+                      <div className="w-14 h-14 rounded-full bg-[#3730a3] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                        {t.name.charAt(0)}
+                      </div>
+                    )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between">
                         <div>
