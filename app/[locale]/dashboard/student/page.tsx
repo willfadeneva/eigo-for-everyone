@@ -46,8 +46,12 @@ export default function StudentDashboard() {
 
         {/* Nav links */}
         <div style={{ display: 'flex', gap: 4 }}>
-          {['My Lessons', 'Find Tutors', 'Progress'].map((item) => (
-            <Link key={item} href="#" style={{ color: '#94a3b8', fontSize: 14, padding: '6px 12px', borderRadius: 6, textDecoration: 'none' }}>{item}</Link>
+          {[
+            ['My Lessons', '/dashboard/student/lessons'],
+            ['Find Tutors', '/tutors'],
+            ['Progress', '/dashboard/student/progress'],
+          ].map(([label, href]) => (
+            <Link key={label} href={href} style={{ color: '#94a3b8', fontSize: 14, padding: '6px 12px', borderRadius: 6, textDecoration: 'none' }}>{label}</Link>
           ))}
         </div>
 
@@ -83,10 +87,10 @@ export default function StudentDashboard() {
               {/* Menu items */}
               <div style={{ padding: '8px 0' }}>
                 {[
-                  { icon: '👤', label: 'My Profile', href: '#' },
-                  { icon: '📚', label: 'My Lessons', href: '#' },
-                  { icon: '💳', label: 'Billing', href: '#' },
-                  { icon: '⚙️', label: 'Settings', href: '#' },
+                  { icon: '👤', label: 'My Profile', href: '/dashboard/student/profile' },
+                  { icon: '📚', label: 'My Lessons', href: '/dashboard/student/lessons' },
+                  { icon: '💳', label: 'Billing', href: '/dashboard/student/billing' },
+                  { icon: '⚙️', label: 'Settings', href: '/dashboard/student/settings' },
                 ].map((item) => (
                   <Link key={item.label} href={item.href} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 18px', color: '#334155', fontSize: 14, textDecoration: 'none', transition: 'background .15s' }}
                     onMouseEnter={e => (e.currentTarget.style.background = '#f8f9fa')}
@@ -157,7 +161,7 @@ export default function StudentDashboard() {
                   </div>
                   <div style={{ display: 'flex', gap: 8 }}>
                     <span style={{ padding: '4px 12px', borderRadius: 99, background: '#f0fdf4', color: '#16a34a', fontSize: 12, fontWeight: 600 }}>Confirmed</span>
-                    <button style={{ padding: '6px 16px', borderRadius: 99, background: '#8774DB', color: 'white', border: 'none', fontSize: 13, fontWeight: 600, cursor: 'pointer' }}>Join</button>
+                    <Link href={`/classroom/${l.id}`} style={{ padding: '6px 16px', borderRadius: 99, background: '#8774DB', color: 'white', textDecoration: 'none', fontSize: 13, fontWeight: 600 }}>Join</Link>
                   </div>
                 </div>
               ))}
