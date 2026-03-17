@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const config: NextConfig = {
   images: {
@@ -7,9 +10,8 @@ const config: NextConfig = {
     ],
   },
   serverExternalPackages: ["@prisma/client", "jsrsasign"],
-  // Ignore type errors during build (fix iteratively)
   typescript: { ignoreBuildErrors: true },
   eslint:     { ignoreDuringBuilds: true },
 };
 
-export default config;
+export default withNextIntl(config);
