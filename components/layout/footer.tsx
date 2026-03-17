@@ -44,10 +44,10 @@ export function Footer() {
         </div>
 
         <div className="border-t border-slate-700 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-[#7c6f9e]">
+          <p className="text-sm text-[#64748b]">
             © {new Date().getFullYear()} Eigo for Everyone. {t("rights")}
           </p>
-          <p className="text-sm text-[#7c6f9e]">🇮🇳 {t("madeFor")}</p>
+          <p className="text-sm text-[#64748b]">🇮🇳 {t("madeFor")}</p>
         </div>
       </div>
     </footer>

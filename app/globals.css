@@ -4,33 +4,36 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Pastel base */
-  --background: #fdf8ff;
-  --foreground: #1e1b4b;
+  /* Preppy — dark bright pastels */
+  --background: #ffffff;
+  --foreground: #0f172a;
   --radius: 0.75rem;
 
-  /* Brand — soft pastel indigo + sakura */
-  --brand-primary: #6366f1;
-  --brand-accent:  #f9a8d4;
+  /* Brand */
+  --brand-primary: #D946EF;   /* hot fuchsia */
+  --brand-accent:  #38BDF8;   /* sky blue     */
+  --brand-mint:    #4ADE80;   /* bright mint  */
+  --brand-yellow:  #FCD34D;   /* butter       */
+  --brand-coral:   #FB923C;   /* coral        */
 
   /* shadcn tokens */
   --card: #ffffff;
-  --card-foreground: #1e1b4b;
+  --card-foreground: #0f172a;
   --popover: #ffffff;
-  --popover-foreground: #1e1b4b;
-  --primary: #6366f1;
+  --popover-foreground: #0f172a;
+  --primary: #D946EF;
   --primary-foreground: #ffffff;
-  --secondary: #f5f3ff;
-  --secondary-foreground: #3730a3;
-  --muted: #f5f3ff;
-  --muted-foreground: #7c6f9e;
-  --accent: #fdf4ff;
-  --accent-foreground: #9d174d;
+  --secondary: #fdf2f8;
+  --secondary-foreground: #86198f;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #f0fdf9;
+  --accent-foreground: #065f46;
   --destructive: #f87171;
   --destructive-foreground: #ffffff;
-  --border: #e9d8fd;
-  --input: #ede9fe;
-  --ring: #818cf8;
+  --border: #fce7f3;
+  --input: #fdf2f8;
+  --ring: #D946EF;
 }
 
 @theme inline {

@@ -35,8 +35,8 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-[#1e1b4b] mb-1">{t("title")}</h1>
-        <p className="text-[#7c6f9e] text-sm sm:text-base">500+ verified tutors · Trial lessons are FREE</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mb-1">{t("title")}</h1>
+        <p className="text-[#64748b] text-sm sm:text-base">500+ verified tutors · Trial lessons are FREE</p>
       </div>
 
       {/* Search + Sort */}
@@ -65,7 +65,7 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
       <div className="flex gap-2 overflow-x-auto pb-2 mb-5 lg:hidden scrollbar-none -mx-4 px-4">
         {SPECIALTIES.map(s => (
           <Badge key={s} variant={s === "All" ? "default" : "secondary"}
-            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#818cf8] text-white" : "hover:bg-[#ede9fe] hover:text-[#6366f1]"}`}>
+            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#D946EF] text-white" : "hover:bg-[#fce7f3] hover:text-[#D946EF]"}`}>
             {s}
           </Badge>
         ))}
@@ -76,26 +76,26 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
         <aside className="hidden lg:block w-56 flex-shrink-0">
           <div className="sticky top-24 space-y-6">
             <div>
-              <h3 className="font-semibold text-[#1e1b4b] mb-3">{t("filterSpecialty")}</h3>
+              <h3 className="font-semibold text-[#0f172a] mb-3">{t("filterSpecialty")}</h3>
               <div className="flex flex-wrap gap-2">
                 {SPECIALTIES.map(s => (
                   <Badge key={s} variant={s === "All" ? "default" : "secondary"}
-                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#818cf8] text-white" : "hover:bg-[#ede9fe] hover:text-[#6366f1]"}`}>
+                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#D946EF] text-white" : "hover:bg-[#fce7f3] hover:text-[#D946EF]"}`}>
                     {s}
                   </Badge>
                 ))}
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-[#1e1b4b] mb-3">{t("filterPrice")} (₹/50min)</h3>
-              <div className="flex gap-2 items-center text-sm text-[#5b5389]">
+              <h3 className="font-semibold text-[#0f172a] mb-3">{t("filterPrice")} (₹/50min)</h3>
+              <div className="flex gap-2 items-center text-sm text-[#475569]">
                 <Input placeholder="₹500" className="h-8 text-xs" />
                 <span>–</span>
                 <Input placeholder="₹5000" className="h-8 text-xs" />
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-[#1e1b4b] mb-3">{t("filterRating")}</h3>
+              <h3 className="font-semibold text-[#0f172a] mb-3">{t("filterRating")}</h3>
               <Select defaultValue="any">
                 <SelectTrigger className="h-8 text-xs"><SelectValue /></SelectTrigger>
                 <SelectContent>
@@ -106,13 +106,13 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
                 </SelectContent>
               </Select>
             </div>
-            <Button className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white text-sm">Apply</Button>
+            <Button className="w-full bg-[#38BDF8] hover:bg-[#D946EF] text-white text-sm">Apply</Button>
           </div>
         </aside>
 
         {/* Grid */}
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-[#7c6f9e] mb-4">{MOCK_TUTORS.length} tutors found</p>
+          <p className="text-sm text-[#64748b] mb-4">{MOCK_TUTORS.length} tutors found</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {MOCK_TUTORS.map(tutor => (
               <TutorCard key={tutor.id} {...tutor} currency="INR"
@@ -124,7 +124,7 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
             <Button variant="outline" size="sm" disabled>← Prev</Button>
             {[1,2,3].map(p => (
               <Button key={p} variant={p === 1 ? "default" : "outline"} size="sm"
-                className={p === 1 ? "bg-[#818cf8] text-white" : ""}>{p}</Button>
+                className={p === 1 ? "bg-[#D946EF] text-white" : ""}>{p}</Button>
             ))}
             <Button variant="outline" size="sm">Next →</Button>
           </div>

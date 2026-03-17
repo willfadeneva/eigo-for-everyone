@@ -62,7 +62,7 @@ export default function HomePage() {
     <div className="overflow-x-hidden">
 
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-[#1e1b4b] via-[#6366f1] to-[#4338ca] text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0f172a] via-[#D946EF] to-[#4338ca] text-white overflow-hidden">
         {/* Sakura decorative blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#f9a8d4] opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#f9a8d4] opacity-10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -79,7 +79,7 @@ export default function HomePage() {
               <br />1-on-1, online
             </h1>
 
-            <p className="text-lg sm:text-xl text-indigo-200 mb-8 max-w-2xl">
+            <p className="text-lg sm:text-xl text-pink-200 mb-8 max-w-2xl">
               Book verified native English tutors for IELTS, business English, conversational skills, and more.
               First trial lesson is FREE.
             </p>
@@ -109,13 +109,13 @@ export default function HomePage() {
       </section>
 
       {/* ─── Stats bar ────────────────────────────────────────────────── */}
-      <section className="bg-white border-b border-[#f0ebff]">
+      <section className="bg-white border-b border-[#fdf2f8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="text-3xl font-bold text-[#6366f1]">{s.value}</div>
-                <div className="text-sm text-[#7c6f9e] mt-1">{s.label}</div>
+                <div className="text-3xl font-bold text-[#D946EF]">{s.value}</div>
+                <div className="text-sm text-[#64748b] mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -123,29 +123,29 @@ export default function HomePage() {
       </section>
 
       {/* ─── How it works ─────────────────────────────────────────────── */}
-      <section className="py-20 bg-[#fdf8ff]">
+      <section className="py-20 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1e1b4b]">How it works</h2>
-            <p className="mt-3 text-[#7c6f9e] text-lg">Start learning in under 5 minutes</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a]">How it works</h2>
+            <p className="mt-3 text-[#64748b] text-lg">Start learning in under 5 minutes</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {HOW_IT_WORKS.map(({ step, icon: Icon, title, desc }) => (
               <div key={step} className="relative text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#ede9fe] mb-5">
-                  <Icon className="text-[#6366f1]" size={26} />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#fce7f3] mb-5">
+                  <Icon className="text-[#D946EF]" size={26} />
                 </div>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-6 h-6 rounded-full bg-[#818cf8] text-white text-xs font-bold flex items-center justify-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-6 h-6 rounded-full bg-[#D946EF] text-white text-xs font-bold flex items-center justify-center">
                   {step}
                 </div>
-                <h3 className="text-lg font-semibold text-[#1e1b4b] mb-2">{title}</h3>
-                <p className="text-[#7c6f9e] text-sm leading-relaxed">{desc}</p>
+                <h3 className="text-lg font-semibold text-[#0f172a] mb-2">{title}</h3>
+                <p className="text-[#64748b] text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
             <Link href="/auth/register">
-              <Button size="lg" className="bg-[#818cf8] hover:bg-[#6366f1] text-white">
+              <Button size="lg" className="bg-[#38BDF8] hover:bg-[#D946EF] text-white">
                 Get started free <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
@@ -158,17 +158,17 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-10">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#1e1b4b]">Featured Tutors</h2>
-              <p className="mt-2 text-[#7c6f9e]">Hand-picked, top-rated, and ready to teach</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a]">Featured Tutors</h2>
+              <p className="mt-2 text-[#64748b]">Hand-picked, top-rated, and ready to teach</p>
             </div>
-            <Link href="/tutors" className="text-[#6366f1] font-medium hover:underline hidden sm:flex items-center gap-1">
+            <Link href="/tutors" className="text-[#D946EF] font-medium hover:underline hidden sm:flex items-center gap-1">
               View all <ChevronRight size={16} />
             </Link>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURED_TUTORS.map((t) => (
-              <Card key={t.id} className="hover:shadow-lg transition-shadow border border-[#f0ebff] overflow-hidden">
+              <Card key={t.id} className="hover:shadow-lg transition-shadow border border-[#fdf2f8] overflow-hidden">
                 <div className="bg-[#f9a8d4]/20 px-4 py-1.5 text-xs font-semibold text-[#9d174d]">
                   ⭐ Featured
                 </div>
@@ -177,25 +177,25 @@ export default function HomePage() {
                     {t.avatar ? (
                       <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-[#818cf8] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-[#38BDF8] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
                         {t.name.charAt(0)}
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="font-semibold text-[#1e1b4b]">{t.flag} {t.name}</h3>
-                          <p className="text-sm text-[#7c6f9e] line-clamp-1">{t.tagline}</p>
+                          <h3 className="font-semibold text-[#0f172a]">{t.flag} {t.name}</h3>
+                          <p className="text-sm text-[#64748b] line-clamp-1">{t.tagline}</p>
                         </div>
                         <div className="text-right">
-                          <div className="font-bold text-[#6366f1]">{t.rate}</div>
+                          <div className="font-bold text-[#D946EF]">{t.rate}</div>
                           <div className="text-xs text-slate-400">/50min</div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 text-sm text-[#7c6f9e] mb-3">
+                  <div className="flex items-center gap-3 text-sm text-[#64748b] mb-3">
                     <span className="flex items-center gap-1">
                       <Star size={13} className="fill-amber-400 text-amber-400" />
                       <span className="font-medium text-slate-700">{t.rating}</span>
@@ -209,7 +209,7 @@ export default function HomePage() {
 
                   <div className="flex flex-wrap gap-1 mb-4">
                     {t.specialties.map((s) => (
-                      <Badge key={s} variant="secondary" className="text-xs bg-[#ede9fe] text-[#6366f1]">
+                      <Badge key={s} variant="secondary" className="text-xs bg-[#fce7f3] text-[#D946EF]">
                         {s}
                       </Badge>
                     ))}
@@ -217,12 +217,12 @@ export default function HomePage() {
 
                   <div className="flex gap-2">
                     <Link href={`/tutors/${t.id}`} className="flex-1">
-                      <Button variant="outline" className="w-full border-[#6366f1] text-[#6366f1] hover:bg-[#ede9fe] text-sm">
+                      <Button variant="outline" className="w-full border-[#D946EF] text-[#D946EF] hover:bg-[#fce7f3] text-sm">
                         Profile
                       </Button>
                     </Link>
                     <Link href={`/tutors/${t.id}?book=true`} className="flex-1">
-                      <Button className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white text-sm">
+                      <Button className="w-full bg-[#38BDF8] hover:bg-[#D946EF] text-white text-sm">
                         Book Trial
                       </Button>
                     </Link>
@@ -234,7 +234,7 @@ export default function HomePage() {
 
           <div className="text-center mt-8 sm:hidden">
             <Link href="/tutors">
-              <Button variant="outline" className="border-[#6366f1] text-[#6366f1]">
+              <Button variant="outline" className="border-[#D946EF] text-[#D946EF]">
                 View all tutors <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
@@ -243,10 +243,10 @@ export default function HomePage() {
       </section>
 
       {/* ─── Why Eigo ─────────────────────────────────────────────────── */}
-      <section className="py-20 bg-[#fdf8ff]">
+      <section className="py-20 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1e1b4b]">Why Eigo for Everyone?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a]">Why Eigo for Everyone?</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -257,13 +257,13 @@ export default function HomePage() {
               { icon: Users,   title: "Trial lesson",          desc: "Every tutor offers a FREE 25-min trial. Try before you commit to a package." },
               { icon: TrendingUp, title: "Track progress",     desc: "Lesson notes, vocabulary lists, and progress tracking built right into your student dashboard." },
             ].map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="flex gap-4 p-5 bg-white rounded-xl border border-[#f0ebff] hover:shadow-sm transition-shadow">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#ede9fe] flex items-center justify-center">
-                  <Icon size={20} className="text-[#6366f1]" />
+              <div key={title} className="flex gap-4 p-5 bg-white rounded-xl border border-[#fdf2f8] hover:shadow-sm transition-shadow">
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#fce7f3] flex items-center justify-center">
+                  <Icon size={20} className="text-[#D946EF]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1e1b4b] mb-1">{title}</h3>
-                  <p className="text-sm text-[#7c6f9e] leading-relaxed">{desc}</p>
+                  <h3 className="font-semibold text-[#0f172a] mb-1">{title}</h3>
+                  <p className="text-sm text-[#64748b] leading-relaxed">{desc}</p>
                 </div>
               </div>
             ))}
@@ -275,11 +275,11 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#1e1b4b]">What students say</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a]">What students say</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t) => (
-              <Card key={t.name} className="border border-[#f0ebff]">
+              <Card key={t.name} className="border border-[#fdf2f8]">
                 <CardContent className="p-6">
                   <div className="flex gap-0.5 mb-3">
                     {Array.from({ length: t.rating }).map((_, i) => (
@@ -291,12 +291,12 @@ export default function HomePage() {
                     {t.avatar ? (
                       <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-[#818cf8] flex items-center justify-center text-white text-xs font-bold">
+                      <div className="w-8 h-8 rounded-full bg-[#38BDF8] flex items-center justify-center text-white text-xs font-bold">
                         {t.name.charAt(0)}
                       </div>
                     )}
                     <div>
-                      <div className="text-sm font-medium text-[#1e1b4b]">{t.name}</div>
+                      <div className="text-sm font-medium text-[#0f172a]">{t.name}</div>
                       <div className="text-xs text-slate-400">{t.city}</div>
                     </div>
                   </div>
@@ -308,12 +308,12 @@ export default function HomePage() {
       </section>
 
       {/* ─── CTA Banner ───────────────────────────────────────────────── */}
-      <section className="py-20 bg-gradient-to-r from-[#6366f1] to-[#4338ca]">
+      <section className="py-20 bg-gradient-to-r from-[#D946EF] to-[#4338ca]">
         <div className="max-w-3xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to speak English with confidence?
           </h2>
-          <p className="text-indigo-200 text-lg mb-8">
+          <p className="text-pink-200 text-lg mb-8">
             Join 15,000+ students already learning with Eigo for Everyone. First trial is FREE.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

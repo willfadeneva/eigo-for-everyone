@@ -31,25 +31,25 @@ export default function HomePage() {
     <div className="min-h-screen">
 
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-[#f0eeff] via-[#fdf8ff] to-[#fff0f9] py-20 sm:py-28 px-4">
+      <section className="bg-gradient-to-br from-[#f0eeff] via-[#ffffff] to-[#fff0f9] py-20 sm:py-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white border border-[#ddd6fe] rounded-full px-4 py-1.5 text-sm text-[#6366f1] font-medium mb-6 shadow-sm">
-            <Shield size={14} className="text-[#6366f1]" /> {t("heroTag")}
+          <div className="inline-flex items-center gap-2 bg-white border border-[#fbcfe8] rounded-full px-4 py-1.5 text-sm text-[#D946EF] font-medium mb-6 shadow-sm">
+            <Shield size={14} className="text-[#D946EF]" /> {t("heroTag")}
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold text-[#1e1b4b] leading-tight mb-6">
+          <h1 className="text-4xl sm:text-6xl font-bold text-[#0f172a] leading-tight mb-6">
             {t("heroTitle")}
           </h1>
-          <p className="text-lg sm:text-xl text-[#5b5389] max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-[#475569] max-w-2xl mx-auto mb-10 leading-relaxed">
             {t("heroSubtitle")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/tutors">
-              <Button size="lg" className="bg-[#818cf8] hover:bg-[#6366f1] text-white px-8 py-4 text-base rounded-full w-full sm:w-auto">
+              <Button size="lg" className="bg-[#38BDF8] hover:bg-[#D946EF] text-white px-8 py-4 text-base rounded-full w-full sm:w-auto">
                 {t("findTutor")} <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
             <Link href="/how-it-works">
-              <Button size="lg" variant="outline" className="border-[#6366f1] text-[#6366f1] px-8 py-4 text-base rounded-full w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-[#D946EF] text-[#D946EF] px-8 py-4 text-base rounded-full w-full sm:w-auto">
                 {t("howItWorks")}
               </Button>
             </Link>
@@ -58,12 +58,12 @@ export default function HomePage() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="bg-[#818cf8] py-10 px-4">
+      <section className="bg-[#38BDF8] py-10 px-4">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
           {STATS.map(s => (
             <div key={s.label}>
               <div className="text-3xl font-bold">{s.value}</div>
-              <div className="text-sm text-indigo-200 mt-1">{s.label}</div>
+              <div className="text-sm text-pink-200 mt-1">{s.label}</div>
             </div>
           ))}
         </div>
@@ -73,22 +73,22 @@ export default function HomePage() {
       <section className="max-w-6xl mx-auto px-4 py-16 sm:py-20">
         <div className="flex items-end justify-between mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-[#1e1b4b]">{t("featuredTitle")}</h2>
-            <p className="text-[#7c6f9e] mt-1">{t("featuredSub")}</p>
+            <h2 className="text-3xl font-bold text-[#0f172a]">{t("featuredTitle")}</h2>
+            <p className="text-[#64748b] mt-1">{t("featuredSub")}</p>
           </div>
-          <Link href="/tutors" className="text-[#6366f1] font-medium text-sm hidden sm:block hover:underline">
+          <Link href="/tutors" className="text-[#D946EF] font-medium text-sm hidden sm:block hover:underline">
             {t("viewAll")}
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURED_TUTORS.map(t2 => (
-            <Card key={t2.id} className="hover:shadow-lg transition-shadow border border-[#f0ebff]">
+            <Card key={t2.id} className="hover:shadow-lg transition-shadow border border-[#fdf2f8]">
               <CardContent className="p-5">
                 <div className="flex gap-4 mb-4">
-                  <img src={t2.avatar} alt={t2.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#ddd6fe]" />
+                  <img src={t2.avatar} alt={t2.name} className="w-14 h-14 rounded-full object-cover border-2 border-[#fbcfe8]" />
                   <div>
-                    <div className="font-semibold text-[#1e1b4b]">{t2.flag} {t2.name}</div>
-                    <div className="text-sm text-[#7c6f9e]">{t2.tagline}</div>
+                    <div className="font-semibold text-[#0f172a]">{t2.flag} {t2.name}</div>
+                    <div className="text-sm text-[#64748b]">{t2.tagline}</div>
                     <div className="flex items-center gap-1 mt-1">
                       <Star size={12} className="fill-amber-400 text-amber-400" />
                       <span className="text-sm font-medium text-slate-700">{t2.rating}</span>
@@ -98,13 +98,13 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-wrap gap-1 mb-4">
                   {t2.specialties.map(s => (
-                    <Badge key={s} className="bg-[#ede9fe] text-[#6366f1] text-xs">{s}</Badge>
+                    <Badge key={s} className="bg-[#fce7f3] text-[#D946EF] text-xs">{s}</Badge>
                   ))}
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#6366f1]">{t2.rate}<span className="text-xs font-normal text-slate-400"> /50min</span></span>
+                  <span className="font-bold text-[#D946EF]">{t2.rate}<span className="text-xs font-normal text-slate-400"> /50min</span></span>
                   <Link href={`/tutors/${t2.id}`}>
-                    <Button size="sm" className="bg-[#818cf8] text-white text-xs">{t("findTutor")}</Button>
+                    <Button size="sm" className="bg-[#D946EF] text-white text-xs">{t("findTutor")}</Button>
                   </Link>
                 </div>
               </CardContent>
@@ -112,27 +112,27 @@ export default function HomePage() {
           ))}
         </div>
         <div className="text-center mt-6 sm:hidden">
-          <Link href="/tutors" className="text-[#6366f1] font-medium">{t("viewAll")}</Link>
+          <Link href="/tutors" className="text-[#D946EF] font-medium">{t("viewAll")}</Link>
         </div>
       </section>
 
       {/* ── How it works ── */}
-      <section className="bg-[#faf8ff] py-16 px-4">
+      <section className="bg-[#fafafa] py-16 px-4">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-[#1e1b4b]">{t("howTitle")}</h2>
-          <p className="text-[#7c6f9e] mt-2">{t("howSub")}</p>
+          <h2 className="text-3xl font-bold text-[#0f172a]">{t("howTitle")}</h2>
+          <p className="text-[#64748b] mt-2">{t("howSub")}</p>
         </div>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {HOW_IT_WORKS.map(step => {
             const Icon = step.icon;
             return (
               <div key={step.step} className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-[#ede9fe] flex items-center justify-center mx-auto mb-4">
-                  <Icon size={28} className="text-[#6366f1]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#fce7f3] flex items-center justify-center mx-auto mb-4">
+                  <Icon size={28} className="text-[#D946EF]" />
                 </div>
-                <div className="text-xs font-bold text-[#6366f1] uppercase tracking-widest mb-1">Step {step.step}</div>
-                <h3 className="font-semibold text-[#1e1b4b] mb-2">{step.title}</h3>
-                <p className="text-sm text-[#7c6f9e] leading-relaxed">{step.desc}</p>
+                <div className="text-xs font-bold text-[#D946EF] uppercase tracking-widest mb-1">Step {step.step}</div>
+                <h3 className="font-semibold text-[#0f172a] mb-2">{step.title}</h3>
+                <p className="text-sm text-[#64748b] leading-relaxed">{step.desc}</p>
               </div>
             );
           })}
@@ -140,11 +140,11 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-4 text-center bg-gradient-to-r from-[#6366f1] to-[#6366f1]">
+      <section className="py-20 px-4 text-center bg-gradient-to-r from-[#D946EF] to-[#D946EF]">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t("ctaTitle")}</h2>
-        <p className="text-indigo-200 mb-8 max-w-md mx-auto">{t("ctaDesc")}</p>
+        <p className="text-pink-200 mb-8 max-w-md mx-auto">{t("ctaDesc")}</p>
         <Link href="/tutors">
-          <Button size="lg" className="bg-white text-[#6366f1] hover:bg-[#faf8ff] px-10 py-4 text-base rounded-full font-semibold">
+          <Button size="lg" className="bg-white text-[#D946EF] hover:bg-[#fafafa] px-10 py-4 text-base rounded-full font-semibold">
             {t("ctaButton")}
           </Button>
         </Link>

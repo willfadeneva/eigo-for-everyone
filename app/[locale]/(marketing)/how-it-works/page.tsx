@@ -23,7 +23,7 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       points: locale === "ja"
         ? ["目標・予算・時間で絞り込み", "インド人学習者の本物の口コミ", "予約前に紹介動画を確認"]
         : ["Filter by goal, budget & time", "Read verified Indian student reviews", "Watch intro videos before booking"],
-      color: "bg-[#ede9fe] text-[#6366f1]",
+      color: "bg-[#fce7f3] text-[#D946EF]",
     },
     {
       icon: CalendarCheck,
@@ -76,15 +76,15 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#f0eeff] via-[#fdf8ff] to-[#fff0f9] py-16 sm:py-20 px-4">
+      <section className="bg-gradient-to-br from-[#f0eeff] via-[#ffffff] to-[#fff0f9] py-16 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-[#6366f1]/10 text-[#6366f1] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t("tag")}</span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#1e1b4b] mb-5 leading-tight">
+          <span className="inline-block bg-[#D946EF]/10 text-[#D946EF] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t("tag")}</span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] mb-5 leading-tight">
             {t("title")}
           </h1>
-          <p className="text-lg text-[#7c6f9e] max-w-xl mx-auto mb-8">{t("subtitle")}</p>
+          <p className="text-lg text-[#64748b] max-w-xl mx-auto mb-8">{t("subtitle")}</p>
           <Link href="/tutors">
-            <Button className="bg-[#6366f1] hover:bg-[#4f46e5] text-white px-8 py-3 text-base rounded-full">
+            <Button className="bg-[#D946EF] hover:bg-[#C026D3] text-white px-8 py-3 text-base rounded-full">
               {t("findTutor")} <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>
@@ -106,13 +106,13 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
                   </div>
                 </div>
                 <div className="flex-1">
-                  <span className="text-sm font-bold text-[#6366f1] uppercase tracking-widest">Step {step.number}</span>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-[#1e1b4b] mt-1 mb-3">{step.title}</h2>
-                  <p className="text-[#7c6f9e] leading-relaxed mb-4">{step.desc}</p>
+                  <span className="text-sm font-bold text-[#D946EF] uppercase tracking-widest">Step {step.number}</span>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mt-1 mb-3">{step.title}</h2>
+                  <p className="text-[#64748b] leading-relaxed mb-4">{step.desc}</p>
                   <ul className="space-y-2">
                     {step.points.map(p => (
-                      <li key={p} className="flex items-center gap-2 text-[#5b5389] text-sm">
-                        <CheckCircle size={15} className="text-[#6366f1] flex-shrink-0" /> {p}
+                      <li key={p} className="flex items-center gap-2 text-[#475569] text-sm">
+                        <CheckCircle size={15} className="text-[#D946EF] flex-shrink-0" /> {p}
                       </li>
                     ))}
                   </ul>
@@ -124,14 +124,14 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#faf8ff] py-16 px-4">
+      <section className="bg-[#fafafa] py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1e1b4b] text-center mb-10">{t("faqTitle")}</h2>
+          <h2 className="text-3xl font-bold text-[#0f172a] text-center mb-10">{t("faqTitle")}</h2>
           <div className="space-y-4">
             {FAQS.map(faq => (
-              <div key={faq.q} className="bg-white rounded-xl border border-[#e9d8fd] p-5">
-                <h3 className="font-semibold text-[#1e1b4b] mb-2">{faq.q}</h3>
-                <p className="text-[#7c6f9e] text-sm leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-white rounded-xl border border-[#fce7f3] p-5">
+                <h3 className="font-semibold text-[#0f172a] mb-2">{faq.q}</h3>
+                <p className="text-[#64748b] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -140,14 +140,14 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
 
       {/* CTA */}
       <section className="py-16 px-4 text-center">
-        <h2 className="text-3xl font-bold text-[#1e1b4b] mb-4">{t("readyTitle")}</h2>
-        <p className="text-[#7c6f9e] mb-8 max-w-md mx-auto">{t("readySub")}</p>
+        <h2 className="text-3xl font-bold text-[#0f172a] mb-4">{t("readyTitle")}</h2>
+        <p className="text-[#64748b] mb-8 max-w-md mx-auto">{t("readySub")}</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/tutors">
-            <Button className="bg-[#6366f1] hover:bg-[#4f46e5] text-white px-8 py-3 rounded-full text-base">{t("browseTutors")}</Button>
+            <Button className="bg-[#D946EF] hover:bg-[#C026D3] text-white px-8 py-3 rounded-full text-base">{t("browseTutors")}</Button>
           </Link>
           <Link href="/auth/login">
-            <Button variant="outline" className="border-[#6366f1] text-[#6366f1] px-8 py-3 rounded-full text-base">{t("createAccount")}</Button>
+            <Button variant="outline" className="border-[#D946EF] text-[#D946EF] px-8 py-3 rounded-full text-base">{t("createAccount")}</Button>
           </Link>
         </div>
       </section>

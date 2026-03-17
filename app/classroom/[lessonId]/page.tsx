@@ -135,7 +135,7 @@ export default function ClassroomPage() {
   if (state === "loading" || state === "joining") return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">
       <div className="text-center space-y-4">
-        <div className="w-12 h-12 border-4 border-[#6366f1] border-t-transparent rounded-full animate-spin mx-auto"/>
+        <div className="w-12 h-12 border-4 border-[#D946EF] border-t-transparent rounded-full animate-spin mx-auto"/>
         <p className="text-lg font-medium">{state === "loading" ? "Preparing classroom…" : "Joining lesson…"}</p>
         <p className="text-sm text-slate-400">Setting up your Zoom session</p>
       </div>
@@ -150,7 +150,7 @@ export default function ClassroomPage() {
         <h1 className="text-xl font-bold">Couldn&apos;t join classroom</h1>
         <p className="text-slate-400 text-sm">{error}</p>
         <div className="flex gap-3 justify-center">
-          <Button onClick={init} className="bg-[#818cf8] text-white">Retry</Button>
+          <Button onClick={init} className="bg-[#D946EF] text-white">Retry</Button>
           <Button variant="outline" onClick={() => router.push("/dashboard/student")} className="border-white text-white hover:bg-white/10">
             Back to dashboard
           </Button>
@@ -200,7 +200,7 @@ export default function ClassroomPage() {
           {participants.length < 2 && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="text-center text-white">
-                <div className="w-20 h-20 rounded-full bg-[#818cf8] flex items-center justify-center text-4xl font-bold mx-auto mb-3">S</div>
+                <div className="w-20 h-20 rounded-full bg-[#38BDF8] flex items-center justify-center text-4xl font-bold mx-auto mb-3">S</div>
                 <p className="text-lg font-medium">Waiting for tutor to join…</p>
               </div>
             </div>
@@ -229,7 +229,7 @@ export default function ClassroomPage() {
                 placeholder="Type…"
                 className="flex-1 bg-slate-700 text-white text-sm rounded-lg px-3 py-2 outline-none placeholder-slate-400"
               />
-              <button type="submit" className="text-[#6366f1] hover:text-indigo-400"><Send size={16}/></button>
+              <button type="submit" className="text-[#D946EF] hover:text-indigo-400"><Send size={16}/></button>
             </form>
           </div>
         )}
@@ -238,15 +238,15 @@ export default function ClassroomPage() {
       {/* Controls */}
       <div className="bg-slate-800 py-4 flex items-center justify-center gap-4">
         <button onClick={toggleMute}
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${muted ? "bg-red-600 hover:bg-red-700" : "bg-slate-600 hover:bg-[#faf8ff]0"}`}>
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${muted ? "bg-red-600 hover:bg-red-700" : "bg-slate-600 hover:bg-[#fafafa]0"}`}>
           {muted ? <MicOff size={20} className="text-white"/> : <Mic size={20} className="text-white"/>}
         </button>
         <button onClick={toggleVideo}
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${videoOff ? "bg-red-600 hover:bg-red-700" : "bg-slate-600 hover:bg-[#faf8ff]0"}`}>
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${videoOff ? "bg-red-600 hover:bg-red-700" : "bg-slate-600 hover:bg-[#fafafa]0"}`}>
           {videoOff ? <VideoOff size={20} className="text-white"/> : <Video size={20} className="text-white"/>}
         </button>
         <button onClick={() => setChatOpen(!chatOpen)}
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${chatOpen ? "bg-[#818cf8]" : "bg-slate-600 hover:bg-[#faf8ff]0"}`}>
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${chatOpen ? "bg-[#38BDF8]" : "bg-slate-600 hover:bg-[#fafafa]0"}`}>
           <MessageCircle size={20} className="text-white"/>
         </button>
         <button onClick={leaveLesson}

@@ -67,7 +67,7 @@ export default function LessonsPage() {
 
   return (
     <div className="p-4 sm:p-6 space-y-6 max-w-7xl">
-      <h1 className="text-2xl font-bold text-[#1e1b4b]">Lessons</h1>
+      <h1 className="text-2xl font-bold text-[#0f172a]">Lessons</h1>
 
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -77,9 +77,9 @@ export default function LessonsPage() {
           { label: "Completed",  value: completed,              color: "text-green-600"  },
           { label: "Revenue",    value: `₹${revenue.toLocaleString("en-IN")}`, color: "text-indigo-600" },
         ].map(s => (
-          <div key={s.label} className="bg-white border border-[#f0ebff] rounded-xl p-4">
+          <div key={s.label} className="bg-white border border-[#fdf2f8] rounded-xl p-4">
             <div className={`text-2xl font-bold ${s.color}`}>{s.value}</div>
-            <div className="text-xs text-[#7c6f9e] mt-1">{s.label}</div>
+            <div className="text-xs text-[#64748b] mt-1">{s.label}</div>
           </div>
         ))}
       </div>
@@ -105,10 +105,10 @@ export default function LessonsPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-xl border border-[#f0ebff] overflow-x-auto bg-white">
+      <div className="rounded-xl border border-[#fdf2f8] overflow-x-auto bg-white">
         <Table>
           <TableHeader>
-            <TableRow className="bg-[#faf8ff]">
+            <TableRow className="bg-[#fafafa]">
               <TableHead className="text-xs">ID</TableHead>
               <TableHead className="text-xs">Student</TableHead>
               <TableHead className="text-xs">Tutor</TableHead>
@@ -124,13 +124,13 @@ export default function LessonsPage() {
               <TableRow key={l.id} className="text-sm">
                 <TableCell className="font-mono text-xs text-slate-400">{l.id}</TableCell>
                 <TableCell className="font-medium text-slate-800">{l.student}</TableCell>
-                <TableCell className="text-[#5b5389]">{l.tutor}</TableCell>
+                <TableCell className="text-[#475569]">{l.tutor}</TableCell>
                 <TableCell>
                   <Badge className={`text-xs ${TYPE_COLORS[l.type] ?? ""}`}>{l.type}</Badge>
                 </TableCell>
-                <TableCell className="text-[#7c6f9e] text-xs whitespace-nowrap">{l.date}</TableCell>
-                <TableCell className="text-[#7c6f9e]">{l.duration} min</TableCell>
-                <TableCell className="font-medium text-[#6366f1]">
+                <TableCell className="text-[#64748b] text-xs whitespace-nowrap">{l.date}</TableCell>
+                <TableCell className="text-[#64748b]">{l.duration} min</TableCell>
+                <TableCell className="font-medium text-[#D946EF]">
                   {l.amount === 0 ? <span className="text-pink-600 font-semibold">FREE</span> : `₹${l.amount.toLocaleString("en-IN")}`}
                 </TableCell>
                 <TableCell>

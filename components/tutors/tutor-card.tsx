@@ -45,7 +45,7 @@ export function TutorCard({
       : `₹${Number(hourlyRate).toLocaleString("en-IN")}`;
 
   return (
-    <Card className="group hover:shadow-lg transition-shadow duration-200 border border-[#f0ebff] overflow-hidden">
+    <Card className="group hover:shadow-lg transition-shadow duration-200 border border-[#fdf2f8] overflow-hidden">
       {isFeatured && (
         <div className="bg-[#f9a8d4] text-[#9d174d] text-xs font-semibold px-3 py-1 text-center">
           ⭐ Featured Tutor
@@ -59,10 +59,10 @@ export function TutorCard({
               <img
                 src={avatarUrl}
                 alt={displayName}
-                className="w-16 h-16 rounded-full object-cover border-2 border-[#ddd6fe]"
+                className="w-16 h-16 rounded-full object-cover border-2 border-[#fbcfe8]"
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-[#818cf8] flex items-center justify-center text-white text-xl font-bold border-2 border-[#ddd6fe]">
+              <div className="w-16 h-16 rounded-full bg-[#38BDF8] flex items-center justify-center text-white text-xl font-bold border-2 border-[#fbcfe8]">
                 {displayName.charAt(0).toUpperCase()}
               </div>
             )}
@@ -72,19 +72,19 @@ export function TutorCard({
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <h3 className="font-semibold text-[#1e1b4b] truncate">{displayName}</h3>
+                <h3 className="font-semibold text-[#0f172a] truncate">{displayName}</h3>
                 {tagline && (
-                  <p className="text-sm text-[#7c6f9e] line-clamp-2 mt-0.5">{tagline}</p>
+                  <p className="text-sm text-[#64748b] line-clamp-2 mt-0.5">{tagline}</p>
                 )}
               </div>
               <div className="text-right flex-shrink-0">
-                <div className="font-bold text-[#6366f1] text-lg">{rateDisplay}</div>
+                <div className="font-bold text-[#D946EF] text-lg">{rateDisplay}</div>
                 <div className="text-xs text-slate-400">/ 50min</div>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs sm:text-sm text-[#7c6f9e]">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs sm:text-sm text-[#64748b]">
               {avgRating != null && (
                 <span className="flex items-center gap-1">
                   <Star size={13} className="fill-amber-400 text-amber-400" />
@@ -113,13 +113,13 @@ export function TutorCard({
                   <Badge
                     key={s}
                     variant="secondary"
-                    className="text-xs capitalize bg-[#ede9fe] text-[#6366f1] hover:bg-[#ddd6fe]"
+                    className="text-xs capitalize bg-[#fce7f3] text-[#D946EF] hover:bg-[#fbcfe8]"
                   >
                     {s}
                   </Badge>
                 ))}
                 {specialties.length > 3 && (
-                  <Badge variant="secondary" className="text-xs bg-slate-100 text-[#7c6f9e]">
+                  <Badge variant="secondary" className="text-xs bg-slate-100 text-[#64748b]">
                     +{specialties.length - 3}
                   </Badge>
                 )}
@@ -132,13 +132,13 @@ export function TutorCard({
           <Link href={`/tutors/${id}`} className="flex-1">
             <Button
               variant="outline"
-              className="w-full border-[#6366f1] text-[#6366f1] hover:bg-[#ede9fe]"
+              className="w-full border-[#D946EF] text-[#D946EF] hover:bg-[#fce7f3]"
             >
               {viewProfileLabel}
             </Button>
           </Link>
           <Link href={`/tutors/${id}?book=true`} className="flex-1">
-            <Button className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white">
+            <Button className="w-full bg-[#38BDF8] hover:bg-[#D946EF] text-white">
               {bookTrialLabel}
             </Button>
           </Link>
