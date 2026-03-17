@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,8 +39,9 @@ const EMPTY_FORM: ContactForm = { firstName:"", middleName:"", lastName:"", phon
 const ALL_STEPS  = ["Lesson type","Date & time","Your details","Payment"];
 const FREE_STEPS = ["Lesson type","Date & time","Your details"];
 
-export default function BookPage({ params }: { params: { tutorId: string } }) {
-  const tutor = getTutor(params.tutorId);
+export default function BookPage({ params }: { params: Promise<{ tutorId: string }> }) {
+  const { tutorId } = use(params);
+  const tutor = getTutor(tutorId);
   const LESSON_TYPES: LessonType[] = [
     { id: "trial", label: "Trial lesson",    duration: 25, price: 0,                        badge: "FREE — No charge" },
     { id: "50min", label: "Regular lesson",  duration: 50, price: tutor.hourlyRate },
@@ -110,7 +111,7 @@ export default function BookPage({ params }: { params: { tutorId: string } }) {
   return (
     <div className="min-h-screen bg-[#fafafa] py-10 px-4">
       <div className="max-w-2xl mx-auto">
-        <Link href={`/tutors/${params.tutorId}`} className="text-sm text-[#3730a3] hover:underline mb-6 block">
+        <Link href={`/tutors/${tutorId}`} className="text-sm text-[#3730a3] hover:underline mb-6 block">
           ← Back to profile
         </Link>
 

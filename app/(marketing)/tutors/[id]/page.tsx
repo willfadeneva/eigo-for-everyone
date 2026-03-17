@@ -155,8 +155,9 @@ const ALL_TUTORS: Record<string, any> = {
 };
 
 // ── Metadata ─────────────────────────────────────────────────────────────────
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const t = ALL_TUTORS[params.id] ?? ALL_TUTORS["t1"];
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const t = ALL_TUTORS[id] ?? ALL_TUTORS["t1"];
   return {
     title: `${t.displayName} | Eigo for Everyone`,
     description: t.tagline,
@@ -167,8 +168,9 @@ const DAYS  = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const SLOTS = ["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
 const AVAILABLE = new Set(["Mon-09:00","Mon-10:00","Mon-15:00","Mon-16:00","Tue-09:00","Tue-10:00","Tue-11:00","Wed-14:00","Wed-15:00","Thu-09:00","Thu-10:00","Fri-09:00","Fri-10:00","Fri-11:00","Fri-15:00","Sat-10:00","Sat-11:00"]);
 
-export default function TutorProfilePage({ params }: { params: { id: string } }) {
-  const t = ALL_TUTORS[params.id] ?? ALL_TUTORS["t1"];
+export default async function TutorProfilePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const t = ALL_TUTORS[id] ?? ALL_TUTORS["t1"];
   const reviews = t.reviews ?? [];
 
   return (
