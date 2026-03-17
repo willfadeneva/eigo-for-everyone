@@ -48,7 +48,7 @@ export default function AdminStudentsPage() {
                   <div className="text-xs text-slate-400">{s.email}</div>
                 </TableCell>
                 <TableCell className="text-sm text-[#475569]">{s.lessons}</TableCell>
-                <TableCell className="text-sm font-medium text-[#C76FD8]">{s.spent > 0 ? `₹${s.spent.toLocaleString("en-IN")}` : "—"}</TableCell>
+                <TableCell className="text-sm font-medium text-[#8774DB]">{s.spent > 0 ? `₹${s.spent.toLocaleString("en-IN")}` : "—"}</TableCell>
                 <TableCell className="text-sm text-[#64748b]">{s.joined}</TableCell>
                 <TableCell>
                   <Badge className={s.status === "active" ? "bg-green-100 text-green-700 text-xs" : "bg-red-100 text-red-700 text-xs"}>

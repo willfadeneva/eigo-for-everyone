@@ -24,7 +24,7 @@ export function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-[#C76FD8]">英語</span>
+          <span className="text-2xl font-bold text-[#8774DB]">英語</span>
           <span className="text-sm font-medium text-[#475569] hidden sm:block">
             Eigo for Everyone
           </span>
@@ -32,10 +32,10 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">
-          <Link href="/tutors" className="text-[#475569] hover:text-[#C76FD8] font-medium transition-colors">
+          <Link href="/tutors" className="text-[#475569] hover:text-[#8774DB] font-medium transition-colors">
             {t("findTutors")}
           </Link>
-          <Link href="/how-it-works" className="text-[#475569] hover:text-[#C76FD8] font-medium transition-colors">
+          <Link href="/how-it-works" className="text-[#475569] hover:text-[#8774DB] font-medium transition-colors">
             {t("howItWorks")}
           </Link>
         </div>
@@ -44,7 +44,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={toggleLocale}
-            className="text-sm font-medium text-[#64748b] hover:text-[#C76FD8] border border-[#fce7f3] rounded-full px-3 py-1 transition-colors"
+            className="text-sm font-medium text-[#64748b] hover:text-[#8774DB] border border-[#fce7f3] rounded-full px-3 py-1 transition-colors"
             title="Switch language"
           >
             {t("switchLang")}
@@ -53,7 +53,7 @@ export function Navbar() {
             <Button variant="ghost" className="text-slate-700">{t("login")}</Button>
           </Link>
           <Link href="/auth/register">
-            <Button className="bg-[#6AABDD] hover:bg-[#C76FD8] text-white">{t("signup")}</Button>
+            <Button className="bg-[#49D1FD] hover:bg-[#8774DB] text-white">{t("signup")}</Button>
           </Link>
         </div>
 
@@ -74,7 +74,7 @@ export function Navbar() {
           </Link>
           <button
             onClick={() => { toggleLocale(); setMobileOpen(false); }}
-            className="block text-[#C76FD8] font-medium py-2 w-full text-left"
+            className="block text-[#8774DB] font-medium py-2 w-full text-left"
           >
             {t("switchLang")}
           </button>
@@ -83,7 +83,7 @@ export function Navbar() {
               <Button variant="outline" className="w-full">{t("login")}</Button>
             </Link>
             <Link href="/auth/register" className="flex-1" onClick={() => setMobileOpen(false)}>
-              <Button className="w-full bg-[#C76FD8] text-white">{t("signup")}</Button>
+              <Button className="w-full bg-[#8774DB] text-white">{t("signup")}</Button>
             </Link>
           </div>
         </div>

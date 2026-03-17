@@ -72,10 +72,10 @@ export default function TutorDashboard() {
   return (
     <div className="min-h-screen bg-[#ffffff]">
       <div className="bg-white border-b border-[#fdf2f8] px-4 sm:px-8 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-[#C76FD8]">英語 Eigo</Link>
+        <Link href="/" className="text-xl font-bold text-[#8774DB]">英語 Eigo</Link>
         <div className="flex items-center gap-3">
           <Badge className="bg-green-100 text-green-700 text-xs">✓ Approved Tutor</Badge>
-          <Avatar className="w-8 h-8"><AvatarFallback className="bg-[#C76FD8] text-white text-sm">S</AvatarFallback></Avatar>
+          <Avatar className="w-8 h-8"><AvatarFallback className="bg-[#8774DB] text-white text-sm">S</AvatarFallback></Avatar>
         </div>
       </div>
 
@@ -101,7 +101,7 @@ export default function TutorDashboard() {
                 <Card key={label} className="border border-[#fdf2f8]">
                   <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-1">
-                      <Icon size={16} className="text-[#C76FD8]"/>
+                      <Icon size={16} className="text-[#8774DB]"/>
                       <span className="text-xs text-[#64748b]">{label}</span>
                     </div>
                     <div className="font-bold text-lg text-[#0f172a]">{value}</div>
@@ -120,7 +120,7 @@ export default function TutorDashboard() {
                       <div className="text-sm text-[#64748b] mt-1"><Calendar size={12} className="inline mr-1"/>{UPCOMING[0].date} · {UPCOMING[0].duration} min</div>
                     </div>
                     <Link href={`/classroom/${UPCOMING[0].id}`}>
-                      <Button className="bg-[#C76FD8] text-white flex items-center gap-2">
+                      <Button className="bg-[#8774DB] text-white flex items-center gap-2">
                         <Video size={15}/> Start lesson
                       </Button>
                     </Link>
@@ -148,7 +148,7 @@ export default function TutorDashboard() {
                       </div>
                       <div className="flex gap-2">
                         <Link href={`/classroom/${l.id}`}>
-                          <Button size="sm" className="bg-[#C76FD8] text-white"><Video size={13} className="mr-1"/>Start</Button>
+                          <Button size="sm" className="bg-[#8774DB] text-white"><Video size={13} className="mr-1"/>Start</Button>
                         </Link>
                         <Button size="sm" variant="outline" className="text-xs">Mark no-show</Button>
                       </div>
@@ -170,7 +170,7 @@ export default function TutorDashboard() {
                         </div>
                         <div className="text-sm text-[#64748b] mt-1"><Calendar size={12} className="inline mr-1"/>{l.date}</div>
                       </div>
-                      <span className="font-semibold text-[#C76FD8]">₹{l.amount.toLocaleString()}</span>
+                      <span className="font-semibold text-[#8774DB]">₹{l.amount.toLocaleString()}</span>
                     </CardContent>
                   </Card>
                 ))}
@@ -199,7 +199,7 @@ export default function TutorDashboard() {
                           return (
                             <td key={d} className="px-2 py-0.5 text-center">
                               <button onClick={() => toggleSlot(d, h)}
-                                className={`w-12 h-6 rounded transition-colors text-[10px] font-medium ${on ? "bg-[#C76FD8] text-white" : "bg-slate-100 text-slate-400 hover:bg-slate-200"}`}>
+                                className={`w-12 h-6 rounded transition-colors text-[10px] font-medium ${on ? "bg-[#8774DB] text-white" : "bg-slate-100 text-slate-400 hover:bg-slate-200"}`}>
                                 {on ? "Open" : ""}
                               </button>
                             </td>
@@ -210,7 +210,7 @@ export default function TutorDashboard() {
                   </tbody>
                 </table>
               </div>
-              <Button className="bg-[#C76FD8] text-white" onClick={() => alert("Availability saved! (TODO: sync to DB)")}>
+              <Button className="bg-[#8774DB] text-white" onClick={() => alert("Availability saved! (TODO: sync to DB)")}>
                 Save availability
               </Button>
             </div>
@@ -227,7 +227,7 @@ export default function TutorDashboard() {
                 <Card key={label} className="border border-[#fdf2f8]">
                   <CardContent className="p-4">
                     <div className="text-xs text-[#64748b] mb-1">{label}</div>
-                    <div className={`text-xl font-bold ${highlight ? "text-[#C76FD8]" : "text-slate-800"}`}>{value}</div>
+                    <div className={`text-xl font-bold ${highlight ? "text-[#8774DB]" : "text-slate-800"}`}>{value}</div>
                     {sub && <div className="text-xs text-slate-400">{sub}</div>}
                   </CardContent>
                 </Card>
@@ -264,7 +264,7 @@ export default function TutorDashboard() {
                         <TableCell className="font-medium text-sm">{t.student}</TableCell>
                         <TableCell className="text-right text-sm">₹{t.gross}</TableCell>
                         <TableCell className="text-right text-sm text-red-500">-₹{t.fee}</TableCell>
-                        <TableCell className="text-right text-sm font-semibold text-[#C76FD8]">₹{t.payout}</TableCell>
+                        <TableCell className="text-right text-sm font-semibold text-[#8774DB]">₹{t.payout}</TableCell>
                         <TableCell><Badge className="bg-green-100 text-green-700 text-xs">{t.status}</Badge></TableCell>
                       </TableRow>
                     ))}
@@ -281,7 +281,7 @@ export default function TutorDashboard() {
                 <div className="p-3 border-b border-[#fdf2f8] font-semibold text-slate-700 text-sm">Students</div>
                 {CONVERSATIONS.map((c, i) => (
                   <div key={c.student} className={`p-3 cursor-pointer hover:bg-[#fafafa] flex items-start gap-2 ${i === 0 ? "bg-[#fce7f3]" : ""}`}>
-                    <Avatar className="w-8 h-8 flex-shrink-0"><AvatarFallback className="bg-[#C76FD8] text-white text-xs">{c.student.charAt(0)}</AvatarFallback></Avatar>
+                    <Avatar className="w-8 h-8 flex-shrink-0"><AvatarFallback className="bg-[#8774DB] text-white text-xs">{c.student.charAt(0)}</AvatarFallback></Avatar>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-slate-800 truncate">{c.student}</span>
@@ -289,7 +289,7 @@ export default function TutorDashboard() {
                       </div>
                       <div className="text-xs text-[#64748b] truncate">{c.last}</div>
                     </div>
-                    {c.unread > 0 && <span className="w-4 h-4 rounded-full bg-[#C76FD8] text-white text-[9px] flex items-center justify-center">{c.unread}</span>}
+                    {c.unread > 0 && <span className="w-4 h-4 rounded-full bg-[#8774DB] text-white text-[9px] flex items-center justify-center">{c.unread}</span>}
                   </div>
                 ))}
               </div>
@@ -298,7 +298,7 @@ export default function TutorDashboard() {
                 <div className="flex-1 overflow-y-auto p-4 space-y-3">
                   {msgs.map((m, i) => (
                     <div key={i} className={`flex ${m.mine ? "justify-end" : "justify-start"}`}>
-                      <div className={`max-w-xs px-3 py-2 rounded-xl text-sm ${m.mine ? "bg-[#C76FD8] text-white" : "bg-slate-100 text-slate-800"}`}>
+                      <div className={`max-w-xs px-3 py-2 rounded-xl text-sm ${m.mine ? "bg-[#8774DB] text-white" : "bg-slate-100 text-slate-800"}`}>
                         <p>{m.text}</p>
                         <p className={`text-[10px] mt-1 ${m.mine ? "text-pink-200" : "text-slate-400"}`}>{m.time}</p>
                       </div>
@@ -307,7 +307,7 @@ export default function TutorDashboard() {
                 </div>
                 <form onSubmit={sendMsg} className="p-3 border-t border-[#fdf2f8] flex gap-2">
                   <Input value={msgInput} onChange={e => setMsgInput(e.target.value)} placeholder="Type a message…" className="flex-1 text-sm"/>
-                  <Button size="sm" type="submit" className="bg-[#C76FD8] text-white"><Send size={14}/></Button>
+                  <Button size="sm" type="submit" className="bg-[#8774DB] text-white"><Send size={14}/></Button>
                 </form>
               </div>
             </div>
@@ -330,7 +330,7 @@ export default function TutorDashboard() {
                 <div><Label>Specialties (comma-separated)</Label><Input defaultValue="Business, IELTS, Conversation, Writing" className="mt-1"/></div>
                 <div><Label>Certifications (comma-separated)</Label><Input defaultValue="CELTA, TESOL" className="mt-1"/></div>
                 <div><Label>Video intro URL</Label><Input placeholder="https://youtube.com/…" className="mt-1"/></div>
-                <Button className="bg-[#C76FD8] text-white">Save profile</Button>
+                <Button className="bg-[#8774DB] text-white">Save profile</Button>
               </CardContent>
             </Card>
           </TabsContent>

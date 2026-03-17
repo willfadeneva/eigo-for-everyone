@@ -102,7 +102,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
             : `We'll reach you at ${form.email} or ${form.phone}.`}
         </p>
         <Link href="/dashboard/student">
-          <Button className="bg-[#C76FD8] text-white">Go to dashboard</Button>
+          <Button className="bg-[#8774DB] text-white">Go to dashboard</Button>
         </Link>
       </div>
     </div>
@@ -111,7 +111,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
   return (
     <div className="min-h-screen bg-[#ffffff] py-10 px-4">
       <div className="max-w-2xl mx-auto">
-        <Link href={`/tutors/${tutorId}`} className="text-sm text-[#C76FD8] hover:underline mb-6 block">
+        <Link href={`/tutors/${tutorId}`} className="text-sm text-[#8774DB] hover:underline mb-6 block">
           ← Back to profile
         </Link>
 
@@ -122,7 +122,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
           {STEPS.map((s, i) => (
             <div key={s} className="flex items-center gap-2">
               <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${
-                i < step ? "bg-[#C76FD8] text-white" : i === step ? "bg-[#C76FD8] text-white ring-4 ring-[#C76FD8]/20" : "bg-slate-200 text-[#64748b]"}`}>
+                i < step ? "bg-[#8774DB] text-white" : i === step ? "bg-[#8774DB] text-white ring-4 ring-[#8774DB]/20" : "bg-slate-200 text-[#64748b]"}`}>
                 {i < step ? <Check size={12} /> : i + 1}
               </div>
               <span className={i === step ? "font-medium text-slate-800" : "text-slate-400 hidden sm:block"}>{s}</span>
@@ -140,20 +140,20 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                 <h2 className="font-semibold text-slate-800 flex items-center gap-2"><Clock size={16}/> Select lesson type</h2>
                 {LESSON_TYPES.map(lt => (
                   <div key={lt.id} onClick={() => setLessonType(lt)}
-                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${lessonType.id === lt.id ? "border-[#C76FD8] bg-[#fce7f3]" : "border-[#fce7f3] hover:border-slate-300"}`}>
+                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${lessonType.id === lt.id ? "border-[#8774DB] bg-[#fce7f3]" : "border-[#fce7f3] hover:border-slate-300"}`}>
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-semibold text-slate-800">{lt.label}</div>
                         <div className="text-sm text-[#64748b]">{lt.duration} minutes</div>
                         {lt.badge && <Badge className="mt-1 bg-[#f9a8d4] text-[#9d174d] text-xs">{lt.badge}</Badge>}
                       </div>
-                      <div className="text-xl font-bold text-[#C76FD8]">
+                      <div className="text-xl font-bold text-[#8774DB]">
                         {lt.price === 0 ? "FREE" : `₹${lt.price}`}
                       </div>
                     </div>
                   </div>
                 ))}
-                <Button onClick={() => setStep(1)} className="w-full bg-[#C76FD8] text-white mt-2">
+                <Button onClick={() => setStep(1)} className="w-full bg-[#8774DB] text-white mt-2">
                   Continue <ChevronRight size={16} className="ml-1"/>
                 </Button>
               </div>
@@ -182,7 +182,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                               <td key={d} className="px-1 py-0.5 text-center">
                                 {avail ? (
                                   <button onClick={() => setSelectedSlot(key)}
-                                    className={`w-7 h-6 rounded text-[10px] font-medium transition-all ${sel ? "bg-[#C76FD8] text-white" : "bg-[#fce7f3] text-[#C76FD8] hover:bg-[#6AABDD] hover:text-white"}`}>
+                                    className={`w-7 h-6 rounded text-[10px] font-medium transition-all ${sel ? "bg-[#8774DB] text-white" : "bg-[#fce7f3] text-[#8774DB] hover:bg-[#49D1FD] hover:text-white"}`}>
                                     {sel ? "✓" : ""}
                                   </button>
                                 ) : <span className="inline-block w-7 h-6 rounded bg-[#fafafa]"/>}
@@ -194,10 +194,10 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                     </tbody>
                   </table>
                 </div>
-                {selectedSlot && <p className="text-sm text-[#C76FD8] font-medium">Selected: {selectedSlot} IST</p>}
+                {selectedSlot && <p className="text-sm text-[#8774DB] font-medium">Selected: {selectedSlot} IST</p>}
                 <div className="flex gap-3">
                   <Button variant="outline" onClick={() => setStep(0)} className="flex-1">Back</Button>
-                  <Button onClick={() => setStep(2)} disabled={!selectedSlot} className="flex-1 bg-[#C76FD8] text-white">Continue</Button>
+                  <Button onClick={() => setStep(2)} disabled={!selectedSlot} className="flex-1 bg-[#8774DB] text-white">Continue</Button>
                 </div>
               </div>
             )}
@@ -213,7 +213,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                     <label className="block text-sm font-medium text-slate-700 mb-1">First name <span className="text-red-500">*</span></label>
                     <input value={form.firstName} onChange={e => setField("firstName", e.target.value)}
                       placeholder="e.g. Rahul"
-                      className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#C76FD8] ${errors.firstName ? "border-red-400" : "border-[#fce7f3]"}`}/>
+                      className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#8774DB] ${errors.firstName ? "border-red-400" : "border-[#fce7f3]"}`}/>
                     {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
                   </div>
 
@@ -222,7 +222,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                     <label className="block text-sm font-medium text-slate-700 mb-1">Middle name <span className="text-slate-400 font-normal">(optional)</span></label>
                     <input value={form.middleName} onChange={e => setField("middleName", e.target.value)}
                       placeholder="e.g. Kumar"
-                      className="w-full border border-[#fce7f3] rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#C76FD8]"/>
+                      className="w-full border border-[#fce7f3] rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#8774DB]"/>
                   </div>
 
                   {/* Last name */}
@@ -230,7 +230,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                     <label className="block text-sm font-medium text-slate-700 mb-1">Last name <span className="text-red-500">*</span></label>
                     <input value={form.lastName} onChange={e => setField("lastName", e.target.value)}
                       placeholder="e.g. Sharma"
-                      className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#C76FD8] ${errors.lastName ? "border-red-400" : "border-[#fce7f3]"}`}/>
+                      className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#8774DB] ${errors.lastName ? "border-red-400" : "border-[#fce7f3]"}`}/>
                     {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
                   </div>
                 </div>
@@ -240,7 +240,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                   <label className="block text-sm font-medium text-slate-700 mb-1">Phone number <span className="text-red-500">*</span></label>
                   <input value={form.phone} onChange={e => setField("phone", e.target.value)}
                     placeholder="+91 98765 43210"
-                    className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#C76FD8] ${errors.phone ? "border-red-400" : "border-[#fce7f3]"}`}/>
+                    className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#8774DB] ${errors.phone ? "border-red-400" : "border-[#fce7f3]"}`}/>
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
 
@@ -249,7 +249,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                   <label className="block text-sm font-medium text-slate-700 mb-1">Email address <span className="text-red-500">*</span></label>
                   <input type="email" value={form.email} onChange={e => setField("email", e.target.value)}
                     placeholder="you@example.com"
-                    className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#C76FD8] ${errors.email ? "border-red-400" : "border-[#fce7f3]"}`}/>
+                    className={`w-full border rounded-lg px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#8774DB] ${errors.email ? "border-red-400" : "border-[#fce7f3]"}`}/>
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
 
@@ -260,7 +260,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                     {(["email","phone","both"] as const).map(opt => (
                       <button key={opt} onClick={() => setField("contactBy", opt)}
                         className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all capitalize ${
-                          form.contactBy === opt ? "border-[#C76FD8] bg-[#fce7f3] text-[#C76FD8]" : "border-[#fce7f3] text-[#475569] hover:border-slate-300"
+                          form.contactBy === opt ? "border-[#8774DB] bg-[#fce7f3] text-[#8774DB]" : "border-[#fce7f3] text-[#475569] hover:border-slate-300"
                         }`}>
                         {opt === "both" ? "Email & Phone" : opt.charAt(0).toUpperCase() + opt.slice(1)}
                       </button>
@@ -276,7 +276,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
 
                 <div className="flex gap-3">
                   <Button variant="outline" onClick={() => setStep(1)} className="flex-1">Back</Button>
-                  <Button onClick={handleDetailsNext} className="flex-1 bg-[#C76FD8] text-white">
+                  <Button onClick={handleDetailsNext} className="flex-1 bg-[#8774DB] text-white">
                     {isFree ? "Confirm trial booking" : "Continue to payment"}
                   </Button>
                 </div>
@@ -304,7 +304,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
                   <Separator />
                   <div className="flex justify-between font-bold text-base">
                     <span>Total</span>
-                    <span className="text-[#C76FD8]">₹{lessonType.price}</span>
+                    <span className="text-[#8774DB]">₹{lessonType.price}</span>
                   </div>
                 </div>
 
@@ -314,7 +314,7 @@ export default function BookPage({ params }: { params: Promise<{ tutorId: string
 
                 <div className="flex gap-3">
                   <Button variant="outline" onClick={() => setStep(2)} className="flex-1">Back</Button>
-                  <Button onClick={confirm} className="flex-1 bg-[#C76FD8] text-white">Confirm Booking (Demo)</Button>
+                  <Button onClick={confirm} className="flex-1 bg-[#8774DB] text-white">Confirm Booking (Demo)</Button>
                 </div>
               </div>
             )}

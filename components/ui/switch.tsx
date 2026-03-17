@@ -15,8 +15,8 @@ export function Switch({ checked = false, onCheckedChange, disabled }: SwitchPro
       aria-checked={checked}
       disabled={disabled}
       onClick={() => onCheckedChange?.(!checked)}
-      className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#C76FD8] focus:ring-offset-2 ${
-        checked ? "bg-[#6AABDD]" : "bg-slate-200"
+      className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#8774DB] focus:ring-offset-2 ${
+        checked ? "bg-[#49D1FD]" : "bg-slate-200"
       } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
     >
       <span

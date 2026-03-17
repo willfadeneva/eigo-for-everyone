@@ -196,7 +196,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
               </div>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {t.specialties.map((s: string) => (
-                  <Badge key={s} className="bg-[#fce7f3] text-[#C76FD8] text-xs">{s}</Badge>
+                  <Badge key={s} className="bg-[#fce7f3] text-[#8774DB] text-xs">{s}</Badge>
                 ))}
               </div>
             </div>
@@ -246,7 +246,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
                       {DAYS.map(d => (
                         <td key={d} className="px-1 py-0.5 text-center">
                           {AVAILABLE.has(`${d}-${slot}`) ? (
-                            <span className="inline-block w-6 h-5 rounded bg-[#6AABDD]/10 border border-[#C76FD8]/20" />
+                            <span className="inline-block w-6 h-5 rounded bg-[#49D1FD]/10 border border-[#8774DB]/20" />
                           ) : (
                             <span className="inline-block w-6 h-5 rounded bg-[#fafafa]" />
                           )}
@@ -291,10 +291,10 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
         {/* ── Sticky sidebar ── */}
         <aside className="w-full lg:w-72 flex-shrink-0">
           <div className="sticky top-24">
-            <Card className="border-2 border-[#C76FD8]/10 shadow-lg">
+            <Card className="border-2 border-[#8774DB]/10 shadow-lg">
               <CardContent className="p-5 space-y-4">
                 <div>
-                  <div className="text-2xl font-bold text-[#C76FD8]">₹{t.hourlyRate.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-[#8774DB]">₹{t.hourlyRate.toLocaleString()}</div>
                   <div className="text-xs text-slate-400">per 50-min lesson</div>
                 </div>
                 <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3">
@@ -307,7 +307,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
                   </Button>
                 </Link>
                 <Link href={`/book/${t.id}`} className="block">
-                  <Button variant="outline" className="w-full border-[#C76FD8] text-[#C76FD8] hover:bg-[#fce7f3]">
+                  <Button variant="outline" className="w-full border-[#8774DB] text-[#8774DB] hover:bg-[#fce7f3]">
                     Book 50-min lesson
                   </Button>
                 </Link>

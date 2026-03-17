@@ -23,7 +23,7 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       points: locale === "ja"
         ? ["目標・予算・時間で絞り込み", "インド人学習者の本物の口コミ", "予約前に紹介動画を確認"]
         : ["Filter by goal, budget & time", "Read verified Indian student reviews", "Watch intro videos before booking"],
-      color: "bg-[#fce7f3] text-[#C76FD8]",
+      color: "bg-[#fce7f3] text-[#8774DB]",
     },
     {
       icon: CalendarCheck,
@@ -33,7 +33,7 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       points: locale === "ja"
         ? ["無料または割引体験レッスン", "UPI・Paytm・カードで支払い", "即座に予約確定"]
         : ["Free or discounted trial lessons", "Pay via UPI, Paytm, cards", "Instant booking confirmation"],
-      color: "bg-[#C76FD8]/20 text-[#C76FD8]",
+      color: "bg-[#8774DB]/15 text-[#8774DB]",
     },
     {
       icon: Video,
@@ -43,7 +43,7 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       points: locale === "ja"
         ? ["HD動画、ブラウザ内 — アプリ不要", "インタラクティブホワイトボード", "レッスン録画で復習可能"]
         : ["HD video, in-browser — no app needed", "Interactive whiteboard & notes", "Lesson recordings for review"],
-      color: "bg-[#7DE84A]/20 text-[#2d7a0a]",
+      color: "bg-[#AFF035]/20 text-[#3a7c11]",
     },
     {
       icon: Star,
@@ -53,7 +53,7 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       points: locale === "ja"
         ? ["目標トラッカーとレッスン履歴", "講師を評価", "週次パッケージで最大20%節約"]
         : ["Goal tracker & lesson history", "Rate & review your tutor", "Weekly packages save up to 20%"],
-      color: "bg-[#6AABDD]/20 text-[#1d4ed8]",
+      color: "bg-[#49D1FD]/20 text-[#0369a1]",
     },
   ];
 
@@ -78,13 +78,13 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#f0eeff] via-[#ffffff] to-[#fff0f9] py-16 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-[#C76FD8]/10 text-[#C76FD8] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t("tag")}</span>
+          <span className="inline-block bg-[#8774DB]/10 text-[#8774DB] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t("tag")}</span>
           <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] mb-5 leading-tight">
             {t("title")}
           </h1>
           <p className="text-lg text-[#64748b] max-w-xl mx-auto mb-8">{t("subtitle")}</p>
           <Link href="/tutors">
-            <Button className="bg-[#C76FD8] hover:bg-[#A855B5] text-white px-8 py-3 text-base rounded-full">
+            <Button className="bg-[#8774DB] hover:bg-[#7B61C9] text-white px-8 py-3 text-base rounded-full">
               {t("findTutor")} <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>
@@ -106,13 +106,13 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
                   </div>
                 </div>
                 <div className="flex-1">
-                  <span className="text-sm font-bold text-[#C76FD8] uppercase tracking-widest">Step {step.number}</span>
+                  <span className="text-sm font-bold text-[#8774DB] uppercase tracking-widest">Step {step.number}</span>
                   <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mt-1 mb-3">{step.title}</h2>
                   <p className="text-[#64748b] leading-relaxed mb-4">{step.desc}</p>
                   <ul className="space-y-2">
                     {step.points.map(p => (
                       <li key={p} className="flex items-center gap-2 text-[#475569] text-sm">
-                        <CheckCircle size={15} className="text-[#C76FD8] flex-shrink-0" /> {p}
+                        <CheckCircle size={15} className="text-[#8774DB] flex-shrink-0" /> {p}
                       </li>
                     ))}
                   </ul>
@@ -144,10 +144,10 @@ export default async function HowItWorksPage({ params }: { params: Promise<{ loc
         <p className="text-[#64748b] mb-8 max-w-md mx-auto">{t("readySub")}</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/tutors">
-            <Button className="bg-[#C76FD8] hover:bg-[#A855B5] text-white px-8 py-3 rounded-full text-base">{t("browseTutors")}</Button>
+            <Button className="bg-[#8774DB] hover:bg-[#7B61C9] text-white px-8 py-3 rounded-full text-base">{t("browseTutors")}</Button>
           </Link>
           <Link href="/auth/login">
-            <Button variant="outline" className="border-[#C76FD8] text-[#C76FD8] px-8 py-3 rounded-full text-base">{t("createAccount")}</Button>
+            <Button variant="outline" className="border-[#8774DB] text-[#8774DB] px-8 py-3 rounded-full text-base">{t("createAccount")}</Button>
           </Link>
         </div>
       </section>

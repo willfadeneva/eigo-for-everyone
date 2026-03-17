@@ -33,8 +33,8 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="bg-gradient-to-br from-[#f0eeff] via-[#ffffff] to-[#fff0f9] py-20 sm:py-28 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white border border-[#fbcfe8] rounded-full px-4 py-1.5 text-sm text-[#C76FD8] font-medium mb-6 shadow-sm">
-            <Shield size={14} className="text-[#C76FD8]" /> {t("heroTag")}
+          <div className="inline-flex items-center gap-2 bg-white border border-[#fbcfe8] rounded-full px-4 py-1.5 text-sm text-[#8774DB] font-medium mb-6 shadow-sm">
+            <Shield size={14} className="text-[#8774DB]" /> {t("heroTag")}
           </div>
           <h1 className="text-4xl sm:text-6xl font-bold text-[#0f172a] leading-tight mb-6">
             {t("heroTitle")}
@@ -44,12 +44,12 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/tutors">
-              <Button size="lg" className="bg-[#6AABDD] hover:bg-[#C76FD8] text-white px-8 py-4 text-base rounded-full w-full sm:w-auto">
+              <Button size="lg" className="bg-[#49D1FD] hover:bg-[#8774DB] text-white px-8 py-4 text-base rounded-full w-full sm:w-auto">
                 {t("findTutor")} <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
             <Link href="/how-it-works">
-              <Button size="lg" variant="outline" className="border-[#C76FD8] text-[#C76FD8] px-8 py-4 text-base rounded-full w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-[#8774DB] text-[#8774DB] px-8 py-4 text-base rounded-full w-full sm:w-auto">
                 {t("howItWorks")}
               </Button>
             </Link>
@@ -58,7 +58,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Stats ── */}
-      <section className="bg-[#6AABDD] py-10 px-4">
+      <section className="bg-[#49D1FD] py-10 px-4">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
           {STATS.map(s => (
             <div key={s.label}>
@@ -76,7 +76,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-[#0f172a]">{t("featuredTitle")}</h2>
             <p className="text-[#64748b] mt-1">{t("featuredSub")}</p>
           </div>
-          <Link href="/tutors" className="text-[#C76FD8] font-medium text-sm hidden sm:block hover:underline">
+          <Link href="/tutors" className="text-[#8774DB] font-medium text-sm hidden sm:block hover:underline">
             {t("viewAll")}
           </Link>
         </div>
@@ -98,13 +98,13 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-wrap gap-1 mb-4">
                   {t2.specialties.map(s => (
-                    <Badge key={s} className="bg-[#fce7f3] text-[#C76FD8] text-xs">{s}</Badge>
+                    <Badge key={s} className="bg-[#fce7f3] text-[#8774DB] text-xs">{s}</Badge>
                   ))}
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-[#C76FD8]">{t2.rate}<span className="text-xs font-normal text-slate-400"> /50min</span></span>
+                  <span className="font-bold text-[#8774DB]">{t2.rate}<span className="text-xs font-normal text-slate-400"> /50min</span></span>
                   <Link href={`/tutors/${t2.id}`}>
-                    <Button size="sm" className="bg-[#C76FD8] text-white text-xs">{t("findTutor")}</Button>
+                    <Button size="sm" className="bg-[#8774DB] text-white text-xs">{t("findTutor")}</Button>
                   </Link>
                 </div>
               </CardContent>
@@ -112,7 +112,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="text-center mt-6 sm:hidden">
-          <Link href="/tutors" className="text-[#C76FD8] font-medium">{t("viewAll")}</Link>
+          <Link href="/tutors" className="text-[#8774DB] font-medium">{t("viewAll")}</Link>
         </div>
       </section>
 
@@ -128,9 +128,9 @@ export default function HomePage() {
             return (
               <div key={step.step} className="text-center">
                 <div className="w-16 h-16 rounded-2xl bg-[#fce7f3] flex items-center justify-center mx-auto mb-4">
-                  <Icon size={28} className="text-[#C76FD8]" />
+                  <Icon size={28} className="text-[#8774DB]" />
                 </div>
-                <div className="text-xs font-bold text-[#C76FD8] uppercase tracking-widest mb-1">Step {step.step}</div>
+                <div className="text-xs font-bold text-[#8774DB] uppercase tracking-widest mb-1">Step {step.step}</div>
                 <h3 className="font-semibold text-[#0f172a] mb-2">{step.title}</h3>
                 <p className="text-sm text-[#64748b] leading-relaxed">{step.desc}</p>
               </div>
@@ -140,11 +140,11 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 px-4 text-center bg-gradient-to-r from-[#C76FD8] to-[#C76FD8]">
+      <section className="py-20 px-4 text-center bg-gradient-to-r from-[#8774DB] to-[#8774DB]">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{t("ctaTitle")}</h2>
         <p className="text-pink-200 mb-8 max-w-md mx-auto">{t("ctaDesc")}</p>
         <Link href="/tutors">
-          <Button size="lg" className="bg-white text-[#C76FD8] hover:bg-[#fafafa] px-10 py-4 text-base rounded-full font-semibold">
+          <Button size="lg" className="bg-white text-[#8774DB] hover:bg-[#fafafa] px-10 py-4 text-base rounded-full font-semibold">
             {t("ctaButton")}
           </Button>
         </Link>

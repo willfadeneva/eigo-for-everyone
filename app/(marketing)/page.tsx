@@ -62,7 +62,7 @@ export default function HomePage() {
     <div className="overflow-x-hidden">
 
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
-      <section className="relative bg-gradient-to-br from-[#0f172a] via-[#C76FD8] to-[#4338ca] text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#0f172a] via-[#8774DB] to-[#4338ca] text-white overflow-hidden">
         {/* Sakura decorative blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#f9a8d4] opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#f9a8d4] opacity-10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -114,7 +114,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="text-3xl font-bold text-[#C76FD8]">{s.value}</div>
+                <div className="text-3xl font-bold text-[#8774DB]">{s.value}</div>
                 <div className="text-sm text-[#64748b] mt-1">{s.label}</div>
               </div>
             ))}
@@ -133,9 +133,9 @@ export default function HomePage() {
             {HOW_IT_WORKS.map(({ step, icon: Icon, title, desc }) => (
               <div key={step} className="relative text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#fce7f3] mb-5">
-                  <Icon className="text-[#C76FD8]" size={26} />
+                  <Icon className="text-[#8774DB]" size={26} />
                 </div>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-6 h-6 rounded-full bg-[#C76FD8] text-white text-xs font-bold flex items-center justify-center">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-6 h-6 rounded-full bg-[#8774DB] text-white text-xs font-bold flex items-center justify-center">
                   {step}
                 </div>
                 <h3 className="text-lg font-semibold text-[#0f172a] mb-2">{title}</h3>
@@ -145,7 +145,7 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-10">
             <Link href="/auth/register">
-              <Button size="lg" className="bg-[#6AABDD] hover:bg-[#C76FD8] text-white">
+              <Button size="lg" className="bg-[#49D1FD] hover:bg-[#8774DB] text-white">
                 Get started free <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
@@ -161,7 +161,7 @@ export default function HomePage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f172a]">Featured Tutors</h2>
               <p className="mt-2 text-[#64748b]">Hand-picked, top-rated, and ready to teach</p>
             </div>
-            <Link href="/tutors" className="text-[#C76FD8] font-medium hover:underline hidden sm:flex items-center gap-1">
+            <Link href="/tutors" className="text-[#8774DB] font-medium hover:underline hidden sm:flex items-center gap-1">
               View all <ChevronRight size={16} />
             </Link>
           </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
                     {t.avatar ? (
                       <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover flex-shrink-0" />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-[#6AABDD] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-[#49D1FD] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
                         {t.name.charAt(0)}
                       </div>
                     )}
@@ -188,7 +188,7 @@ export default function HomePage() {
                           <p className="text-sm text-[#64748b] line-clamp-1">{t.tagline}</p>
                         </div>
                         <div className="text-right">
-                          <div className="font-bold text-[#C76FD8]">{t.rate}</div>
+                          <div className="font-bold text-[#8774DB]">{t.rate}</div>
                           <div className="text-xs text-slate-400">/50min</div>
                         </div>
                       </div>
@@ -209,7 +209,7 @@ export default function HomePage() {
 
                   <div className="flex flex-wrap gap-1 mb-4">
                     {t.specialties.map((s) => (
-                      <Badge key={s} variant="secondary" className="text-xs bg-[#fce7f3] text-[#C76FD8]">
+                      <Badge key={s} variant="secondary" className="text-xs bg-[#fce7f3] text-[#8774DB]">
                         {s}
                       </Badge>
                     ))}
@@ -217,12 +217,12 @@ export default function HomePage() {
 
                   <div className="flex gap-2">
                     <Link href={`/tutors/${t.id}`} className="flex-1">
-                      <Button variant="outline" className="w-full border-[#C76FD8] text-[#C76FD8] hover:bg-[#fce7f3] text-sm">
+                      <Button variant="outline" className="w-full border-[#8774DB] text-[#8774DB] hover:bg-[#fce7f3] text-sm">
                         Profile
                       </Button>
                     </Link>
                     <Link href={`/tutors/${t.id}?book=true`} className="flex-1">
-                      <Button className="w-full bg-[#6AABDD] hover:bg-[#C76FD8] text-white text-sm">
+                      <Button className="w-full bg-[#49D1FD] hover:bg-[#8774DB] text-white text-sm">
                         Book Trial
                       </Button>
                     </Link>
@@ -234,7 +234,7 @@ export default function HomePage() {
 
           <div className="text-center mt-8 sm:hidden">
             <Link href="/tutors">
-              <Button variant="outline" className="border-[#C76FD8] text-[#C76FD8]">
+              <Button variant="outline" className="border-[#8774DB] text-[#8774DB]">
                 View all tutors <ChevronRight size={16} className="ml-1" />
               </Button>
             </Link>
@@ -259,7 +259,7 @@ export default function HomePage() {
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="flex gap-4 p-5 bg-white rounded-xl border border-[#fdf2f8] hover:shadow-sm transition-shadow">
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#fce7f3] flex items-center justify-center">
-                  <Icon size={20} className="text-[#C76FD8]" />
+                  <Icon size={20} className="text-[#8774DB]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#0f172a] mb-1">{title}</h3>
@@ -291,7 +291,7 @@ export default function HomePage() {
                     {t.avatar ? (
                       <img src={t.avatar} alt={t.name} className="w-8 h-8 rounded-full object-cover" />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-[#6AABDD] flex items-center justify-center text-white text-xs font-bold">
+                      <div className="w-8 h-8 rounded-full bg-[#49D1FD] flex items-center justify-center text-white text-xs font-bold">
                         {t.name.charAt(0)}
                       </div>
                     )}
@@ -308,7 +308,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── CTA Banner ───────────────────────────────────────────────── */}
-      <section className="py-20 bg-gradient-to-r from-[#C76FD8] to-[#4338ca]">
+      <section className="py-20 bg-gradient-to-r from-[#8774DB] to-[#4338ca]">
         <div className="max-w-3xl mx-auto px-4 text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to speak English with confidence?
