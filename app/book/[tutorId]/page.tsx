@@ -8,12 +8,21 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Check, Clock, ChevronRight, CalendarDays, CreditCard, User } from "lucide-react";
 
+// ── Tutor registry (same as profile page) ────────────────────────────────────
+const ALL_TUTORS: Record<string, { id: string; displayName: string; tagline: string; avatarUrl: string; hourlyRate: number }> = {
+  t1: { id:"t1", displayName:"Sarah Mitchell",  tagline:"Business English & IELTS specialist",   avatarUrl:"https://randomuser.me/api/portraits/women/44.jpg", hourlyRate:1200 },
+  t2: { id:"t2", displayName:"James O'Brien",   tagline:"Oxford grad · Academic writing & TOEFL", avatarUrl:"https://randomuser.me/api/portraits/men/32.jpg",   hourlyRate:1400 },
+  t3: { id:"t3", displayName:"Emily Chen",      tagline:"Kids & teens English · Patient & fun!",  avatarUrl:"https://randomuser.me/api/portraits/women/68.jpg", hourlyRate:900  },
+  t4: { id:"t4", displayName:"David Thompson",  tagline:"Spoken English · Accent reduction",      avatarUrl:"https://randomuser.me/api/portraits/men/75.jpg",   hourlyRate:800  },
+  t5: { id:"t5", displayName:"Priya Williams",  tagline:"IELTS 8.5 scorer · 5 years coaching",   avatarUrl:"https://randomuser.me/api/portraits/women/26.jpg", hourlyRate:1100 },
+  t6: { id:"t6", displayName:"Michael Ross",    tagline:"Corporate trainer · C-suite presentations", avatarUrl:"https://randomuser.me/api/portraits/men/52.jpg", hourlyRate:1800 },
+  t7: { id:"t7", displayName:"Anna Kowalski",   tagline:"Grammar focus · Beginners welcome",      avatarUrl:"https://randomuser.me/api/portraits/women/14.jpg", hourlyRate:700  },
+  t8: { id:"t8", displayName:"Tom Nakamura",    tagline:"TOEFL 118 · Test prep specialist",       avatarUrl:"https://randomuser.me/api/portraits/men/18.jpg",   hourlyRate:1300 },
+  t9: { id:"t9", displayName:"Lisa Fernandez",  tagline:"Fun conversational English for all ages", avatarUrl:"https://randomuser.me/api/portraits/women/57.jpg", hourlyRate:850  },
+};
+function getTutor(id: string) { return ALL_TUTORS[id] ?? ALL_TUTORS["t1"]; }
+
 type LessonType = { id: string; label: string; duration: number; price: number; badge?: string };
-const LESSON_TYPES: LessonType[] = [
-  { id: "trial",  label: "Trial lesson",    duration: 25, price:  0,   badge: "FREE — No charge" },
-  { id: "50min",  label: "Regular lesson",  duration: 50, price: 1200 },
-  { id: "80min",  label: "Extended lesson", duration: 80, price: 1800 },
-];
 
 const DAYS  = ["Mon 17","Tue 18","Wed 19","Thu 20","Fri 21","Sat 22","Sun 23"];
 const TIMES = ["09:00","10:00","11:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
@@ -31,6 +40,12 @@ const ALL_STEPS  = ["Lesson type","Date & time","Your details","Payment"];
 const FREE_STEPS = ["Lesson type","Date & time","Your details"];
 
 export default function BookPage({ params }: { params: { tutorId: string } }) {
+  const tutor = getTutor(params.tutorId);
+  const LESSON_TYPES: LessonType[] = [
+    { id: "trial", label: "Trial lesson",    duration: 25, price: 0,                        badge: "FREE — No charge" },
+    { id: "50min", label: "Regular lesson",  duration: 50, price: tutor.hourlyRate },
+    { id: "80min", label: "Extended lesson", duration: 80, price: Math.round(tutor.hourlyRate * 1.5) },
+  ];
   const [step, setStep]             = useState(0);
   const [lessonType, setLessonType] = useState<LessonType>(LESSON_TYPES[0]);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
@@ -75,8 +90,8 @@ export default function BookPage({ params }: { params: { tutorId: string } }) {
         </h1>
         <p className="text-slate-500 mb-2">
           {isFree
-            ? `Thanks ${form.firstName}! Your free trial with Sarah Mitchell is scheduled.`
-            : `Your lesson with Sarah Mitchell is scheduled.`}
+            ? `Thanks ${form.firstName}! Your free trial with ${tutor.displayName} is scheduled.`
+            : `Your lesson with ${tutor.displayName} is scheduled.`}
         </p>
         <p className="text-slate-400 text-sm mb-6">
           {form.contactBy === "email"
@@ -99,7 +114,7 @@ export default function BookPage({ params }: { params: { tutorId: string } }) {
           ← Back to profile
         </Link>
 
-        <h1 className="text-2xl font-bold text-slate-900 mb-2">Book a lesson with Sarah Mitchell</h1>
+        <h1 className="text-2xl font-bold text-slate-900 mb-2">Book a lesson with {tutor.displayName}</h1>
 
         {/* Step indicator */}
         <div className="flex items-center gap-2 mb-8 text-sm flex-wrap">
@@ -274,7 +289,7 @@ export default function BookPage({ params }: { params: { tutorId: string } }) {
 
                 <div className="bg-slate-50 rounded-lg p-4 space-y-3 text-sm">
                   {[
-                    ["Tutor",      "Sarah Mitchell"],
+                    ["Tutor", tutor.displayName],
                     ["Lesson",     `${lessonType.label} (${lessonType.duration} min)`],
                     ["Date & time",`${selectedSlot} IST`],
                     ["Name",       [form.firstName, form.middleName, form.lastName].filter(Boolean).join(" ")],
