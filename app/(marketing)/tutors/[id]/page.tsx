@@ -6,15 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Star, BookOpen, Clock, CheckCircle, MessageCircle } from "lucide-react";
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const t = ALL_TUTORS[params.id] ?? ALL_TUTORS["t1"];
-  return {
-    title: `${t.displayName} | Eigo for Everyone`,
-    description: t.tagline,
-  };
-}
-
-// TODO: replace with prisma query
+// ── Tutor registry — MUST be defined before generateMetadata ─────────────────
 const ALL_TUTORS: Record<string, any> = {
   t1: {
     id:"t1", displayName:"Sarah Mitchell", flag:"🇺🇸",
@@ -121,11 +113,11 @@ const ALL_TUTORS: Record<string, any> = {
     specialties:["Grammar","Beginners","Foundation","Writing","ESL"],
     certifications:["CELTA","MA in English Linguistics"],
     yearsExperience:4, responseTimeHours:2,
-    bio:`Hi! I'm Anna from Poland — I know exactly how hard it is to learn English as a second language because I did it myself! I specialize in grammar fundamentals and am super patient with beginners. No judgment, just progress.`,
+    bio:`Hi! I'm Anna from Poland — I know exactly how hard it is to learn English because I did it myself! I specialize in grammar fundamentals and am super patient with beginners. No judgment, just progress.`,
     reviews:[
-      { author:"Geeta R.", city:"Pune",     rating:5, date:"March 2026", comment:"Anna is so patient! I was embarrassed about my English but she made me feel comfortable immediately." },
-      { author:"Raj M.",   city:"Delhi",    rating:5, date:"Feb 2026",   comment:"Finally understand grammar rules that confused me for years. Very clear explanations." },
-      { author:"Lata S.",  city:"Chennai",  rating:4, date:"Jan 2026",   comment:"Good teacher, very encouraging. Highly recommend for absolute beginners." },
+      { author:"Geeta R.", city:"Pune",    rating:5, date:"March 2026", comment:"Anna is so patient! I was embarrassed about my English but she made me feel comfortable immediately." },
+      { author:"Raj M.",   city:"Delhi",   rating:5, date:"Feb 2026",   comment:"Finally understand grammar rules that confused me for years. Very clear explanations." },
+      { author:"Lata S.",  city:"Chennai", rating:4, date:"Jan 2026",   comment:"Good teacher, very encouraging. Highly recommend for absolute beginners." },
     ],
   },
   t8: {
@@ -155,24 +147,29 @@ const ALL_TUTORS: Record<string, any> = {
     yearsExperience:6, responseTimeHours:2,
     bio:`Hi! I'm Lisa from Manila — warm, fun, and passionate about English. I believe the best way to learn is through real conversation, laughter, and topics you actually care about. Whether you're 8 or 80, let's talk!`,
     reviews:[
-      { author:"Pooja T.", city:"Mumbai",   rating:5, date:"March 2026", comment:"Lisa is so warm and encouraging. My confidence in speaking has skyrocketed!" },
-      { author:"Rohan S.", city:"Pune",     rating:5, date:"Feb 2026",   comment:"My daughter loves her sessions. Super fun and engaging for kids." },
-      { author:"Asha M.",  city:"Chennai",  rating:5, date:"Jan 2026",   comment:"I used to freeze when speaking English. Not anymore! Thank you Lisa." },
+      { author:"Pooja T.", city:"Mumbai",  rating:5, date:"March 2026", comment:"Lisa is so warm and encouraging. My confidence in speaking has skyrocketed!" },
+      { author:"Rohan S.", city:"Pune",    rating:5, date:"Feb 2026",   comment:"My daughter loves her sessions. Super fun and engaging for kids." },
+      { author:"Asha M.",  city:"Chennai", rating:5, date:"Jan 2026",   comment:"I used to freeze when speaking English. Not anymore! Thank you Lisa." },
     ],
   },
 };
 
-function getTutor(id: string) {
-  return ALL_TUTORS[id] ?? ALL_TUTORS["t1"];
+// ── Metadata ─────────────────────────────────────────────────────────────────
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const t = ALL_TUTORS[params.id] ?? ALL_TUTORS["t1"];
+  return {
+    title: `${t.displayName} | Eigo for Everyone`,
+    description: t.tagline,
+  };
 }
 
-const DAYS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const DAYS  = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const SLOTS = ["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
 const AVAILABLE = new Set(["Mon-09:00","Mon-10:00","Mon-15:00","Mon-16:00","Tue-09:00","Tue-10:00","Tue-11:00","Wed-14:00","Wed-15:00","Thu-09:00","Thu-10:00","Fri-09:00","Fri-10:00","Fri-11:00","Fri-15:00","Sat-10:00","Sat-11:00"]);
 
 export default function TutorProfilePage({ params }: { params: { id: string } }) {
-  const t = getTutor(params.id);
-  const MOCK_REVIEWS = t.reviews ?? [];
+  const t = ALL_TUTORS[params.id] ?? ALL_TUTORS["t1"];
+  const reviews = t.reviews ?? [];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -183,15 +180,9 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
 
           {/* Hero */}
           <div className="flex gap-5 items-start">
-            {t.avatarUrl ? (
-              <img src={t.avatarUrl} alt={t.displayName} className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-[#e0e7ff]" />
-            ) : (
-              <div className="w-20 h-20 rounded-full bg-[#3730a3] flex items-center justify-center text-white text-3xl font-bold flex-shrink-0">
-                {t.displayName.charAt(0)}
-              </div>
-            )}
+            <img src={t.avatarUrl} alt={t.displayName} className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-[#e0e7ff]" />
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-slate-900">{t.displayName}</h1>
+              <h1 className="text-2xl font-bold text-slate-900">{t.flag} {t.displayName}</h1>
               <p className="text-slate-500 mt-0.5">{t.tagline}</p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-3 text-sm text-slate-600">
                 <span className="flex items-center gap-1">
@@ -221,7 +212,7 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
 
           <Separator />
 
-          {/* Credentials */}
+          {/* Certifications */}
           <div>
             <h2 className="text-lg font-semibold text-slate-900 mb-3">Certifications</h2>
             <div className="flex flex-wrap gap-2">
@@ -253,7 +244,7 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
                       {DAYS.map(d => (
                         <td key={d} className="px-1 py-0.5 text-center">
                           {AVAILABLE.has(`${d}-${slot}`) ? (
-                            <span className="inline-block w-6 h-5 rounded bg-[#3730a3]/10 border border-[#3730a3]/20" title="Available" />
+                            <span className="inline-block w-6 h-5 rounded bg-[#3730a3]/10 border border-[#3730a3]/20" />
                           ) : (
                             <span className="inline-block w-6 h-5 rounded bg-slate-50" />
                           )}
@@ -264,7 +255,7 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-slate-400 mt-2">■ = Available slot · Select a time when booking</p>
+            <p className="text-xs text-slate-400 mt-2">■ = Available · Select a time when booking</p>
           </div>
 
           <Separator />
@@ -275,11 +266,11 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
               Reviews <span className="text-slate-400 font-normal text-sm">({t.totalReviews})</span>
             </h2>
             <div className="space-y-4">
-              {MOCK_REVIEWS.map((r: any, i: number) => (
+              {reviews.map((r: any, i: number) => (
                 <div key={i} className="bg-slate-50 rounded-lg p-4">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                     <div className="flex items-center gap-2">
-                      <img src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? 'men' : 'women'}/${20 + i * 7}.jpg`} alt={r.author} className="w-7 h-7 rounded-full object-cover" />
+                      <img src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? "men" : "women"}/${20 + i * 7}.jpg`} alt={r.author} className="w-7 h-7 rounded-full object-cover" />
                       <span className="font-medium text-sm text-slate-800">{r.author}</span>
                       <span className="text-xs text-slate-400">{r.city}</span>
                     </div>
@@ -304,13 +295,10 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
                   <div className="text-2xl font-bold text-[#3730a3]">₹{t.hourlyRate.toLocaleString()}</div>
                   <div className="text-xs text-slate-400">per 50-min lesson</div>
                 </div>
-                {t.trialRate && (
-                  <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3">
-                    <div className="text-sm font-semibold text-[#831843]">Trial lesson — FREE 🎉</div>
-                    <div className="text-xs text-[#9f1239] mt-0.5">25 min · One per student</div>
-                  </div>
-                )}
-
+                <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3">
+                  <div className="text-sm font-semibold text-[#831843]">Trial lesson — FREE 🎉</div>
+                  <div className="text-xs text-[#9f1239] mt-0.5">25 min · One per student</div>
+                </div>
                 <Link href={`/book/${t.id}?type=trial`} className="block">
                   <Button className="w-full bg-[#f9a8d4] hover:bg-[#f472b6] text-[#831843] font-semibold">
                     Book Free Trial
@@ -326,22 +314,19 @@ export default function TutorProfilePage({ params }: { params: { id: string } })
                     <MessageCircle size={15} /> Message tutor
                   </Button>
                 </Link>
-
                 <Separator />
-
-                <div className="space-y-2 text-sm text-slate-600">
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Experience</span>
-                    <span className="font-medium">{t.yearsExperience} years</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Response time</span>
-                    <span className="font-medium">~{t.responseTimeHours}h</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Lessons taught</span>
-                    <span className="font-medium">{t.totalLessons.toLocaleString()}</span>
-                  </div>
+                <div className="space-y-2 text-sm">
+                  {[
+                    ["Experience", `${t.yearsExperience} years`],
+                    ["Response time", `~${t.responseTimeHours}h`],
+                    ["Lessons taught", t.totalLessons.toLocaleString()],
+                    ["Avg rating", `⭐ ${t.avgRating} / 5.0`],
+                  ].map(([label, value]) => (
+                    <div key={label as string} className="flex justify-between">
+                      <span className="text-slate-400">{label}</span>
+                      <span className="font-medium text-slate-700">{value}</span>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

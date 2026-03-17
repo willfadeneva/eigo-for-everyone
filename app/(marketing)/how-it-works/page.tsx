@@ -130,7 +130,7 @@ export default function HowItWorksPage() {
           <Link href="/tutors">
             <Button className="bg-[#3730a3] hover:bg-[#312e81] text-white px-8 py-3 rounded-full text-base">Browse tutors</Button>
           </Link>
-          <Link href="/auth/signup">
+          <Link href="/auth/register">
             <Button variant="outline" className="border-[#3730a3] text-[#3730a3] px-8 py-3 rounded-full text-base">Create free account</Button>
           </Link>
         </div>

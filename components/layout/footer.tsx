@@ -10,7 +10,7 @@ export function Footer() {
               <span className="text-2xl font-bold text-white">英語</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Japan&apos;s premier English tutoring marketplace. Learn with verified native tutors.
+              India&apos;s English tutoring marketplace. Learn with verified native tutors, from ₹700/hr.
             </p>
           </div>
 
@@ -19,28 +19,26 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/tutors" className="hover:text-white transition-colors">Find Tutors</Link></li>
               <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-
               <li><Link href="/auth/register" className="hover:text-white transition-colors">Sign Up Free</Link></li>
+              <li><Link href="/auth/login" className="hover:text-white transition-colors">Log In</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-4">Tutors</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/become-a-tutor" className="hover:text-white transition-colors">Become a Tutor</Link></li>
-              <li><Link href="/tutor-resources" className="hover:text-white transition-colors">Resources</Link></li>
-              <li><Link href="/auth/register?role=tutor" className="hover:text-white transition-colors">Apply Now</Link></li>
+              <li><Link href="/tutors" className="hover:text-white transition-colors">Browse All Tutors</Link></li>
+              <li><Link href="/auth/register" className="hover:text-white transition-colors">Become a Tutor</Link></li>
+              <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link href="/how-it-works" className="hover:text-white transition-colors">About Eigo</Link></li>
+              <li><Link href="/how-it-works#faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link href="/auth/register" className="hover:text-white transition-colors">Get Started</Link></li>
             </ul>
           </div>
         </div>
@@ -50,7 +48,7 @@ export function Footer() {
             © {new Date().getFullYear()} Eigo for Everyone. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
-            🇯🇵 Made for Japan&apos;s English learners
+            🇮🇳 Built for India&apos;s English learners
           </p>
         </div>
       </div>
