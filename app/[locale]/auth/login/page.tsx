@@ -44,7 +44,7 @@ export default function AuthPage() {
     <div className="min-h-screen flex">
 
       {/* ── Left panel — hero ── */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#D946EF] via-[#8B5CF6] to-[#38BDF8] flex-col justify-between p-12 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#C76FD8] via-[#C76FD8] to-[#6AABDD] flex-col justify-between p-12 relative overflow-hidden">
         {/* Background blobs */}
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-0 w-72 h-72 bg-[#f9a8d4]/10 rounded-full blur-3xl" />
@@ -104,7 +104,7 @@ export default function AuthPage() {
 
           {/* Mobile logo */}
           <Link href="/" className="flex items-center justify-center gap-2 mb-8 lg:hidden">
-            <span className="text-3xl font-bold text-[#D946EF]">英語</span>
+            <span className="text-3xl font-bold text-[#C76FD8]">英語</span>
             <span className="text-[#475569] font-medium">Eigo for Everyone</span>
           </Link>
 
@@ -119,7 +119,7 @@ export default function AuthPage() {
                 />
                 {(["signin","signup"] as Tab[]).map(t => (
                   <button key={t} onClick={() => switchTab(t)}
-                    className={`relative z-10 flex-1 py-3 text-sm font-semibold rounded-xl transition-colors duration-200 ${tab === t ? "text-[#D946EF]" : "text-slate-400 hover:text-[#475569]"}`}>
+                    className={`relative z-10 flex-1 py-3 text-sm font-semibold rounded-xl transition-colors duration-200 ${tab === t ? "text-[#C76FD8]" : "text-slate-400 hover:text-[#475569]"}`}>
                     {t === "signin" ? "Sign In" : "Sign Up"}
                   </button>
                 ))}
@@ -134,7 +134,7 @@ export default function AuthPage() {
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2 text-center">I am a…</p>
                 <div className="relative flex bg-slate-100 rounded-2xl p-1 gap-1">
                   <div
-                    className="absolute top-1 bottom-1 bg-[#38BDF8] rounded-xl shadow transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                    className="absolute top-1 bottom-1 bg-[#6AABDD] rounded-xl shadow transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
                     style={{ width: "calc(50% - 4px)", left: role === "student" ? "4px" : "calc(50%)" }}
                   />
                   {([
@@ -185,7 +185,7 @@ export default function AuthPage() {
                   <div className="flex justify-between items-center mb-1.5">
                     <label className="text-sm font-medium text-slate-700">Password</label>
                     {tab === "signin" && (
-                      <Link href="#" className="text-xs text-[#D946EF] hover:underline">Forgot password?</Link>
+                      <Link href="#" className="text-xs text-[#C76FD8] hover:underline">Forgot password?</Link>
                     )}
                   </div>
                   <div className="relative">
@@ -224,7 +224,7 @@ export default function AuthPage() {
 
                 {/* CTA button */}
                 <Button type="submit" disabled={loading}
-                  className="w-full bg-[#38BDF8] hover:bg-[#D946EF] active:scale-[0.98] text-white h-12 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-pink-200">
+                  className="w-full bg-[#6AABDD] hover:bg-[#C76FD8] active:scale-[0.98] text-white h-12 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-pink-200">
                   {loading
                     ? <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {tab === "signin" ? "Signing in…" : "Creating account…"}</span>
                     : tab === "signin" ? "Sign In" : `Create ${role} account →`
@@ -236,7 +236,7 @@ export default function AuthPage() {
               <p className="text-center text-sm text-[#64748b]">
                 {tab === "signin" ? "Don't have an account? " : "Already have an account? "}
                 <button onClick={() => switchTab(tab === "signin" ? "signup" : "signin")}
-                  className="text-[#D946EF] font-semibold hover:underline transition-colors">
+                  className="text-[#C76FD8] font-semibold hover:underline transition-colors">
                   {tab === "signin" ? "Sign up free" : "Sign in"}
                 </button>
               </p>

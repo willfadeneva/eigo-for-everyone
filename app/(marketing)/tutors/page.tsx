@@ -62,7 +62,7 @@ export default function TutorsPage() {
           <Badge
             key={s}
             variant={s === "All" ? "default" : "secondary"}
-            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#D946EF] text-white" : "hover:bg-[#fce7f3] hover:text-[#D946EF]"}`}
+            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#C76FD8] text-white" : "hover:bg-[#fce7f3] hover:text-[#C76FD8]"}`}
           >
             {s}
           </Badge>
@@ -80,7 +80,7 @@ export default function TutorsPage() {
                   <Badge
                     key={s}
                     variant={s === "All" ? "default" : "secondary"}
-                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#D946EF] text-white" : "hover:bg-[#fce7f3] hover:text-[#D946EF]"}`}
+                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#C76FD8] text-white" : "hover:bg-[#fce7f3] hover:text-[#C76FD8]"}`}
                   >
                     {s}
                   </Badge>
@@ -112,7 +112,7 @@ export default function TutorsPage() {
               </Select>
             </div>
 
-            <Button className="w-full bg-[#38BDF8] hover:bg-[#D946EF] text-white text-sm">Apply filters</Button>
+            <Button className="w-full bg-[#6AABDD] hover:bg-[#C76FD8] text-white text-sm">Apply filters</Button>
           </div>
         </aside>
 
@@ -130,7 +130,7 @@ export default function TutorsPage() {
             <Button variant="outline" size="sm" disabled>← Prev</Button>
             {[1,2,3].map((p) => (
               <Button key={p} variant={p === 1 ? "default" : "outline"} size="sm"
-                className={p === 1 ? "bg-[#D946EF] text-white" : ""}>
+                className={p === 1 ? "bg-[#C76FD8] text-white" : ""}>
                 {p}
               </Button>
             ))}

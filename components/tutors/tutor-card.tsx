@@ -62,7 +62,7 @@ export function TutorCard({
                 className="w-16 h-16 rounded-full object-cover border-2 border-[#fbcfe8]"
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-[#38BDF8] flex items-center justify-center text-white text-xl font-bold border-2 border-[#fbcfe8]">
+              <div className="w-16 h-16 rounded-full bg-[#6AABDD] flex items-center justify-center text-white text-xl font-bold border-2 border-[#fbcfe8]">
                 {displayName.charAt(0).toUpperCase()}
               </div>
             )}
@@ -78,7 +78,7 @@ export function TutorCard({
                 )}
               </div>
               <div className="text-right flex-shrink-0">
-                <div className="font-bold text-[#D946EF] text-lg">{rateDisplay}</div>
+                <div className="font-bold text-[#C76FD8] text-lg">{rateDisplay}</div>
                 <div className="text-xs text-slate-400">/ 50min</div>
               </div>
             </div>
@@ -113,7 +113,7 @@ export function TutorCard({
                   <Badge
                     key={s}
                     variant="secondary"
-                    className="text-xs capitalize bg-[#fce7f3] text-[#D946EF] hover:bg-[#fbcfe8]"
+                    className="text-xs capitalize bg-[#fce7f3] text-[#C76FD8] hover:bg-[#fbcfe8]"
                   >
                     {s}
                   </Badge>
@@ -132,13 +132,13 @@ export function TutorCard({
           <Link href={`/tutors/${id}`} className="flex-1">
             <Button
               variant="outline"
-              className="w-full border-[#D946EF] text-[#D946EF] hover:bg-[#fce7f3]"
+              className="w-full border-[#C76FD8] text-[#C76FD8] hover:bg-[#fce7f3]"
             >
               {viewProfileLabel}
             </Button>
           </Link>
           <Link href={`/tutors/${id}?book=true`} className="flex-1">
-            <Button className="w-full bg-[#38BDF8] hover:bg-[#D946EF] text-white">
+            <Button className="w-full bg-[#6AABDD] hover:bg-[#C76FD8] text-white">
               {bookTrialLabel}
             </Button>
           </Link>

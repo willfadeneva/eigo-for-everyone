@@ -49,9 +49,9 @@ export default function StudentDashboard() {
     <div className="min-h-screen bg-[#ffffff]">
       {/* Header */}
       <div className="bg-white border-b border-[#fdf2f8] px-4 sm:px-8 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-[#D946EF]">英語 Eigo</Link>
+        <Link href="/" className="text-xl font-bold text-[#C76FD8]">英語 Eigo</Link>
         <div className="flex items-center gap-3">
-          <Avatar className="w-8 h-8"><AvatarFallback className="bg-[#D946EF] text-white text-sm">P</AvatarFallback></Avatar>
+          <Avatar className="w-8 h-8"><AvatarFallback className="bg-[#C76FD8] text-white text-sm">P</AvatarFallback></Avatar>
           <span className="text-sm font-medium text-slate-700 hidden sm:block">Priya Sharma</span>
         </div>
       </div>
@@ -79,7 +79,7 @@ export default function StudentDashboard() {
                 <Card key={label} className="border border-[#fdf2f8]">
                   <CardContent className="p-4 flex items-center gap-3">
                     <div className="w-9 h-9 rounded-lg bg-[#fce7f3] flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} className="text-[#D946EF]" />
+                      <Icon size={18} className="text-[#C76FD8]" />
                     </div>
                     <div><div className="font-bold text-[#0f172a]">{value}</div><div className="text-xs text-[#64748b]">{label}</div></div>
                   </CardContent>
@@ -99,12 +99,12 @@ export default function StudentDashboard() {
                       </div>
                     </div>
                     <Link href={`/classroom/${UPCOMING[0].id}`}>
-                      <Button className="bg-[#D946EF] text-white flex items-center gap-2">
+                      <Button className="bg-[#C76FD8] text-white flex items-center gap-2">
                         <Video size={15}/> Join lesson
                       </Button>
                     </Link>
                   </div>
-                ) : <p className="text-[#64748b] text-sm">No upcoming lessons. <Link href="/tutors" className="text-[#D946EF] underline">Find a tutor</Link>.</p>}
+                ) : <p className="text-[#64748b] text-sm">No upcoming lessons. <Link href="/tutors" className="text-[#C76FD8] underline">Find a tutor</Link>.</p>}
               </CardContent>
             </Card>
 
@@ -133,7 +133,7 @@ export default function StudentDashboard() {
                         <div className="text-sm text-[#64748b] mt-1"><Calendar size={12} className="inline mr-1"/>{l.date} · {l.duration} min</div>
                       </div>
                       <Link href={`/classroom/${l.id}`}>
-                        <Button size="sm" className="bg-[#D946EF] text-white"><Video size={13} className="mr-1"/>Join</Button>
+                        <Button size="sm" className="bg-[#C76FD8] text-white"><Video size={13} className="mr-1"/>Join</Button>
                       </Link>
                     </CardContent>
                   </Card>
@@ -154,7 +154,7 @@ export default function StudentDashboard() {
                         <div className="text-sm text-[#64748b] mt-1"><Calendar size={12} className="inline mr-1"/>{l.date} · {l.duration} min</div>
                       </div>
                       {!l.reviewed ? (
-                        <Button size="sm" variant="outline" className="border-[#D946EF] text-[#D946EF]">
+                        <Button size="sm" variant="outline" className="border-[#C76FD8] text-[#C76FD8]">
                           <Star size={13} className="mr-1"/>Leave review
                         </Button>
                       ) : <span className="text-xs text-green-600 font-medium">✓ Reviewed</span>}
@@ -169,7 +169,7 @@ export default function StudentDashboard() {
           <TabsContent value="tutors">
             <div className="mb-4 flex gap-3">
               <Input placeholder="Search tutors…" className="max-w-sm"/>
-              <Link href="/tutors"><Button className="bg-[#D946EF] text-white">Browse all</Button></Link>
+              <Link href="/tutors"><Button className="bg-[#C76FD8] text-white">Browse all</Button></Link>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {RECOMMENDED.map(t => <TutorCard key={t.id} {...t} />)}
@@ -184,7 +184,7 @@ export default function StudentDashboard() {
                 <div className="p-3 border-b border-[#fdf2f8] font-semibold text-slate-700 text-sm">Conversations</div>
                 {CONVERSATIONS.map((c, i) => (
                   <div key={c.tutor} className={`p-3 cursor-pointer hover:bg-[#fafafa] flex items-start gap-2 ${i === 0 ? "bg-[#fce7f3]" : ""}`}>
-                    <Avatar className="w-8 h-8 flex-shrink-0"><AvatarFallback className="bg-[#D946EF] text-white text-xs">{c.tutor.charAt(0)}</AvatarFallback></Avatar>
+                    <Avatar className="w-8 h-8 flex-shrink-0"><AvatarFallback className="bg-[#C76FD8] text-white text-xs">{c.tutor.charAt(0)}</AvatarFallback></Avatar>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-semibold text-slate-800 truncate">{c.tutor}</span>
@@ -192,7 +192,7 @@ export default function StudentDashboard() {
                       </div>
                       <div className="text-xs text-[#64748b] truncate">{c.last}</div>
                     </div>
-                    {c.unread > 0 && <span className="w-4 h-4 rounded-full bg-[#D946EF] text-white text-[9px] flex items-center justify-center">{c.unread}</span>}
+                    {c.unread > 0 && <span className="w-4 h-4 rounded-full bg-[#C76FD8] text-white text-[9px] flex items-center justify-center">{c.unread}</span>}
                   </div>
                 ))}
               </div>
@@ -202,7 +202,7 @@ export default function StudentDashboard() {
                 <div className="flex-1 overflow-y-auto p-4 space-y-3">
                   {MESSAGES.map((m, i) => (
                     <div key={i} className={`flex ${m.mine ? "justify-end" : "justify-start"}`}>
-                      <div className={`max-w-xs px-3 py-2 rounded-xl text-sm ${m.mine ? "bg-[#D946EF] text-white" : "bg-slate-100 text-slate-800"}`}>
+                      <div className={`max-w-xs px-3 py-2 rounded-xl text-sm ${m.mine ? "bg-[#C76FD8] text-white" : "bg-slate-100 text-slate-800"}`}>
                         <p>{m.text}</p>
                         <p className={`text-[10px] mt-1 ${m.mine ? "text-pink-200" : "text-slate-400"}`}>{m.time}</p>
                       </div>
@@ -211,7 +211,7 @@ export default function StudentDashboard() {
                 </div>
                 <div className="p-3 border-t border-[#fdf2f8] flex gap-2">
                   <Input placeholder="Type a message…" className="flex-1 text-sm"/>
-                  <Button size="sm" className="bg-[#D946EF] text-white"><Send size={14}/></Button>
+                  <Button size="sm" className="bg-[#C76FD8] text-white"><Send size={14}/></Button>
                 </div>
               </div>
             </div>
@@ -228,14 +228,14 @@ export default function StudentDashboard() {
                   <div><Label>Timezone</Label><Input defaultValue="Asia/Kolkata" className="mt-1"/></div>
                   <div><Label>Avatar URL</Label><Input placeholder="https://…" className="mt-1"/></div>
                 </div>
-                <Button className="bg-[#D946EF] text-white">Save changes</Button>
+                <Button className="bg-[#C76FD8] text-white">Save changes</Button>
                 <hr className="border-[#fdf2f8]"/>
                 <h3 className="font-semibold text-slate-700 text-sm">Change password</h3>
                 <div className="space-y-2">
                   <div><Label>Current password</Label><Input type="password" className="mt-1"/></div>
                   <div><Label>New password</Label><Input type="password" className="mt-1"/></div>
                 </div>
-                <Button variant="outline" className="border-[#D946EF] text-[#D946EF]">Update password</Button>
+                <Button variant="outline" className="border-[#C76FD8] text-[#C76FD8]">Update password</Button>
               </CardContent>
             </Card>
           </TabsContent>

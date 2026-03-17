@@ -71,7 +71,7 @@ export default function AdminDashboard() {
                   </div>
                   <div className="flex gap-2 flex-shrink-0">
                     <Link href={`/admin/tutors/${encodeURIComponent(t.name.toLowerCase().replace(/ /g,"-"))}`}>
-                      <Button size="sm" className="bg-[#D946EF] text-white text-xs h-7">Review</Button>
+                      <Button size="sm" className="bg-[#C76FD8] text-white text-xs h-7">Review</Button>
                     </Link>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
                       <div className="text-xs text-slate-400">{u.email}</div>
                     </TableCell>
                     <TableCell>
-                      <Badge className={u.role === "TUTOR" ? "bg-[#fce7f3] text-[#D946EF] text-xs" : "bg-slate-100 text-[#475569] text-xs"}>
+                      <Badge className={u.role === "TUTOR" ? "bg-[#fce7f3] text-[#C76FD8] text-xs" : "bg-slate-100 text-[#475569] text-xs"}>
                         {u.role}
                       </Badge>
                     </TableCell>

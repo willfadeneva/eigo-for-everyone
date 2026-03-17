@@ -15,7 +15,7 @@ const STEPS = [
     title: "Find your tutor",
     desc: "Browse hundreds of verified English tutors. Filter by specialty — IELTS, Business English, Kids, Conversation — budget, availability, and rating. Every tutor profile shows real reviews from Indian learners like you.",
     points: ["Filter by goal, budget & time", "Read verified Indian student reviews", "Watch intro videos before booking"],
-    color: "bg-indigo-50 text-[#D946EF]",
+    color: "bg-indigo-50 text-[#C76FD8]",
   },
   {
     icon: CalendarCheck,
@@ -58,15 +58,15 @@ export default function HowItWorksPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#fce7f3] to-white py-16 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-[#38BDF8]/10 text-[#D946EF] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Simple. Flexible. Effective.</span>
+          <span className="inline-block bg-[#6AABDD]/10 text-[#C76FD8] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Simple. Flexible. Effective.</span>
           <h1 className="text-4xl sm:text-5xl font-bold text-[#0f172a] mb-5 leading-tight">
-            Learn English in <span className="text-[#D946EF]">4 easy steps</span>
+            Learn English in <span className="text-[#C76FD8]">4 easy steps</span>
           </h1>
           <p className="text-lg text-[#475569] max-w-xl mx-auto mb-8">
             From finding your perfect tutor to your first lesson — Eigo makes learning English simple, affordable, and personalised for India.
           </p>
           <Link href="/tutors">
-            <Button className="bg-[#38BDF8] hover:bg-[#D946EF] text-white px-8 py-3 text-base rounded-full">
+            <Button className="bg-[#6AABDD] hover:bg-[#C76FD8] text-white px-8 py-3 text-base rounded-full">
               Find a tutor <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>
@@ -90,13 +90,13 @@ export default function HowItWorksPage() {
                 </div>
                 {/* Text */}
                 <div className="flex-1">
-                  <span className="text-sm font-bold text-[#D946EF] uppercase tracking-widest">Step {step.number}</span>
+                  <span className="text-sm font-bold text-[#C76FD8] uppercase tracking-widest">Step {step.number}</span>
                   <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172a] mt-1 mb-3">{step.title}</h2>
                   <p className="text-[#475569] leading-relaxed mb-4">{step.desc}</p>
                   <ul className="space-y-2">
                     {step.points.map(p => (
                       <li key={p} className="flex items-center gap-2 text-slate-700 text-sm">
-                        <CheckCircle size={15} className="text-[#D946EF] flex-shrink-0" /> {p}
+                        <CheckCircle size={15} className="text-[#C76FD8] flex-shrink-0" /> {p}
                       </li>
                     ))}
                   </ul>
@@ -128,10 +128,10 @@ export default function HowItWorksPage() {
         <p className="text-[#475569] mb-8 max-w-md mx-auto">Join thousands of Indian students who improved their English with a verified tutor on Eigo.</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/tutors">
-            <Button className="bg-[#38BDF8] hover:bg-[#D946EF] text-white px-8 py-3 rounded-full text-base">Browse tutors</Button>
+            <Button className="bg-[#6AABDD] hover:bg-[#C76FD8] text-white px-8 py-3 rounded-full text-base">Browse tutors</Button>
           </Link>
           <Link href="/auth/register">
-            <Button variant="outline" className="border-[#D946EF] text-[#D946EF] px-8 py-3 rounded-full text-base">Create free account</Button>
+            <Button variant="outline" className="border-[#C76FD8] text-[#C76FD8] px-8 py-3 rounded-full text-base">Create free account</Button>
           </Link>
         </div>
       </section>

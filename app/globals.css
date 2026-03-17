@@ -9,31 +9,31 @@
   --foreground: #0f172a;
   --radius: 0.75rem;
 
-  /* Brand */
-  --brand-primary: #D946EF;   /* hot fuchsia */
-  --brand-accent:  #38BDF8;   /* sky blue     */
-  --brand-mint:    #4ADE80;   /* bright mint  */
-  --brand-yellow:  #FCD34D;   /* butter       */
-  --brand-coral:   #FB923C;   /* coral        */
+  /* Preppy 5-color palette */
+  --preppy-yellow: #F5A623;
+  --preppy-purple: #C76FD8;   /* PRIMARY */
+  --preppy-lime:   #7DE84A;
+  --preppy-blue:   #6AABDD;
+  --preppy-coral:  #E85540;
 
   /* shadcn tokens */
   --card: #ffffff;
   --card-foreground: #0f172a;
   --popover: #ffffff;
   --popover-foreground: #0f172a;
-  --primary: #D946EF;
+  --primary: #C76FD8;
   --primary-foreground: #ffffff;
-  --secondary: #fdf2f8;
-  --secondary-foreground: #86198f;
-  --muted: #f8fafc;
+  --secondary: #fdf4ff;
+  --secondary-foreground: #7e22ce;
+  --muted: #f8f8f8;
   --muted-foreground: #64748b;
-  --accent: #f0fdf9;
-  --accent-foreground: #065f46;
-  --destructive: #f87171;
+  --accent: #f0fdf4;
+  --accent-foreground: #166534;
+  --destructive: #E85540;
   --destructive-foreground: #ffffff;
-  --border: #fce7f3;
-  --input: #fdf2f8;
-  --ring: #D946EF;
+  --border: #f3e8ff;
+  --input: #fdf4ff;
+  --ring: #C76FD8;
 }
 
 @theme inline {

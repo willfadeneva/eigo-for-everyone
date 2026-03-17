@@ -130,7 +130,7 @@ export default function LessonsPage() {
                 </TableCell>
                 <TableCell className="text-[#64748b] text-xs whitespace-nowrap">{l.date}</TableCell>
                 <TableCell className="text-[#64748b]">{l.duration} min</TableCell>
-                <TableCell className="font-medium text-[#D946EF]">
+                <TableCell className="font-medium text-[#C76FD8]">
                   {l.amount === 0 ? <span className="text-pink-600 font-semibold">FREE</span> : `₹${l.amount.toLocaleString("en-IN")}`}
                 </TableCell>
                 <TableCell>

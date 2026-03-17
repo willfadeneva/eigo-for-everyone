@@ -39,7 +39,7 @@ export default function AdminTutorDetailPage() {
 
   return (
     <div className="p-6 max-w-3xl space-y-6">
-      <Link href="/admin/tutors" className="flex items-center gap-1 text-sm text-[#D946EF] hover:underline">
+      <Link href="/admin/tutors" className="flex items-center gap-1 text-sm text-[#C76FD8] hover:underline">
         <ArrowLeft size={14}/> Back to tutors
       </Link>
 
@@ -67,7 +67,7 @@ export default function AdminTutorDetailPage() {
           <div>
             <span className="text-slate-400 text-xs uppercase tracking-wide">Specialties</span>
             <div className="flex flex-wrap gap-1.5 mt-1">
-              {MOCK.specialties.map(s => <Badge key={s} className="bg-[#fce7f3] text-[#D946EF] text-xs">{s}</Badge>)}
+              {MOCK.specialties.map(s => <Badge key={s} className="bg-[#fce7f3] text-[#C76FD8] text-xs">{s}</Badge>)}
             </div>
           </div>
           <div>

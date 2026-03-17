@@ -29,7 +29,7 @@ function SaveButton({ onClick }: { onClick: () => void }) {
     setTimeout(() => setSaved(false), 2500);
   }
   return (
-    <Button onClick={handle} className="bg-[#38BDF8] hover:bg-[#D946EF] text-white flex items-center gap-2">
+    <Button onClick={handle} className="bg-[#6AABDD] hover:bg-[#C76FD8] text-white flex items-center gap-2">
       {saved ? <><CheckCircle size={15}/> Saved!</> : <><Save size={15}/> Save changes</>}
     </Button>
   );
@@ -83,7 +83,7 @@ export default function AdminSettingsPage() {
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 t === "danger"
                   ? activeTab === t ? "bg-red-600 text-white" : "text-red-600 hover:bg-red-100"
-                  : activeTab === t ? "bg-white text-[#D946EF] shadow-sm" : "text-[#64748b] hover:text-slate-700"
+                  : activeTab === t ? "bg-white text-[#C76FD8] shadow-sm" : "text-[#64748b] hover:text-slate-700"
               }`}>
               {TAB_LABELS[t]}
             </button>
@@ -253,7 +253,7 @@ export default function AdminSettingsPage() {
                 <div>
                   <Label className="text-xs">Payout cycle</Label>
                   <select value={payoutCycle} onChange={e => setPayoutCycle(e.target.value)}
-                    className="mt-1 w-full border border-[#fce7f3] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D946EF]">
+                    className="mt-1 w-full border border-[#fce7f3] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#C76FD8]">
                     <option value="weekly">Weekly</option>
                     <option value="biweekly">Bi-weekly</option>
                     <option value="monthly">Monthly</option>
@@ -268,7 +268,7 @@ export default function AdminSettingsPage() {
               <div>
                 <Label className="text-xs">Currency</Label>
                 <select value={currency} onChange={e => setCurrency(e.target.value)}
-                  className="mt-1 w-full border border-[#fce7f3] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D946EF] max-w-xs">
+                  className="mt-1 w-full border border-[#fce7f3] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#C76FD8] max-w-xs">
                   <option value="INR">INR — Indian Rupee (₹)</option>
                   <option value="USD">USD — US Dollar ($)</option>
                 </select>

@@ -65,7 +65,7 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
       <div className="flex gap-2 overflow-x-auto pb-2 mb-5 lg:hidden scrollbar-none -mx-4 px-4">
         {SPECIALTIES.map(s => (
           <Badge key={s} variant={s === "All" ? "default" : "secondary"}
-            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#D946EF] text-white" : "hover:bg-[#fce7f3] hover:text-[#D946EF]"}`}>
+            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#C76FD8] text-white" : "hover:bg-[#fce7f3] hover:text-[#C76FD8]"}`}>
             {s}
           </Badge>
         ))}
@@ -80,7 +80,7 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
               <div className="flex flex-wrap gap-2">
                 {SPECIALTIES.map(s => (
                   <Badge key={s} variant={s === "All" ? "default" : "secondary"}
-                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#D946EF] text-white" : "hover:bg-[#fce7f3] hover:text-[#D946EF]"}`}>
+                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#C76FD8] text-white" : "hover:bg-[#fce7f3] hover:text-[#C76FD8]"}`}>
                     {s}
                   </Badge>
                 ))}
@@ -106,7 +106,7 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
                 </SelectContent>
               </Select>
             </div>
-            <Button className="w-full bg-[#38BDF8] hover:bg-[#D946EF] text-white text-sm">Apply</Button>
+            <Button className="w-full bg-[#6AABDD] hover:bg-[#C76FD8] text-white text-sm">Apply</Button>
           </div>
         </aside>
 
@@ -124,7 +124,7 @@ export default async function TutorsPage({ params }: { params: Promise<{ locale:
             <Button variant="outline" size="sm" disabled>← Prev</Button>
             {[1,2,3].map(p => (
               <Button key={p} variant={p === 1 ? "default" : "outline"} size="sm"
-                className={p === 1 ? "bg-[#D946EF] text-white" : ""}>{p}</Button>
+                className={p === 1 ? "bg-[#C76FD8] text-white" : ""}>{p}</Button>
             ))}
             <Button variant="outline" size="sm">Next →</Button>
           </div>

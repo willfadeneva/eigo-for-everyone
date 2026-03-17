@@ -56,7 +56,7 @@ export default function PromoCodesPage() {
             <div><Label className="text-xs">Discount %</Label><Input type="number" value={form.discount} onChange={e => setForm({...form, discount:e.target.value})} placeholder="20" min={1} max={100} className="mt-1" required/></div>
             <div><Label className="text-xs">Max uses (blank = unlimited)</Label><Input type="number" value={form.maxUses} onChange={e => setForm({...form, maxUses:e.target.value})} placeholder="500" className="mt-1"/></div>
             <div><Label className="text-xs">Valid until</Label><Input type="date" value={form.validUntil} onChange={e => setForm({...form, validUntil:e.target.value})} className="mt-1"/></div>
-            <Button type="submit" className="bg-[#D946EF] text-white sm:col-span-4 sm:w-fit">Create code</Button>
+            <Button type="submit" className="bg-[#C76FD8] text-white sm:col-span-4 sm:w-fit">Create code</Button>
           </form>
         </CardContent>
       </Card>
@@ -74,7 +74,7 @@ export default function PromoCodesPage() {
           <TableBody>
             {codes.map(c => (
               <TableRow key={c.code}>
-                <TableCell className="font-mono font-semibold text-[#D946EF]">{c.code}</TableCell>
+                <TableCell className="font-mono font-semibold text-[#C76FD8]">{c.code}</TableCell>
                 <TableCell className="font-medium">{c.discount}% off</TableCell>
                 <TableCell className="text-sm text-[#475569]">
                   {c.used}{c.maxUses ? ` / ${c.maxUses}` : ""}
