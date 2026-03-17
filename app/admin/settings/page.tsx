@@ -29,7 +29,7 @@ function SaveButton({ onClick }: { onClick: () => void }) {
     setTimeout(() => setSaved(false), 2500);
   }
   return (
-    <Button onClick={handle} className="bg-[#3730a3] hover:bg-[#312e81] text-white flex items-center gap-2">
+    <Button onClick={handle} className="bg-[#818cf8] hover:bg-[#6366f1] text-white flex items-center gap-2">
       {saved ? <><CheckCircle size={15}/> Saved!</> : <><Save size={15}/> Save changes</>}
     </Button>
   );
@@ -71,8 +71,8 @@ export default function AdminSettingsPage() {
   return (
     <div className="p-4 sm:p-6 max-w-4xl space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Settings</h1>
-        <p className="text-sm text-slate-500 mt-1">Manage platform configuration, emails, and payments</p>
+        <h1 className="text-2xl font-bold text-[#1e1b4b]">Settings</h1>
+        <p className="text-sm text-[#7c6f9e] mt-1">Manage platform configuration, emails, and payments</p>
       </div>
 
       <div className="space-y-0">
@@ -83,7 +83,7 @@ export default function AdminSettingsPage() {
               className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 t === "danger"
                   ? activeTab === t ? "bg-red-600 text-white" : "text-red-600 hover:bg-red-100"
-                  : activeTab === t ? "bg-white text-[#3730a3] shadow-sm" : "text-slate-500 hover:text-slate-700"
+                  : activeTab === t ? "bg-white text-[#6366f1] shadow-sm" : "text-[#7c6f9e] hover:text-slate-700"
               }`}>
               {TAB_LABELS[t]}
             </button>
@@ -92,7 +92,7 @@ export default function AdminSettingsPage() {
 
         {/* ── Platform ── */}
         <div className={activeTab === "platform" ? "space-y-5" : "hidden"}>
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Commission & Pricing</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="grid sm:grid-cols-3 gap-4">
@@ -113,7 +113,7 @@ export default function AdminSettingsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Trial Lessons</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
@@ -130,7 +130,7 @@ export default function AdminSettingsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Site Access</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
@@ -164,7 +164,7 @@ export default function AdminSettingsPage() {
 
         {/* ── Email ── */}
         <div className={activeTab === "email" ? "space-y-5" : "hidden"}>
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Email Identity</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -181,14 +181,14 @@ export default function AdminSettingsPage() {
                 <Label className="text-xs">Support email</Label>
                 <Input value={supportEmail} onChange={e => setSupportEmail(e.target.value)} className="mt-1 max-w-xs" type="email"/>
               </div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 bg-slate-50 rounded-lg p-3">
+              <div className="flex items-center gap-2 text-xs text-[#7c6f9e] bg-[#faf8ff] rounded-lg p-3">
                 <Badge className="bg-green-100 text-green-700 text-xs">Resend connected</Badge>
                 Emails are sent via Resend API · re_8KP•••••
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Automated Emails</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between">
@@ -228,7 +228,7 @@ export default function AdminSettingsPage() {
 
         {/* ── Payment ── */}
         <div className={activeTab === "payment" ? "space-y-5" : "hidden"}>
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Razorpay Integration</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center gap-2 text-xs bg-amber-50 border border-amber-200 rounded-lg p-3 text-amber-800">
@@ -246,14 +246,14 @@ export default function AdminSettingsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Tutor Payouts</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <Label className="text-xs">Payout cycle</Label>
                   <select value={payoutCycle} onChange={e => setPayoutCycle(e.target.value)}
-                    className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#3730a3]">
+                    className="mt-1 w-full border border-[#e9d8fd] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#6366f1]">
                     <option value="weekly">Weekly</option>
                     <option value="biweekly">Bi-weekly</option>
                     <option value="monthly">Monthly</option>
@@ -268,7 +268,7 @@ export default function AdminSettingsPage() {
               <div>
                 <Label className="text-xs">Currency</Label>
                 <select value={currency} onChange={e => setCurrency(e.target.value)}
-                  className="mt-1 w-full border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#3730a3] max-w-xs">
+                  className="mt-1 w-full border border-[#e9d8fd] rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#6366f1] max-w-xs">
                   <option value="INR">INR — Indian Rupee (₹)</option>
                   <option value="USD">USD — US Dollar ($)</option>
                 </select>
@@ -281,7 +281,7 @@ export default function AdminSettingsPage() {
 
         {/* ── SEO ── */}
         <div className={activeTab === "seo" ? "space-y-5" : "hidden"}>
-          <Card className="border border-slate-100">
+          <Card className="border border-[#f0ebff]">
             <CardHeader className="pb-2"><CardTitle className="text-base">Site Identity</CardTitle></CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -311,7 +311,7 @@ export default function AdminSettingsPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="text-sm font-medium text-slate-800">Clear all lesson data</div>
-                  <div className="text-xs text-slate-500">Permanently delete all lesson records. Cannot be undone.</div>
+                  <div className="text-xs text-[#7c6f9e]">Permanently delete all lesson records. Cannot be undone.</div>
                 </div>
                 <Button variant="outline" className="border-red-300 text-red-600 hover:bg-red-100 shrink-0"
                   onClick={() => alert("This would clear all lesson data — disabled in demo.")}>
@@ -322,7 +322,7 @@ export default function AdminSettingsPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="text-sm font-medium text-slate-800">Suspend all new registrations</div>
-                  <div className="text-xs text-slate-500">Immediately block any new signups from students or tutors.</div>
+                  <div className="text-xs text-[#7c6f9e]">Immediately block any new signups from students or tutors.</div>
                 </div>
                 <Button variant="outline" className="border-red-300 text-red-600 hover:bg-red-100 shrink-0"
                   onClick={() => setNewRegistrations(false)}>
@@ -333,7 +333,7 @@ export default function AdminSettingsPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="text-sm font-medium text-slate-800">Enable maintenance mode</div>
-                  <div className="text-xs text-slate-500">Take the site offline for all users immediately.</div>
+                  <div className="text-xs text-[#7c6f9e]">Take the site offline for all users immediately.</div>
                 </div>
                 <Button variant="outline" className="border-red-300 text-red-600 hover:bg-red-100 shrink-0"
                   onClick={() => setMaintenanceMode(true)}>

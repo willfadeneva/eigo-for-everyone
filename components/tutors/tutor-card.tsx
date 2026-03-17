@@ -41,9 +41,9 @@ export function TutorCard({
       : `₹${Number(hourlyRate).toLocaleString("en-IN")}`;
 
   return (
-    <Card className="group hover:shadow-lg transition-shadow duration-200 border border-slate-100 overflow-hidden">
+    <Card className="group hover:shadow-lg transition-shadow duration-200 border border-[#f0ebff] overflow-hidden">
       {isFeatured && (
-        <div className="bg-[#f9a8d4] text-[#831843] text-xs font-semibold px-3 py-1 text-center">
+        <div className="bg-[#f9a8d4] text-[#9d174d] text-xs font-semibold px-3 py-1 text-center">
           ⭐ Featured Tutor
         </div>
       )}
@@ -55,10 +55,10 @@ export function TutorCard({
               <img
                 src={avatarUrl}
                 alt={displayName}
-                className="w-16 h-16 rounded-full object-cover border-2 border-[#e0e7ff]"
+                className="w-16 h-16 rounded-full object-cover border-2 border-[#ddd6fe]"
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-[#3730a3] flex items-center justify-center text-white text-xl font-bold border-2 border-[#e0e7ff]">
+              <div className="w-16 h-16 rounded-full bg-[#818cf8] flex items-center justify-center text-white text-xl font-bold border-2 border-[#ddd6fe]">
                 {displayName.charAt(0).toUpperCase()}
               </div>
             )}
@@ -68,19 +68,19 @@ export function TutorCard({
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <h3 className="font-semibold text-slate-900 truncate">{displayName}</h3>
+                <h3 className="font-semibold text-[#1e1b4b] truncate">{displayName}</h3>
                 {tagline && (
-                  <p className="text-sm text-slate-500 line-clamp-2 mt-0.5">{tagline}</p>
+                  <p className="text-sm text-[#7c6f9e] line-clamp-2 mt-0.5">{tagline}</p>
                 )}
               </div>
               <div className="text-right flex-shrink-0">
-                <div className="font-bold text-[#3730a3] text-lg">{rateDisplay}</div>
+                <div className="font-bold text-[#6366f1] text-lg">{rateDisplay}</div>
                 <div className="text-xs text-slate-400">/ 50min</div>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs sm:text-sm text-slate-500">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 text-xs sm:text-sm text-[#7c6f9e]">
               {avgRating != null && (
                 <span className="flex items-center gap-1">
                   <Star size={13} className="fill-amber-400 text-amber-400" />
@@ -109,13 +109,13 @@ export function TutorCard({
                   <Badge
                     key={s}
                     variant="secondary"
-                    className="text-xs capitalize bg-[#eef2ff] text-[#3730a3] hover:bg-[#e0e7ff]"
+                    className="text-xs capitalize bg-[#ede9fe] text-[#6366f1] hover:bg-[#ddd6fe]"
                   >
                     {s}
                   </Badge>
                 ))}
                 {specialties.length > 3 && (
-                  <Badge variant="secondary" className="text-xs bg-slate-100 text-slate-500">
+                  <Badge variant="secondary" className="text-xs bg-slate-100 text-[#7c6f9e]">
                     +{specialties.length - 3}
                   </Badge>
                 )}
@@ -128,13 +128,13 @@ export function TutorCard({
           <Link href={`/tutors/${id}`} className="flex-1">
             <Button
               variant="outline"
-              className="w-full border-[#3730a3] text-[#3730a3] hover:bg-[#eef2ff]"
+              className="w-full border-[#6366f1] text-[#6366f1] hover:bg-[#ede9fe]"
             >
               View Profile
             </Button>
           </Link>
           <Link href={`/tutors/${id}?book=true`} className="flex-1">
-            <Button className="w-full bg-[#3730a3] hover:bg-[#312e81] text-white">
+            <Button className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white">
               Book Trial
             </Button>
           </Link>

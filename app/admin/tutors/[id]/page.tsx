@@ -39,21 +39,21 @@ export default function AdminTutorDetailPage() {
 
   return (
     <div className="p-6 max-w-3xl space-y-6">
-      <Link href="/admin/tutors" className="flex items-center gap-1 text-sm text-[#3730a3] hover:underline">
+      <Link href="/admin/tutors" className="flex items-center gap-1 text-sm text-[#6366f1] hover:underline">
         <ArrowLeft size={14}/> Back to tutors
       </Link>
 
       <div className="flex items-start justify-between flex-wrap gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900">{MOCK.name}</h1>
-          <p className="text-slate-500 text-sm">{MOCK.email}</p>
+          <h1 className="text-2xl font-bold text-[#1e1b4b]">{MOCK.name}</h1>
+          <p className="text-[#7c6f9e] text-sm">{MOCK.email}</p>
         </div>
         <Badge className={{ approved:"bg-green-100 text-green-700", pending:"bg-amber-100 text-amber-700", rejected:"bg-red-100 text-red-700" }[status] + " capitalize"}>
           {status}
         </Badge>
       </div>
 
-      <Card className="border border-slate-100">
+      <Card className="border border-[#f0ebff]">
         <CardContent className="p-5 space-y-3">
           <div className="grid sm:grid-cols-2 gap-3 text-sm">
             {[
@@ -67,7 +67,7 @@ export default function AdminTutorDetailPage() {
           <div>
             <span className="text-slate-400 text-xs uppercase tracking-wide">Specialties</span>
             <div className="flex flex-wrap gap-1.5 mt-1">
-              {MOCK.specialties.map(s => <Badge key={s} className="bg-[#eef2ff] text-[#3730a3] text-xs">{s}</Badge>)}
+              {MOCK.specialties.map(s => <Badge key={s} className="bg-[#ede9fe] text-[#6366f1] text-xs">{s}</Badge>)}
             </div>
           </div>
           <div>

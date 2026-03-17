@@ -32,20 +32,20 @@ export default function AdminDashboard() {
   return (
     <div className="p-6 space-y-8 max-w-6xl">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-        <p className="text-slate-500 text-sm mt-1">Eigo for Everyone — Admin overview</p>
+        <h1 className="text-2xl font-bold text-[#1e1b4b]">Dashboard</h1>
+        <p className="text-[#7c6f9e] text-sm mt-1">Eigo for Everyone — Admin overview</p>
       </div>
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {STATS.map(({ label, value, change, icon: Icon, color }) => (
-          <Card key={label} className="border border-slate-100">
+          <Card key={label} className="border border-[#f0ebff]">
             <CardContent className="p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Icon size={16} className={color}/>
-                <span className="text-xs text-slate-500">{label}</span>
+                <span className="text-xs text-[#7c6f9e]">{label}</span>
               </div>
-              <div className="text-2xl font-bold text-slate-900">{value}</div>
+              <div className="text-2xl font-bold text-[#1e1b4b]">{value}</div>
               <div className="text-xs text-slate-400 mt-1">{change}</div>
             </CardContent>
           </Card>
@@ -66,12 +66,12 @@ export default function AdminDashboard() {
                 <div key={t.name} className="flex items-center justify-between bg-white rounded-lg p-3 border border-amber-100">
                   <div>
                     <div className="font-medium text-sm text-slate-800">{t.name}</div>
-                    <div className="text-xs text-slate-500">{t.tagline}</div>
+                    <div className="text-xs text-[#7c6f9e]">{t.tagline}</div>
                     <div className="text-xs text-slate-400">Submitted {t.submitted}</div>
                   </div>
                   <div className="flex gap-2 flex-shrink-0">
                     <Link href={`/admin/tutors/${encodeURIComponent(t.name.toLowerCase().replace(/ /g,"-"))}`}>
-                      <Button size="sm" className="bg-[#3730a3] text-white text-xs h-7">Review</Button>
+                      <Button size="sm" className="bg-[#818cf8] text-white text-xs h-7">Review</Button>
                     </Link>
                   </div>
                 </div>
@@ -81,12 +81,12 @@ export default function AdminDashboard() {
         </Card>
 
         {/* Recent signups */}
-        <Card className="border border-slate-100">
+        <Card className="border border-[#f0ebff]">
           <CardHeader className="pb-2"><CardTitle className="text-base">Recent signups</CardTitle></CardHeader>
           <CardContent className="p-0">
             <Table>
               <TableHeader>
-                <TableRow className="bg-slate-50">
+                <TableRow className="bg-[#faf8ff]">
                   <TableHead>Name</TableHead><TableHead>Role</TableHead><TableHead>Joined</TableHead>
                 </TableRow>
               </TableHeader>
@@ -98,11 +98,11 @@ export default function AdminDashboard() {
                       <div className="text-xs text-slate-400">{u.email}</div>
                     </TableCell>
                     <TableCell>
-                      <Badge className={u.role === "TUTOR" ? "bg-[#eef2ff] text-[#3730a3] text-xs" : "bg-slate-100 text-slate-600 text-xs"}>
+                      <Badge className={u.role === "TUTOR" ? "bg-[#ede9fe] text-[#6366f1] text-xs" : "bg-slate-100 text-[#5b5389] text-xs"}>
                         {u.role}
                       </Badge>
                     </TableCell>
-                    <TableCell className="text-slate-500 text-sm">{u.joined}</TableCell>
+                    <TableCell className="text-[#7c6f9e] text-sm">{u.joined}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

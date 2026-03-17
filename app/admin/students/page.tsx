@@ -27,14 +27,14 @@ const STUDENTS = [
 export default function AdminStudentsPage() {
   return (
     <div className="p-6 max-w-6xl">
-      <h1 className="text-2xl font-bold text-slate-900 mb-6">Student Management</h1>
+      <h1 className="text-2xl font-bold text-[#1e1b4b] mb-6">Student Management</h1>
       <div className="flex gap-3 mb-6">
         <Input placeholder="Search students…" className="max-w-xs"/>
       </div>
-      <div className="rounded-xl border border-slate-100 overflow-hidden bg-white">
+      <div className="rounded-xl border border-[#f0ebff] overflow-hidden bg-white">
         <Table>
           <TableHeader>
-            <TableRow className="bg-slate-50">
+            <TableRow className="bg-[#faf8ff]">
               <TableHead>Student</TableHead><TableHead>Lessons</TableHead>
               <TableHead>Total Spent</TableHead><TableHead>Joined</TableHead>
               <TableHead>Status</TableHead><TableHead>Actions</TableHead>
@@ -47,9 +47,9 @@ export default function AdminStudentsPage() {
                   <div className="font-medium text-sm">{s.name}</div>
                   <div className="text-xs text-slate-400">{s.email}</div>
                 </TableCell>
-                <TableCell className="text-sm text-slate-600">{s.lessons}</TableCell>
-                <TableCell className="text-sm font-medium text-[#3730a3]">{s.spent > 0 ? `₹${s.spent.toLocaleString("en-IN")}` : "—"}</TableCell>
-                <TableCell className="text-sm text-slate-500">{s.joined}</TableCell>
+                <TableCell className="text-sm text-[#5b5389]">{s.lessons}</TableCell>
+                <TableCell className="text-sm font-medium text-[#6366f1]">{s.spent > 0 ? `₹${s.spent.toLocaleString("en-IN")}` : "—"}</TableCell>
+                <TableCell className="text-sm text-[#7c6f9e]">{s.joined}</TableCell>
                 <TableCell>
                   <Badge className={s.status === "active" ? "bg-green-100 text-green-700 text-xs" : "bg-red-100 text-red-700 text-xs"}>
                     {s.status}

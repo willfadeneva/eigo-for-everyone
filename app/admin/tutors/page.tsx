@@ -30,7 +30,7 @@ export default function AdminTutorsPage() {
 
   return (
     <div className="p-6 max-w-6xl">
-      <h1 className="text-2xl font-bold text-slate-900 mb-6">Tutor Management</h1>
+      <h1 className="text-2xl font-bold text-[#1e1b4b] mb-6">Tutor Management</h1>
 
       <div className="flex gap-3 mb-6 flex-wrap">
         <Input placeholder="Search name, email…" className="max-w-xs" value={search} onChange={e => setSearch(e.target.value)}/>
@@ -45,10 +45,10 @@ export default function AdminTutorsPage() {
         </Select>
       </div>
 
-      <div className="rounded-xl border border-slate-100 overflow-hidden bg-white">
+      <div className="rounded-xl border border-[#f0ebff] overflow-hidden bg-white">
         <Table>
           <TableHeader>
-            <TableRow className="bg-slate-50">
+            <TableRow className="bg-[#faf8ff]">
               <TableHead>Tutor</TableHead><TableHead>Status</TableHead>
               <TableHead>Rating</TableHead><TableHead>Lessons</TableHead>
               <TableHead>Joined</TableHead><TableHead>Actions</TableHead>
@@ -71,8 +71,8 @@ export default function AdminTutorsPage() {
                 <TableCell className="text-sm">
                   {t.rating ? <span className="flex items-center gap-1"><Star size={12} className="fill-amber-400 text-amber-400"/>{t.rating}</span> : <span className="text-slate-300">—</span>}
                 </TableCell>
-                <TableCell className="text-sm text-slate-600">{t.lessons.toLocaleString()}</TableCell>
-                <TableCell className="text-sm text-slate-500">{t.joined}</TableCell>
+                <TableCell className="text-sm text-[#5b5389]">{t.lessons.toLocaleString()}</TableCell>
+                <TableCell className="text-sm text-[#7c6f9e]">{t.joined}</TableCell>
                 <TableCell>
                   <div className="flex gap-1.5 flex-wrap">
                     <Link href={`/admin/tutors/${t.id}`}>

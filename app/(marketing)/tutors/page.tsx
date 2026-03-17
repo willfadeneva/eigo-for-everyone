@@ -30,8 +30,8 @@ export default function TutorsPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Find your perfect English tutor</h1>
-        <p className="text-slate-500 text-sm sm:text-base">500+ verified tutors · Trial lessons are FREE</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1e1b4b] mb-1">Find your perfect English tutor</h1>
+        <p className="text-[#7c6f9e] text-sm sm:text-base">500+ verified tutors · Trial lessons are FREE</p>
       </div>
 
       {/* Search + Sort bar */}
@@ -62,7 +62,7 @@ export default function TutorsPage() {
           <Badge
             key={s}
             variant={s === "All" ? "default" : "secondary"}
-            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#3730a3] text-white" : "hover:bg-[#eef2ff] hover:text-[#3730a3]"}`}
+            className={`cursor-pointer text-xs whitespace-nowrap flex-shrink-0 py-1.5 px-3 ${s === "All" ? "bg-[#818cf8] text-white" : "hover:bg-[#ede9fe] hover:text-[#6366f1]"}`}
           >
             {s}
           </Badge>
@@ -80,7 +80,7 @@ export default function TutorsPage() {
                   <Badge
                     key={s}
                     variant={s === "All" ? "default" : "secondary"}
-                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#3730a3] text-white" : "hover:bg-[#eef2ff] hover:text-[#3730a3]"}`}
+                    className={`cursor-pointer text-xs ${s === "All" ? "bg-[#818cf8] text-white" : "hover:bg-[#ede9fe] hover:text-[#6366f1]"}`}
                   >
                     {s}
                   </Badge>
@@ -90,7 +90,7 @@ export default function TutorsPage() {
 
             <div>
               <h3 className="font-semibold text-slate-800 mb-3">Price range (₹/50min)</h3>
-              <div className="flex gap-2 items-center text-sm text-slate-600">
+              <div className="flex gap-2 items-center text-sm text-[#5b5389]">
                 <Input placeholder="₹500" className="h-8 text-xs" />
                 <span>–</span>
                 <Input placeholder="₹5000" className="h-8 text-xs" />
@@ -112,13 +112,13 @@ export default function TutorsPage() {
               </Select>
             </div>
 
-            <Button className="w-full bg-[#3730a3] hover:bg-[#312e81] text-white text-sm">Apply filters</Button>
+            <Button className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white text-sm">Apply filters</Button>
           </div>
         </aside>
 
         {/* Tutor grid */}
         <div className="flex-1 min-w-0">
-          <p className="text-sm text-slate-500 mb-4">{MOCK_TUTORS.length} tutors found</p>
+          <p className="text-sm text-[#7c6f9e] mb-4">{MOCK_TUTORS.length} tutors found</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
             {MOCK_TUTORS.map((t) => (
               <TutorCard key={t.id} {...t} currency="INR" />
@@ -130,7 +130,7 @@ export default function TutorsPage() {
             <Button variant="outline" size="sm" disabled>← Prev</Button>
             {[1,2,3].map((p) => (
               <Button key={p} variant={p === 1 ? "default" : "outline"} size="sm"
-                className={p === 1 ? "bg-[#3730a3] text-white" : ""}>
+                className={p === 1 ? "bg-[#818cf8] text-white" : ""}>
                 {p}
               </Button>
             ))}

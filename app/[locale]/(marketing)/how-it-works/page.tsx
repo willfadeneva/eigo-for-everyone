@@ -15,7 +15,7 @@ const STEPS = [
     title: "Find your tutor",
     desc: "Browse hundreds of verified English tutors. Filter by specialty — IELTS, Business English, Kids, Conversation — budget, availability, and rating. Every tutor profile shows real reviews from Indian learners like you.",
     points: ["Filter by goal, budget & time", "Read verified Indian student reviews", "Watch intro videos before booking"],
-    color: "bg-indigo-50 text-[#3730a3]",
+    color: "bg-indigo-50 text-[#6366f1]",
   },
   {
     icon: CalendarCheck,
@@ -56,17 +56,17 @@ export default function HowItWorksPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#eef2ff] to-white py-16 sm:py-20 px-4">
+      <section className="bg-gradient-to-br from-[#ede9fe] to-white py-16 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-[#3730a3]/10 text-[#3730a3] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Simple. Flexible. Effective.</span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5 leading-tight">
-            Learn English in <span className="text-[#3730a3]">4 easy steps</span>
+          <span className="inline-block bg-[#818cf8]/10 text-[#6366f1] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Simple. Flexible. Effective.</span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#1e1b4b] mb-5 leading-tight">
+            Learn English in <span className="text-[#6366f1]">4 easy steps</span>
           </h1>
-          <p className="text-lg text-slate-600 max-w-xl mx-auto mb-8">
+          <p className="text-lg text-[#5b5389] max-w-xl mx-auto mb-8">
             From finding your perfect tutor to your first lesson — Eigo makes learning English simple, affordable, and personalised for India.
           </p>
           <Link href="/tutors">
-            <Button className="bg-[#3730a3] hover:bg-[#312e81] text-white px-8 py-3 text-base rounded-full">
+            <Button className="bg-[#818cf8] hover:bg-[#6366f1] text-white px-8 py-3 text-base rounded-full">
               Find a tutor <ArrowRight size={16} className="ml-2" />
             </Button>
           </Link>
@@ -90,13 +90,13 @@ export default function HowItWorksPage() {
                 </div>
                 {/* Text */}
                 <div className="flex-1">
-                  <span className="text-sm font-bold text-[#3730a3] uppercase tracking-widest">Step {step.number}</span>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 mb-3">{step.title}</h2>
-                  <p className="text-slate-600 leading-relaxed mb-4">{step.desc}</p>
+                  <span className="text-sm font-bold text-[#6366f1] uppercase tracking-widest">Step {step.number}</span>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-[#1e1b4b] mt-1 mb-3">{step.title}</h2>
+                  <p className="text-[#5b5389] leading-relaxed mb-4">{step.desc}</p>
                   <ul className="space-y-2">
                     {step.points.map(p => (
                       <li key={p} className="flex items-center gap-2 text-slate-700 text-sm">
-                        <CheckCircle size={15} className="text-[#3730a3] flex-shrink-0" /> {p}
+                        <CheckCircle size={15} className="text-[#6366f1] flex-shrink-0" /> {p}
                       </li>
                     ))}
                   </ul>
@@ -108,14 +108,14 @@ export default function HowItWorksPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-slate-50 py-16 px-4">
+      <section className="bg-[#faf8ff] py-16 px-4">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-slate-900 text-center mb-10">Frequently asked questions</h2>
+          <h2 className="text-3xl font-bold text-[#1e1b4b] text-center mb-10">Frequently asked questions</h2>
           <div className="space-y-5">
             {FAQS.map(faq => (
-              <div key={faq.q} className="bg-white rounded-xl border border-slate-200 p-5">
-                <h3 className="font-semibold text-slate-900 mb-2">{faq.q}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-white rounded-xl border border-[#e9d8fd] p-5">
+                <h3 className="font-semibold text-[#1e1b4b] mb-2">{faq.q}</h3>
+                <p className="text-[#5b5389] text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -124,14 +124,14 @@ export default function HowItWorksPage() {
 
       {/* CTA */}
       <section className="py-16 px-4 text-center">
-        <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to start?</h2>
-        <p className="text-slate-600 mb-8 max-w-md mx-auto">Join thousands of Indian students who improved their English with a verified tutor on Eigo.</p>
+        <h2 className="text-3xl font-bold text-[#1e1b4b] mb-4">Ready to start?</h2>
+        <p className="text-[#5b5389] mb-8 max-w-md mx-auto">Join thousands of Indian students who improved their English with a verified tutor on Eigo.</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link href="/tutors">
-            <Button className="bg-[#3730a3] hover:bg-[#312e81] text-white px-8 py-3 rounded-full text-base">Browse tutors</Button>
+            <Button className="bg-[#818cf8] hover:bg-[#6366f1] text-white px-8 py-3 rounded-full text-base">Browse tutors</Button>
           </Link>
           <Link href="/auth/register">
-            <Button variant="outline" className="border-[#3730a3] text-[#3730a3] px-8 py-3 rounded-full text-base">Create free account</Button>
+            <Button variant="outline" className="border-[#6366f1] text-[#6366f1] px-8 py-3 rounded-full text-base">Create free account</Button>
           </Link>
         </div>
       </section>

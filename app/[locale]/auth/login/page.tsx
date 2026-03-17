@@ -44,7 +44,7 @@ export default function AuthPage() {
     <div className="min-h-screen flex">
 
       {/* ── Left panel — hero ── */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#3730a3] via-[#4f46e5] to-[#7c3aed] flex-col justify-between p-12 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#818cf8] via-[#6366f1] to-[#a78bfa] flex-col justify-between p-12 relative overflow-hidden">
         {/* Background blobs */}
         <div className="absolute -top-20 -left-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
         <div className="absolute bottom-10 right-0 w-72 h-72 bg-[#f9a8d4]/10 rounded-full blur-3xl" />
@@ -99,19 +99,19 @@ export default function AuthPage() {
       </div>
 
       {/* ── Right panel — form ── */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-[#fafafa]">
+      <div className="flex-1 flex items-center justify-center px-6 py-12 bg-[#fdf8ff]">
         <div className="w-full max-w-md">
 
           {/* Mobile logo */}
           <Link href="/" className="flex items-center justify-center gap-2 mb-8 lg:hidden">
-            <span className="text-3xl font-bold text-[#3730a3]">英語</span>
-            <span className="text-slate-600 font-medium">Eigo for Everyone</span>
+            <span className="text-3xl font-bold text-[#6366f1]">英語</span>
+            <span className="text-[#5b5389] font-medium">Eigo for Everyone</span>
           </Link>
 
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-xl border border-[#f0ebff] overflow-hidden">
 
             {/* ── Sign In / Sign Up sliding toggle ── */}
-            <div className="p-3 border-b border-slate-100">
+            <div className="p-3 border-b border-[#f0ebff]">
               <div className="relative flex bg-slate-100 rounded-2xl p-1 gap-1">
                 <div
                   className="absolute top-1 bottom-1 bg-white rounded-xl shadow-md transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
@@ -119,7 +119,7 @@ export default function AuthPage() {
                 />
                 {(["signin","signup"] as Tab[]).map(t => (
                   <button key={t} onClick={() => switchTab(t)}
-                    className={`relative z-10 flex-1 py-3 text-sm font-semibold rounded-xl transition-colors duration-200 ${tab === t ? "text-[#3730a3]" : "text-slate-400 hover:text-slate-600"}`}>
+                    className={`relative z-10 flex-1 py-3 text-sm font-semibold rounded-xl transition-colors duration-200 ${tab === t ? "text-[#6366f1]" : "text-slate-400 hover:text-[#5b5389]"}`}>
                     {t === "signin" ? "Sign In" : "Sign Up"}
                   </button>
                 ))}
@@ -134,7 +134,7 @@ export default function AuthPage() {
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2 text-center">I am a…</p>
                 <div className="relative flex bg-slate-100 rounded-2xl p-1 gap-1">
                   <div
-                    className="absolute top-1 bottom-1 bg-[#3730a3] rounded-xl shadow transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                    className="absolute top-1 bottom-1 bg-[#818cf8] rounded-xl shadow transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
                     style={{ width: "calc(50% - 4px)", left: role === "student" ? "4px" : "calc(50%)" }}
                   />
                   {([
@@ -142,7 +142,7 @@ export default function AuthPage() {
                     { v:"tutor"   as Role, label:"📚 Tutor",   icon: BookOpen },
                   ]).map(({ v, label }) => (
                     <button key={v} onClick={() => setRole(v)}
-                      className={`relative z-10 flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors duration-200 ${role === v ? "text-white" : "text-slate-500 hover:text-slate-700"}`}>
+                      className={`relative z-10 flex-1 py-2.5 text-sm font-semibold rounded-xl transition-colors duration-200 ${role === v ? "text-white" : "text-[#7c6f9e] hover:text-slate-700"}`}>
                       {label}
                     </button>
                   ))}
@@ -151,7 +151,7 @@ export default function AuthPage() {
 
               {/* Google */}
               <button onClick={() => alert("Google OAuth — coming soon!")}
-                className="w-full flex items-center justify-center gap-3 h-11 rounded-xl border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-sm font-medium text-slate-700">
+                className="w-full flex items-center justify-center gap-3 h-11 rounded-xl border-2 border-[#e9d8fd] hover:border-slate-300 hover:bg-[#faf8ff] transition-all text-sm font-medium text-slate-700">
                 <svg width="18" height="18" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -185,7 +185,7 @@ export default function AuthPage() {
                   <div className="flex justify-between items-center mb-1.5">
                     <label className="text-sm font-medium text-slate-700">Password</label>
                     {tab === "signin" && (
-                      <Link href="#" className="text-xs text-[#3730a3] hover:underline">Forgot password?</Link>
+                      <Link href="#" className="text-xs text-[#6366f1] hover:underline">Forgot password?</Link>
                     )}
                   </div>
                   <div className="relative">
@@ -193,7 +193,7 @@ export default function AuthPage() {
                       className="rounded-xl h-11 pr-10" required minLength={8}
                       value={password} onChange={e => { setPassword(e.target.value); setPwError(""); }} />
                     <button type="button" onClick={() => setShowPw(!showPw)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors">
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#5b5389] transition-colors">
                       {showPw ? <EyeOff size={16}/> : <Eye size={16}/>}
                     </button>
                   </div>
@@ -208,7 +208,7 @@ export default function AuthPage() {
                       minLength={8} value={confirmPw}
                       onChange={e => { setConfirmPw(e.target.value); setPwError(""); }} />
                     <button type="button" onClick={() => setShowCpw(!showCpw)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors">
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#5b5389] transition-colors">
                       {showCpw ? <EyeOff size={16}/> : <Eye size={16}/>}
                     </button>
                   </div>
@@ -224,7 +224,7 @@ export default function AuthPage() {
 
                 {/* CTA button */}
                 <Button type="submit" disabled={loading}
-                  className="w-full bg-[#3730a3] hover:bg-[#312e81] active:scale-[0.98] text-white h-12 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-indigo-200">
+                  className="w-full bg-[#818cf8] hover:bg-[#6366f1] active:scale-[0.98] text-white h-12 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-indigo-200">
                   {loading
                     ? <span className="flex items-center gap-2"><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {tab === "signin" ? "Signing in…" : "Creating account…"}</span>
                     : tab === "signin" ? "Sign In" : `Create ${role} account →`
@@ -233,10 +233,10 @@ export default function AuthPage() {
               </form>
 
               {/* Bottom switch */}
-              <p className="text-center text-sm text-slate-500">
+              <p className="text-center text-sm text-[#7c6f9e]">
                 {tab === "signin" ? "Don't have an account? " : "Already have an account? "}
                 <button onClick={() => switchTab(tab === "signin" ? "signup" : "signin")}
-                  className="text-[#3730a3] font-semibold hover:underline transition-colors">
+                  className="text-[#6366f1] font-semibold hover:underline transition-colors">
                   {tab === "signin" ? "Sign up free" : "Sign in"}
                 </button>
               </p>
@@ -244,8 +244,8 @@ export default function AuthPage() {
               {tab === "signup" && (
                 <p className="text-center text-xs text-slate-400">
                   By signing up you agree to our{" "}
-                  <Link href="/terms" className="underline hover:text-slate-600">Terms</Link>{" "}and{" "}
-                  <Link href="/privacy" className="underline hover:text-slate-600">Privacy Policy</Link>
+                  <Link href="/terms" className="underline hover:text-[#5b5389]">Terms</Link>{" "}and{" "}
+                  <Link href="/privacy" className="underline hover:text-[#5b5389]">Privacy Policy</Link>
                 </p>
               )}
 

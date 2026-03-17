@@ -4,32 +4,33 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fafafa;
-  --foreground: #1a1a2e;
-  --radius: 0.5rem;
+  /* Pastel base */
+  --background: #fdf8ff;
+  --foreground: #1e1b4b;
+  --radius: 0.75rem;
 
-  /* Brand */
-  --brand-primary: #3730a3;
-  --brand-accent: #f9a8d4;
+  /* Brand — soft pastel indigo + sakura */
+  --brand-primary: #6366f1;
+  --brand-accent:  #f9a8d4;
 
   /* shadcn tokens */
   --card: #ffffff;
-  --card-foreground: #1a1a2e;
+  --card-foreground: #1e1b4b;
   --popover: #ffffff;
-  --popover-foreground: #1a1a2e;
-  --primary: #3730a3;
+  --popover-foreground: #1e1b4b;
+  --primary: #6366f1;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #1e293b;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #fdf2f8;
-  --accent-foreground: #831843;
-  --destructive: #ef4444;
+  --secondary: #f5f3ff;
+  --secondary-foreground: #3730a3;
+  --muted: #f5f3ff;
+  --muted-foreground: #7c6f9e;
+  --accent: #fdf4ff;
+  --accent-foreground: #9d174d;
+  --destructive: #f87171;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #3730a3;
+  --border: #e9d8fd;
+  --input: #ede9fe;
+  --ring: #818cf8;
 }
 
 @theme inline {

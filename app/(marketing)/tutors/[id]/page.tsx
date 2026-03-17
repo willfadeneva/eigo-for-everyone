@@ -182,11 +182,11 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* Hero */}
           <div className="flex gap-5 items-start">
-            <img src={t.avatarUrl} alt={t.displayName} className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-[#e0e7ff]" />
+            <img src={t.avatarUrl} alt={t.displayName} className="w-20 h-20 rounded-full object-cover flex-shrink-0 border-2 border-[#ddd6fe]" />
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-slate-900">{t.flag} {t.displayName}</h1>
-              <p className="text-slate-500 mt-0.5">{t.tagline}</p>
-              <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-3 text-sm text-slate-600">
+              <h1 className="text-2xl font-bold text-[#1e1b4b]">{t.flag} {t.displayName}</h1>
+              <p className="text-[#7c6f9e] mt-0.5">{t.tagline}</p>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-3 text-sm text-[#5b5389]">
                 <span className="flex items-center gap-1">
                   <Star size={14} className="fill-amber-400 text-amber-400" />
                   <strong className="text-slate-800">{t.avgRating}</strong> ({t.totalReviews} reviews)
@@ -196,7 +196,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
               </div>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {t.specialties.map((s: string) => (
-                  <Badge key={s} className="bg-[#eef2ff] text-[#3730a3] text-xs">{s}</Badge>
+                  <Badge key={s} className="bg-[#ede9fe] text-[#6366f1] text-xs">{s}</Badge>
                 ))}
               </div>
             </div>
@@ -206,9 +206,9 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* About */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900 mb-3">About me</h2>
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-3">About me</h2>
             {t.bio.split("\n\n").map((p: string, i: number) => (
-              <p key={i} className="text-slate-600 leading-relaxed mb-3">{p}</p>
+              <p key={i} className="text-[#5b5389] leading-relaxed mb-3">{p}</p>
             ))}
           </div>
 
@@ -216,10 +216,10 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* Certifications */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900 mb-3">Certifications</h2>
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-3">Certifications</h2>
             <div className="flex flex-wrap gap-2">
               {t.certifications.map((c: string) => (
-                <span key={c} className="flex items-center gap-1.5 text-sm text-slate-700 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+                <span key={c} className="flex items-center gap-1.5 text-sm text-slate-700 bg-[#faf8ff] border border-[#e9d8fd] px-3 py-1.5 rounded-full">
                   <CheckCircle size={13} className="text-green-500" /> {c}
                 </span>
               ))}
@@ -230,13 +230,13 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* Availability */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900 mb-4">Weekly availability <span className="text-sm font-normal text-slate-400">(IST)</span></h2>
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-4">Weekly availability <span className="text-sm font-normal text-slate-400">(IST)</span></h2>
             <div className="overflow-x-auto">
               <table className="w-full text-xs border-collapse">
                 <thead>
                   <tr>
                     <th className="w-16 text-left text-slate-400 font-normal pb-2">Time</th>
-                    {DAYS.map(d => <th key={d} className="text-center text-slate-500 font-medium pb-2 px-1">{d}</th>)}
+                    {DAYS.map(d => <th key={d} className="text-center text-[#7c6f9e] font-medium pb-2 px-1">{d}</th>)}
                   </tr>
                 </thead>
                 <tbody>
@@ -246,9 +246,9 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
                       {DAYS.map(d => (
                         <td key={d} className="px-1 py-0.5 text-center">
                           {AVAILABLE.has(`${d}-${slot}`) ? (
-                            <span className="inline-block w-6 h-5 rounded bg-[#3730a3]/10 border border-[#3730a3]/20" />
+                            <span className="inline-block w-6 h-5 rounded bg-[#818cf8]/10 border border-[#6366f1]/20" />
                           ) : (
-                            <span className="inline-block w-6 h-5 rounded bg-slate-50" />
+                            <span className="inline-block w-6 h-5 rounded bg-[#faf8ff]" />
                           )}
                         </td>
                       ))}
@@ -264,12 +264,12 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* Reviews */}
           <div>
-            <h2 className="text-lg font-semibold text-slate-900 mb-4">
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-4">
               Reviews <span className="text-slate-400 font-normal text-sm">({t.totalReviews})</span>
             </h2>
             <div className="space-y-4">
               {reviews.map((r: any, i: number) => (
-                <div key={i} className="bg-slate-50 rounded-lg p-4">
+                <div key={i} className="bg-[#faf8ff] rounded-lg p-4">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                     <div className="flex items-center gap-2">
                       <img src={`https://randomuser.me/api/portraits/${i % 2 === 0 ? "men" : "women"}/${20 + i * 7}.jpg`} alt={r.author} className="w-7 h-7 rounded-full object-cover" />
@@ -281,7 +281,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
                       <span className="text-xs text-slate-400 ml-1">{r.date}</span>
                     </div>
                   </div>
-                  <p className="text-sm text-slate-600">{r.comment}</p>
+                  <p className="text-sm text-[#5b5389]">{r.comment}</p>
                 </div>
               ))}
             </div>
@@ -291,28 +291,28 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
         {/* ── Sticky sidebar ── */}
         <aside className="w-full lg:w-72 flex-shrink-0">
           <div className="sticky top-24">
-            <Card className="border-2 border-[#3730a3]/10 shadow-lg">
+            <Card className="border-2 border-[#6366f1]/10 shadow-lg">
               <CardContent className="p-5 space-y-4">
                 <div>
-                  <div className="text-2xl font-bold text-[#3730a3]">₹{t.hourlyRate.toLocaleString()}</div>
+                  <div className="text-2xl font-bold text-[#6366f1]">₹{t.hourlyRate.toLocaleString()}</div>
                   <div className="text-xs text-slate-400">per 50-min lesson</div>
                 </div>
                 <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3">
-                  <div className="text-sm font-semibold text-[#831843]">Trial lesson — FREE 🎉</div>
+                  <div className="text-sm font-semibold text-[#9d174d]">Trial lesson — FREE 🎉</div>
                   <div className="text-xs text-[#9f1239] mt-0.5">25 min · One per student</div>
                 </div>
                 <Link href={`/book/${t.id}?type=trial`} className="block">
-                  <Button className="w-full bg-[#f9a8d4] hover:bg-[#f472b6] text-[#831843] font-semibold">
+                  <Button className="w-full bg-[#f9a8d4] hover:bg-[#f472b6] text-[#9d174d] font-semibold">
                     Book Free Trial
                   </Button>
                 </Link>
                 <Link href={`/book/${t.id}`} className="block">
-                  <Button variant="outline" className="w-full border-[#3730a3] text-[#3730a3] hover:bg-[#eef2ff]">
+                  <Button variant="outline" className="w-full border-[#6366f1] text-[#6366f1] hover:bg-[#ede9fe]">
                     Book 50-min lesson
                   </Button>
                 </Link>
                 <Link href={`/messages?tutor=${t.id}`} className="block">
-                  <Button variant="ghost" className="w-full text-slate-500 text-sm flex items-center gap-2">
+                  <Button variant="ghost" className="w-full text-[#7c6f9e] text-sm flex items-center gap-2">
                     <MessageCircle size={15} /> Message tutor
                   </Button>
                 </Link>

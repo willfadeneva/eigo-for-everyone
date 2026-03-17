@@ -45,10 +45,10 @@ export default function PromoCodesPage() {
 
   return (
     <div className="p-6 max-w-5xl space-y-8">
-      <h1 className="text-2xl font-bold text-slate-900">Promo Codes</h1>
+      <h1 className="text-2xl font-bold text-[#1e1b4b]">Promo Codes</h1>
 
       {/* Create form */}
-      <Card className="border border-slate-100">
+      <Card className="border border-[#f0ebff]">
         <CardContent className="p-5">
           <h2 className="font-semibold text-slate-800 mb-4">Create promo code</h2>
           <form onSubmit={addCode} className="grid sm:grid-cols-4 gap-3 items-end">
@@ -56,16 +56,16 @@ export default function PromoCodesPage() {
             <div><Label className="text-xs">Discount %</Label><Input type="number" value={form.discount} onChange={e => setForm({...form, discount:e.target.value})} placeholder="20" min={1} max={100} className="mt-1" required/></div>
             <div><Label className="text-xs">Max uses (blank = unlimited)</Label><Input type="number" value={form.maxUses} onChange={e => setForm({...form, maxUses:e.target.value})} placeholder="500" className="mt-1"/></div>
             <div><Label className="text-xs">Valid until</Label><Input type="date" value={form.validUntil} onChange={e => setForm({...form, validUntil:e.target.value})} className="mt-1"/></div>
-            <Button type="submit" className="bg-[#3730a3] text-white sm:col-span-4 sm:w-fit">Create code</Button>
+            <Button type="submit" className="bg-[#818cf8] text-white sm:col-span-4 sm:w-fit">Create code</Button>
           </form>
         </CardContent>
       </Card>
 
       {/* Table */}
-      <div className="rounded-xl border border-slate-100 overflow-hidden bg-white">
+      <div className="rounded-xl border border-[#f0ebff] overflow-hidden bg-white">
         <Table>
           <TableHeader>
-            <TableRow className="bg-slate-50">
+            <TableRow className="bg-[#faf8ff]">
               <TableHead>Code</TableHead><TableHead>Discount</TableHead>
               <TableHead>Usage</TableHead><TableHead>Valid until</TableHead>
               <TableHead>Status</TableHead><TableHead>Actions</TableHead>
@@ -74,15 +74,15 @@ export default function PromoCodesPage() {
           <TableBody>
             {codes.map(c => (
               <TableRow key={c.code}>
-                <TableCell className="font-mono font-semibold text-[#3730a3]">{c.code}</TableCell>
+                <TableCell className="font-mono font-semibold text-[#6366f1]">{c.code}</TableCell>
                 <TableCell className="font-medium">{c.discount}% off</TableCell>
-                <TableCell className="text-sm text-slate-600">
+                <TableCell className="text-sm text-[#5b5389]">
                   {c.used}{c.maxUses ? ` / ${c.maxUses}` : ""}
                   {c.maxUses && c.used >= c.maxUses && <span className="ml-1 text-red-500 text-xs">exhausted</span>}
                 </TableCell>
-                <TableCell className="text-sm text-slate-500">{c.validUntil ?? "No expiry"}</TableCell>
+                <TableCell className="text-sm text-[#7c6f9e]">{c.validUntil ?? "No expiry"}</TableCell>
                 <TableCell>
-                  <Badge className={c.active ? "bg-green-100 text-green-700 text-xs" : "bg-slate-100 text-slate-500 text-xs"}>
+                  <Badge className={c.active ? "bg-green-100 text-green-700 text-xs" : "bg-slate-100 text-[#7c6f9e] text-xs"}>
                     {c.active ? "Active" : "Inactive"}
                   </Badge>
                 </TableCell>
