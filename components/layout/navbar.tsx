@@ -33,12 +33,6 @@ export function Navbar() {
           >
             How it works
           </Link>
-          <Link
-            href="/pricing"
-            className="text-slate-600 hover:text-[#3730a3] font-medium transition-colors"
-          >
-            Pricing
-          </Link>
         </div>
 
         {/* Auth buttons */}
@@ -81,13 +75,7 @@ export function Navbar() {
           >
             How it works
           </Link>
-          <Link
-            href="/pricing"
-            className="block text-slate-700 font-medium py-2"
-            onClick={() => setMobileOpen(false)}
-          >
-            Pricing
-          </Link>
+
           <div className="flex gap-3 pt-2">
             <Link href="/auth/login" className="flex-1">
               <Button variant="outline" className="w-full">
