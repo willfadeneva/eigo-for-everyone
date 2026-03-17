@@ -17,8 +17,17 @@ export default function RegisterPage() {
   // Read ?role=tutor from URL on mount
   // TODO: wire to Supabase Auth
 
+  const [password, setPassword] = useState("");
+  const [confirmPw, setConfirmPw] = useState("");
+  const [pwError, setPwError] = useState("");
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (password !== confirmPw) {
+      setPwError("Passwords do not match");
+      return;
+    }
+    setPwError("");
     setLoading(true);
     setTimeout(() => setLoading(false), 1200);
   }
@@ -82,7 +91,14 @@ export default function RegisterPage() {
               </div>
               <div>
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" placeholder="Min 8 characters" className="mt-1" required minLength={8} />
+                <Input id="password" type="password" placeholder="Min 8 characters" className="mt-1" required minLength={8}
+                  value={password} onChange={e => { setPassword(e.target.value); setPwError(""); }} />
+              </div>
+              <div>
+                <Label htmlFor="confirmPw">Confirm password</Label>
+                <Input id="confirmPw" type="password" placeholder="Re-enter password" className="mt-1" required minLength={8}
+                  value={confirmPw} onChange={e => { setConfirmPw(e.target.value); setPwError(""); }} />
+                {pwError && <p className="text-red-500 text-xs mt-1">{pwError}</p>}
               </div>
               {role === "TUTOR" && (
                 <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3 text-sm text-[#9f1239]">
