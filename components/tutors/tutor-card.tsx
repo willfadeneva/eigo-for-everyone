@@ -45,7 +45,7 @@ export function TutorCard({
       : `₹${Number(hourlyRate).toLocaleString("en-IN")}`;
 
   return (
-    <Card className="group hover:shadow-lg transition-shadow duration-200 border border-[#fdf2f8] overflow-hidden">
+    <Card className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-2 border-[#f0ebff] hover:border-[#8774DB]/40 overflow-hidden rounded-2xl">
       {isFeatured && (
         <div className="bg-[#f9a8d4] text-[#9d174d] text-xs font-semibold px-3 py-1 text-center">
           ⭐ Featured Tutor
@@ -59,10 +59,10 @@ export function TutorCard({
               <img
                 src={avatarUrl}
                 alt={displayName}
-                className="w-16 h-16 rounded-full object-cover border-2 border-[#fbcfe8]"
+                className="w-16 h-16 rounded-2xl object-cover border-2 border-[#e9d8fd] shadow-md"
               />
             ) : (
-              <div className="w-16 h-16 rounded-full bg-[#49D1FD] flex items-center justify-center text-white text-xl font-bold border-2 border-[#fbcfe8]">
+              <div className="w-16 h-16 rounded-2xl bg-[#8774DB] flex items-center justify-center text-white text-xl font-bold border-2 border-[#fbcfe8]">
                 {displayName.charAt(0).toUpperCase()}
               </div>
             )}
@@ -113,7 +113,7 @@ export function TutorCard({
                   <Badge
                     key={s}
                     variant="secondary"
-                    className="text-xs capitalize bg-[#fce7f3] text-[#8774DB] hover:bg-[#fbcfe8]"
+                    className="text-xs capitalize bg-[#f5f3ff] text-[#8774DB] hover:bg-[#ede9fe]"
                   >
                     {s}
                   </Badge>
