@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -156,7 +156,7 @@ const ALL_TUTORS: Record<string, any> = {
 };
 
 // ── Metadata ─────────────────────────────────────────────────────────────────
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string; locale: string }> }): Promise<Metadata> {
   const { id } = await params;
   const t = ALL_TUTORS[id] ?? ALL_TUTORS["t1"];
   return {
@@ -169,10 +169,11 @@ const DAYS  = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const SLOTS = ["08:00","09:00","10:00","11:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"];
 const AVAILABLE = new Set(["Mon-09:00","Mon-10:00","Mon-15:00","Mon-16:00","Tue-09:00","Tue-10:00","Tue-11:00","Wed-14:00","Wed-15:00","Thu-09:00","Thu-10:00","Fri-09:00","Fri-10:00","Fri-11:00","Fri-15:00","Sat-10:00","Sat-11:00"]);
 
-export default async function TutorProfilePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function TutorProfilePage({ params }: { params: Promise<{ id: string; locale: string }> }) {
+  const { id, locale } = await params;
   const t = ALL_TUTORS[id] ?? ALL_TUTORS["t1"];
   const reviews = t.reviews ?? [];
+  const tr = await getTranslations({ locale, namespace: "profile" });
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -207,7 +208,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* About */}
           <div>
-            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-3">About me</h2>
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-3">{ tr("aboutMe") }</h2>
             {t.bio.split("\n\n").map((p: string, i: number) => (
               <p key={i} className="text-[#5b5389] leading-relaxed mb-3">{p}</p>
             ))}
@@ -217,7 +218,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* Certifications */}
           <div>
-            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-3">Certifications</h2>
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-3">{ tr("certifications") }</h2>
             <div className="flex flex-wrap gap-2">
               {t.certifications.map((c: string) => (
                 <span key={c} className="flex items-center gap-1.5 text-sm text-slate-700 bg-[#faf8ff] border border-[#e9d8fd] px-3 py-1.5 rounded-full">
@@ -231,7 +232,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
 
           {/* Availability */}
           <div>
-            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-4">Weekly availability <span className="text-sm font-normal text-slate-400">(IST)</span></h2>
+            <h2 className="text-lg font-semibold text-[#1e1b4b] mb-4">{ tr("availability") } <span className="text-sm font-normal text-slate-400">(IST)</span></h2>
             <div className="overflow-x-auto">
               <table className="w-full text-xs border-collapse">
                 <thead>
@@ -258,7 +259,7 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-slate-400 mt-2">■ = Available · Select a time when booking</p>
+            <p className="text-xs text-slate-400 mt-2">{ tr("availabilityNote") }</p>
           </div>
 
           <Separator />
@@ -296,11 +297,11 @@ export default async function TutorProfilePage({ params }: { params: Promise<{ i
               <CardContent className="p-5 space-y-4">
                 <div>
                   <div className="text-2xl font-bold text-[#6366f1]">₹{t.hourlyRate.toLocaleString()}</div>
-                  <div className="text-xs text-slate-400">per 50-min lesson</div>
+                  <div className="text-xs text-slate-400">{ tr("perLesson") }</div>
                 </div>
                 <div className="bg-[#fdf2f8] border border-[#f9a8d4] rounded-lg p-3">
-                  <div className="text-sm font-semibold text-[#9d174d]">Trial lesson — FREE 🎉</div>
-                  <div className="text-xs text-[#9f1239] mt-0.5">25 min · One per student</div>
+                  <div className="text-sm font-semibold text-[#9d174d]">{ tr("trialLabel") }</div>
+                  <div className="text-xs text-[#9f1239] mt-0.5">{ tr("trialNote") }</div>
                 </div>
                 <Link href={`/book/${t.id}?type=trial`} className="block">
                   <Button className="w-full bg-[#f9a8d4] hover:bg-[#f472b6] text-[#9d174d] font-semibold">

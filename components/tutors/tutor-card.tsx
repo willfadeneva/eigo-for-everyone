@@ -17,6 +17,8 @@ interface TutorCardProps {
   specialties?: string[];
   isFeatured?: boolean;
   responseTimeHours?: number | null;
+  viewProfileLabel?: string;
+  bookTrialLabel?: string;
 }
 
 export function TutorCard({
@@ -32,6 +34,8 @@ export function TutorCard({
   specialties = [],
   isFeatured = false,
   responseTimeHours,
+  viewProfileLabel = "View Profile",
+  bookTrialLabel = "Book Trial",
 }: TutorCardProps) {
   const rateDisplay =
     currency === "INR"
@@ -130,12 +134,12 @@ export function TutorCard({
               variant="outline"
               className="w-full border-[#6366f1] text-[#6366f1] hover:bg-[#ede9fe]"
             >
-              View Profile
+              {viewProfileLabel}
             </Button>
           </Link>
           <Link href={`/tutors/${id}?book=true`} className="flex-1">
             <Button className="w-full bg-[#818cf8] hover:bg-[#6366f1] text-white">
-              Book Trial
+              {bookTrialLabel}
             </Button>
           </Link>
         </div>
