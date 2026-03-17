@@ -31,51 +31,55 @@ export default function HomePage() {
     <div className="min-h-screen bg-white">
 
       {/* ═══════════════════════════════════════════
-          HERO — split layout, FluentWay inspired
+          HERO — FluentWay dark purple style
       ═══════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-white">
+      <section className="relative overflow-hidden bg-[#0D0A1E] min-h-[88vh] flex items-center">
 
-        {/* Background blobs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FBE85F]/20 rounded-full -translate-y-1/2 translate-x-1/4 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#49D1FD]/15 rounded-full translate-y-1/2 -translate-x-1/4 blur-3xl pointer-events-none" />
+        {/* Purple radial glow behind left text */}
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-[#5B21B6]/40 rounded-full -translate-x-1/2 -translate-y-1/2 blur-[120px] pointer-events-none" />
+        {/* Right glow */}
+        <div className="absolute top-1/2 right-10 w-[400px] h-[400px] bg-[#7C3AED]/20 rounded-full -translate-y-1/2 blur-[100px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
+        {/* Big decorative fuzzy letter E — left */}
+        <div className="absolute left-[28%] top-1/2 -translate-y-1/2 text-[360px] font-black text-[#EC4899]/20 select-none pointer-events-none leading-none blur-[2px] hidden lg:block" style={{fontStyle:"italic"}}>E</div>
+        {/* Big decorative fuzzy letter N — bottom right */}
+        <div className="absolute right-4 bottom-8 text-[180px] font-black text-[#EC4899]/25 select-none pointer-events-none leading-none blur-[1px] hidden lg:block" style={{fontStyle:"italic"}}>N</div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid lg:grid-cols-2 gap-8 items-center relative z-10 w-full">
 
           {/* Left — copy */}
           <div className="space-y-6">
-            {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 bg-[#FBE85F] rounded-full px-4 py-1.5 text-sm font-bold text-[#78350f]">
-              🇮🇳 #1 English Tutoring Platform in India
+            {/* Intake badge */}
+            <div className="inline-flex items-center gap-2 bg-[#8774DB]/30 border border-[#8774DB]/50 rounded-full px-4 py-1.5 text-sm font-semibold text-[#C4B5FD]">
+              ✨ Enrol now — limited spots
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#0f172a] leading-[1.05] tracking-tight">
-              Speak English<br />
-              <span className="relative inline-block">
-                <span className="relative z-10">Fluently</span>
-                <span className="absolute bottom-1 left-0 right-0 h-4 bg-[#FBE85F] -z-10 rounded" />
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight">
+              Unlock Your<br />
+              Future with<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F472B6] to-[#A78BFA]">
+                Fluent English
               </span>
-              {" "}🎯
             </h1>
 
             {/* Subtext */}
-            <p className="text-lg text-[#475569] leading-relaxed max-w-md">
-              1-on-1 lessons with verified native tutors. IELTS, Business English, Kids & Conversation — starting from just <strong className="text-[#0f172a]">₹700/hr</strong>.
+            <p className="text-[#94A3B8] text-lg leading-relaxed max-w-md">
+              Join our vibrant community and master English for academic, professional, and personal growth — starting from <strong className="text-white">₹700/hr</strong>.
             </p>
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/tutors">
-                <Button size="lg" className="bg-[#8774DB] hover:bg-[#7261c8] text-white px-8 py-4 text-base rounded-2xl font-bold shadow-lg shadow-[#8774DB]/30 w-full sm:w-auto">
-                  Find a Tutor <ArrowRight size={16} className="ml-2" />
+                <Button size="lg" className="bg-[#8774DB] hover:bg-[#7261C8] text-white px-8 py-4 text-base rounded-full font-bold shadow-lg shadow-[#8774DB]/40 w-full sm:w-auto">
+                  Book a Free Trial
                 </Button>
               </Link>
-              <button className="flex items-center justify-center gap-2.5 px-6 py-3 rounded-2xl border-2 border-[#0f172a]/10 text-[#0f172a] font-semibold hover:border-[#8774DB] hover:text-[#8774DB] transition-all">
-                <span className="w-8 h-8 bg-[#F35555] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Play size={12} fill="white" className="text-white ml-0.5" />
-                </span>
-                Watch how it works
-              </button>
+              <Link href="/tutors">
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 px-8 py-4 text-base rounded-full font-semibold w-full sm:w-auto backdrop-blur-sm">
+                  Explore Tutors
+                </Button>
+              </Link>
             </div>
 
             {/* Trust row */}
@@ -83,94 +87,85 @@ export default function HomePage() {
               <div className="flex -space-x-2">
                 {FEATURED_TUTORS.slice(0,4).map(tr => (
                   <img key={tr.id} src={tr.avatar} alt={tr.name}
-                    className="w-9 h-9 rounded-full border-2 border-white object-cover" />
+                    className="w-9 h-9 rounded-full border-2 border-[#0D0A1E] object-cover" />
                 ))}
               </div>
-              <div>
-                <div className="flex items-center gap-1">
-                  {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-amber-400 text-amber-400" />)}
-                  <span className="font-bold text-sm ml-1">4.96</span>
-                </div>
-                <p className="text-xs text-[#64748b]">from 50,000+ students</p>
-              </div>
-              <div className="h-8 w-px bg-slate-200 hidden sm:block" />
-              <div className="text-xs text-[#64748b]">
-                <span className="font-bold text-[#0f172a]">Free trial</span> · No credit card needed
-              </div>
+              <p className="text-sm text-[#94A3B8]">
+                <span className="text-white font-bold">12,000+</span> students are already speaking confidently
+              </p>
             </div>
           </div>
 
-          {/* Right — visual card collage */}
-          <div className="relative hidden lg:block h-[520px]">
+          {/* Right — character + floating cards */}
+          <div className="relative hidden lg:flex items-center justify-center h-[520px]">
 
-            {/* Main big card */}
-            <div className="absolute top-0 right-0 w-72 bg-white rounded-3xl shadow-xl border border-[#f0f0f0] p-5 z-20">
+            {/* "Top Rated" floating badge — top left of card */}
+            <div className="absolute top-8 left-8 bg-[#1E1040]/80 backdrop-blur border border-[#8774DB]/40 rounded-2xl px-4 py-3 z-30 shadow-xl">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-2xl">🇬🇧</span>
+                <span className="text-4xl font-black text-white">2025</span>
+              </div>
+              <p className="text-[#C4B5FD] text-xs font-semibold">Top Rated Course</p>
+            </div>
+
+            {/* Main tutor showcase card */}
+            <div className="relative w-[280px] bg-[#1A1035]/80 backdrop-blur border border-white/10 rounded-3xl overflow-hidden shadow-2xl z-20">
               <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah"
-                className="w-full h-40 object-cover rounded-2xl mb-4" />
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-bold text-[#0f172a]">🇺🇸 Sarah Mitchell</p>
-                  <p className="text-xs text-[#64748b]">Business English · IELTS</p>
+                className="w-full h-52 object-cover object-top" />
+              <div className="p-5">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <p className="font-bold text-white text-sm">🇺🇸 Sarah Mitchell</p>
+                    <p className="text-[#94A3B8] text-xs">Business English · IELTS</p>
+                  </div>
+                  <span className="bg-[#AFF035] text-[#166534] text-xs font-black px-2 py-1 rounded-full">4.98 ★</span>
                 </div>
-                <span className="bg-[#AFF035] text-[#166534] text-xs font-bold px-2 py-1 rounded-full">4.98 ★</span>
-              </div>
-              <div className="mt-3 flex gap-1.5 flex-wrap">
-                {["IELTS","Business","Conversation"].map(s => (
-                  <Badge key={s} className="bg-[#fdf4ff] text-[#8774DB] text-xs">{s}</Badge>
-                ))}
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="font-bold text-[#8774DB]">₹1,200 <span className="text-xs font-normal text-slate-400">/50min</span></span>
-                <Link href="/tutors/t1">
-                  <Button size="sm" className="bg-[#8774DB] text-white rounded-xl text-xs px-4">Book Now</Button>
-                </Link>
+                <div className="flex gap-1.5 flex-wrap mb-3">
+                  {["IELTS","Business","Speaking"].map(s => (
+                    <span key={s} className="bg-[#8774DB]/20 text-[#C4B5FD] text-xs px-2 py-0.5 rounded-full border border-[#8774DB]/30">{s}</span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-white text-sm">₹1,200<span className="text-xs font-normal text-[#64748b]">/50min</span></span>
+                  <Link href="/tutors/t1">
+                    <Button size="sm" className="bg-[#8774DB] text-white text-xs px-4 rounded-xl">Book Now</Button>
+                  </Link>
+                </div>
               </div>
             </div>
 
-            {/* Floating stat pills */}
-            <div className="absolute top-8 left-4 bg-[#FBE85F] rounded-2xl px-4 py-2.5 shadow-lg z-30">
-              <p className="text-xs text-[#78350f] font-medium">Active lessons</p>
+            {/* Floating stat pill — active lessons */}
+            <div className="absolute top-16 right-4 bg-[#FBE85F] rounded-2xl px-4 py-2.5 shadow-xl z-30">
+              <p className="text-xs text-[#78350f] font-semibold">Active now</p>
               <p className="text-2xl font-black text-[#78350f]">2,841 🎉</p>
             </div>
 
-            <div className="absolute top-48 left-0 bg-[#F35555] rounded-2xl px-4 py-2.5 shadow-lg z-30 text-white">
-              <p className="text-xs font-medium opacity-80">Trial lessons</p>
+            {/* Floating pill — free trial */}
+            <div className="absolute bottom-20 right-0 bg-[#F35555] rounded-2xl px-4 py-2.5 shadow-xl z-30 text-white">
+              <p className="text-xs font-semibold opacity-80">First lesson</p>
               <p className="text-xl font-black">FREE ✨</p>
             </div>
 
-            <div className="absolute bottom-24 left-8 bg-white rounded-2xl px-4 py-3 shadow-xl border border-[#f0f0f0] z-30">
+            {/* Bottom floating card — IELTS success */}
+            <div className="absolute bottom-4 left-4 bg-[#1A1035]/90 backdrop-blur border border-white/10 rounded-2xl px-4 py-3 shadow-xl z-30">
               <div className="flex items-center gap-2">
-                <span className="text-2xl">🏆</span>
+                <span className="text-xl">🏆</span>
                 <div>
-                  <p className="text-xs text-[#64748b]">This week</p>
-                  <p className="text-sm font-bold text-[#0f172a]">840 IELTS 7.0+ scores</p>
+                  <p className="text-xs text-[#94A3B8]">This month</p>
+                  <p className="text-sm font-bold text-white">840 scored IELTS 7.0+</p>
                 </div>
               </div>
             </div>
 
-            {/* Second tutor card */}
-            <div className="absolute bottom-0 right-0 w-52 bg-white rounded-2xl shadow-lg border border-[#f0f0f0] p-4 z-20">
-              <div className="flex items-center gap-3 mb-3">
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily"
-                  className="w-12 h-12 rounded-full object-cover" />
-                <div>
-                  <p className="font-semibold text-sm text-[#0f172a]">🇨🇦 Emily Chen</p>
-                  <p className="text-xs text-[#64748b]">Kids · Beginners</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-1 mb-2">
-                {[1,2,3,4,5].map(i => <Star key={i} size={10} className="fill-amber-400 text-amber-400" />)}
-                <span className="text-xs font-bold ml-1">4.99</span>
-              </div>
-              <div className="bg-[#49D1FD]/10 rounded-xl p-2 text-center">
-                <p className="text-xs text-[#0369a1] font-semibold">Next slot: Today 6 PM</p>
-              </div>
+            {/* Purple dot chat bubble — bottom right */}
+            <div className="absolute bottom-8 right-[-8px] w-10 h-10 bg-[#8774DB] rounded-full flex items-center justify-center shadow-lg z-30">
+              <span className="text-white text-xs font-bold">💬</span>
             </div>
-
-            {/* Background decoration blob */}
-            <div className="absolute top-20 right-16 w-64 h-64 bg-[#AFF035]/20 rounded-full blur-2xl -z-10" />
           </div>
         </div>
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
       </section>
 
       {/* ═══════════════════════════════
